@@ -17,6 +17,10 @@ public class TiposVariaveis {
 		final double VALOR_PI = 3.14;
 		System.out.println(VALOR_PI);
 
+		String nomeCompleto = "ton " + "Ferreira";
+		System.out.println(nomeCompleto);
+
+
 		String meuNome = "Everton Ferreira";
 		System.out.println(meuNome);
 
