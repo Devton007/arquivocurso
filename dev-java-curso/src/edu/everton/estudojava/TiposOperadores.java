@@ -17,13 +17,19 @@ public class TiposOperadores {
         System.out.println(numero);
 
     
-        int numero = 10;
-        numero ++;
+        int numeroNovo = 10;
+        numeroNovo ++;
         // é a mesma coisa de numero = numero +1
-        System.out.println(numero);
+        System.out.println(numeroNovo);
 
+        int numeroo = 1;
+        System.out.println(++ numeroo);
 
+        int numerooo = 9;
+        System.out.println(-- numerooo);
 
+        boolean casado = true;
+        System.out.println(! casado);
 
     }
     
