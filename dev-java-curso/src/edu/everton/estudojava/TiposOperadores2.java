@@ -22,9 +22,19 @@ public class TiposOperadores2 {
          x = 5;
          y = 6;
 
-       String resultados = a==b ? "verdade" : "mentira";
+       String resultados = x==y ? "verdade" : "mentira";
 
        System.out.println(resultados);
+
+       //não se limita somente para string
+       int c, d;
+
+         c = 5;
+         d = 6;
+
+       int resultadoo = c==d ? 1 : 2;
+       System.out.println(resultadoo);
+
 
         
     }
