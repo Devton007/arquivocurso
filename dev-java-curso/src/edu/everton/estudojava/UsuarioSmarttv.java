@@ -2,9 +2,6 @@ package edu.everton.estudojava;
 
 public class UsuarioSmarttv {
 
-    /**
-     * @param args
-     */
     public static void main(String[] args) throws Exception {
 
         SmartTv smartTv= new SmartTv();
