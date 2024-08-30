@@ -1,5 +1,5 @@
 package edu.everton.estudojava;
 
-public class Int {
+public class Conta {
 
 }
