@@ -1,0 +1,84 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "AboutMe",
+            "request": "launch",
+            "mainClass": "edu.everton.estudojava.AboutMe",
+            "projectName": "dev-java-curso_fbfdd031"
+        },
+        {
+            "type": "java",
+            "name": "BoletimEstudantil",
+            "request": "launch",
+            "mainClass": "edu.everton.estudojava.BoletimEstudantil",
+            "projectName": "dev-java-curso_fbfdd031"
+        },
+        {
+            "type": "java",
+            "name": "MinhaClasse",
+            "request": "launch",
+            "mainClass": "edu.everton.estudojava.MinhaClasse",
+            "projectName": "dev-java-curso_fbfdd031"
+        },
+        {
+            "type": "java",
+            "name": "MinhaClasse2",
+            "request": "launch",
+            "mainClass": "edu.everton.estudojava.MinhaClasse2",
+            "projectName": "dev-java-curso_fbfdd031"
+        },
+        {
+            "type": "java",
+            "name": "TiposOperadores",
+            "request": "launch",
+            "mainClass": "edu.everton.estudojava.TiposOperadores",
+            "projectName": "dev-java-curso_fbfdd031"
+        },
+        {
+            "type": "java",
+            "name": "TiposOperadores2",
+            "request": "launch",
+            "mainClass": "edu.everton.estudojava.TiposOperadores2",
+            "projectName": "dev-java-curso_fbfdd031"
+        },
+        {
+            "type": "java",
+            "name": "TiposOperadores3",
+            "request": "launch",
+            "mainClass": "edu.everton.estudojava.TiposOperadores3",
+            "projectName": "dev-java-curso_fbfdd031"
+        },
+        {
+            "type": "java",
+            "name": "TiposOperadores4",
+            "request": "launch",
+            "mainClass": "edu.everton.estudojava.TiposOperadores4",
+            "projectName": "dev-java-curso_fbfdd031"
+        },
+        {
+            "type": "java",
+            "name": "TiposVariaveis",
+            "request": "launch",
+            "mainClass": "edu.everton.estudojava.TiposVariaveis",
+            "projectName": "dev-java-curso_fbfdd031"
+        },
+        {
+            "type": "java",
+            "name": "UsuarioSmarttv",
+            "request": "launch",
+            "mainClass": "edu.everton.estudojava.UsuarioSmarttv",
+            "projectName": "dev-java-curso_fbfdd031"
+        }
+    ]
+}
