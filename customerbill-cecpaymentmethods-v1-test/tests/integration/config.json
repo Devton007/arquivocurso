@@ -1,0 +1,68 @@
+{
+    "parameters": {
+        "domain": "api-test.claro.com.br",
+        "protocol": "https",
+        "port":  "443",
+        "basepath": "",
+        "apps": {
+            "ecommerce-ceccarts-v1-app-ok": {
+                "name": "customerbill-cecpaymentmethods-v1-ok",
+                "authHeaderName": "Authorization",
+                "authHeaderValue": "Basic aW40dTlGcEFKWWJVVnJHeXB5RWFUQTRQVTRYTEFhRlU6WWRjT3BXOWZYU3FQaGpxYw=="
+            },
+            "customerbill-cecpaymentmethods-v1-app-nq": {
+                "name": "customerbill-cecpaymentmethods-v1-app-nq",
+                "authHeaderName": "Authorization",
+                "authHeaderValue": "Basic eHllbm85WENoVnZIb09uVkhlQVl1M1ZHVEUyWExIekE6djVzN2x3UUY3cXViMlNWeA=="
+            },
+            "customerbill-cecpaymentmethods-v1-app-np": {
+                "name": "customerbill-cecpaymentmethods-v1-app-np",
+                "authHeaderName": "Authorization",
+                "authHeaderValue": "Basic bVFKR283Z0ZxSEV5U0JPTjRnQkxQN1RHUWFmZkNWY2c6OVZCZE1jcHZjWml1TDFKag=="
+            },
+            "customerbill-cecpaymentmethods-v1-app-ok": {
+                "name": "customerbill-cecpaymentmethods-v1-ok",
+                "authHeaderName": "Authorization",
+                "authHeaderValue": "Basic aW40dTlGcEFKWWJVVnJHeXB5RWFUQTRQVTRYTEFhRlU6WWRjT3BXOWZYU3FQaGpxYw=="
+            },
+
+
+
+            "customerbill-cecpaymentmethods-v1-app-bss-ok": {
+                "name": "customerbill-cecpaymentmethods-v1-ok",
+                "authHeaderName": "Authorization",
+                "authHeaderValue": "Basic dXlZYTg2QnZEV1VzV1dxVG5zTUtqZXZHdE5nTU0zcW86TVJGdjE3c0FHbk9BN21rRw=="
+            },
+            "customerbill-cecpaymentmethods-v1-app-bss-nq": {
+                "name": "customerbill-cecpaymentmethods-v1-nq",
+                "authHeaderName": "Authorization",
+                "authHeaderValue": "Basic N0szc0FBY2xoczZpVm1PWThuc1hNUFlyT3pnTFNqbGI6UmpkZjVtM0VlUDlRZTZHSg=="
+            },
+            "customerbill-cecpaymentmethods-v1-app-bss-np": {
+                "name": "customerbill-cecpaymentmethods-v1-ok",
+                "authHeaderName": "Authorization",
+                "authHeaderValue": "Basic MlZXN0pBVGNUZHFhTjYwbUpaTUVpV2hMbHpLUnF5bnQ6SUFQQ1pXN2ZtNFE0cUN4NA=="
+            },
+
+
+            "ClaroTvPlus-BFF-OAuth-Test-App": {
+                "name": "ClaroTvPlus-BFF-OAuth-Test-App",
+                "authHeaderName": "Authorization",
+                "authHeaderValue": "Basic dXlZYTg2QnZEV1VzV1dxVG5zTUtqZXZHdE5nTU0zcW86TVJGdjE3c0FHbk9BN21rRw=="
+            },
+            "customerbill-cecpaymentmethods-v1-app-bss-nq-PUT": {
+                "name": "ClaroTvPlus-BFF-OAuth-Test-App",
+                "authHeaderName": "Authorization",
+                "authHeaderValue": "Basic aW40dTlGcEFKWWJVVnJHeXB5RWFUQTRQVTRYTEFhRlU6WWRjT3BXOWZYU3FQaGpxYw=="
+            },
+            "customerbill-cecpaymentmethods-v1-app-bss-np-PUT": {
+                "name": "ClaroTvPlus-BFF-OAuth-Test-App",
+                "authHeaderName": "Authorization",
+                "authHeaderValue": "Basic aW40dTlGcEFKWWJVVnJHeXB5RWFUQTRQVTRYTEFhRlU6WWRjT3BXOWZYU3FQaGpxYw=="
+            }
+            
+        },
+        "unitTesting": "true"
+    }
+}
+

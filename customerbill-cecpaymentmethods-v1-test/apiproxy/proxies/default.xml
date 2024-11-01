@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+    <PreFlow name="PreFlow">
+        <Request>
+            <Step>
+                <Name>JS-requestParam</Name>
+            </Step>
+            <Step>
+                <Name>EV-JSON-Header</Name>
+            </Step>
+            <Step>
+                <Name>RF-RaiseMethodNotAllowed-405</Name>
+                <Condition>(proxy.pathsuffix MatchesPath "") AND (initial.verb != "POST") AND (initial.verb != "GET") AND (initial.verb != "PUT") AND (initial.verb != "OPTIONS")</Condition>
+            </Step>
+            <Step>
+                <Name>RF-NotAcceptable-406</Name>
+                <Condition>(request.header.Accept !~~ "application\/(json|([a-z]*\+json))")</Condition>
+            </Step>
+            <Step>
+                <Name>RF-UnsupportedMediaType-415</Name>
+                <Condition>(request.header.Content-Type !~~ "application\/(json|([a-z]*\+json))")</Condition>
+            </Step>
+        </Request>
+        <Response/>
+    </PreFlow>
+    <Flows>
+        <Flow name="POST">
+            <Description/>
+            <Request>
+                <Step>
+                    <Name>JS-ValidateRequest</Name>
+                </Step>
+                <Step>
+                    <Name>RF-BadRequest-400</Name>
+                    <Condition>validateRequest.fail = true</Condition>
+                </Step>
+                <Step>
+                    <Name>JS-TransformRequestPOST</Name>
+                </Step>
+            </Request>
+            <Response>
+                <Step>
+                    <Name>JS-TransformResponse-POST</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "") and (initial.verb = "POST")</Condition>
+        </Flow>
+        <Flow name="GET">
+            <Description/>
+            <Request>
+                <Step>
+                    <Name>JS-XQueryString</Name>
+                    <Condition>validateRequest.APP = false</Condition>
+                </Step>
+                <Step>
+                    <Name>JS-ValidateRequest</Name>
+                    <Condition>validateRequest.APP = false</Condition>
+                </Step>
+                <Step>
+                    <Name>JS-TransformRequest-GET</Name>
+                    <Condition>validateRequest.APP = true</Condition>
+                </Step>
+                <Step>
+                    <Name>AM-SetRequest-GET</Name>
+                    <Condition>validateRequest.APP = false</Condition>
+                </Step>
+                <Step>
+                    <Name>RF-BadRequest-400</Name>
+                    <Condition>validateRequest.fail = true</Condition>
+                </Step>
+            </Request>
+            <Response>
+                <Step>
+                    <Name>JS-TransformResponse-GET</Name>
+                    <Condition>channel == null</Condition>
+                </Step>
+                <Step>
+                    <Name>JS-TransformResponse-NewGET</Name>
+                    <Condition>validateRequest.APP = true</Condition>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "") and (initial.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="PUT">
+            <Description/>
+            <Request>
+                <Step>
+                    <Name>JS-requestParam</Name>
+                </Step>
+                <Step>
+                    <Name>JS-ValidateRequest</Name>
+                    <Condition>validateRequest.APP = false</Condition>
+                </Step>
+                <Step>
+                    <Name>JS-TransformRequest-NewPUT-js</Name>
+                    <Condition>validateRequest.APP = true</Condition>
+                </Step>
+                <Step>
+                    <Name>RF-BadRequest-400</Name>
+                    <Condition>validateRequest.fail = true</Condition>
+                </Step>
+                <Step>
+                    <Name>JS-TransformRequest-PUT</Name>
+                    <Condition>validateRequest.APP = false</Condition>
+                </Step>
+                <Step>
+                    <Name>AM-SetRequest-PUT</Name>
+                </Step>
+            </Request>
+            <Response>
+                <Step>
+                    <Name>JS-TransformResponse-NewPUT</Name>
+                    <Condition>validateRequest.APP = true</Condition>
+                </Step>
+                <Step>
+                    <Name>JS-TransformResponse-PUT</Name>
+                    <Condition>validateRequest.APP = false</Condition>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/status") and (initial.verb = "PUT")</Condition>
+        </Flow>
+        <Flow name="OPTIONS">
+            <Description>Flow para tratar a requisição OPTIONS referente a política de CORS dos browsers.</Description>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix = "") and (initial.verb = "OPTIONS")</Condition>
+        </Flow>
+        <Flow name="Unknown">
+            <Description>Fluxo não conhecido</Description>
+            <Request>
+                <Step>
+                    <Name>RF-RaiseMethodNotAllowed-405</Name>
+                    <Condition>(initial.verb != "POST") AND (initial.verb != "GET") AND (initial.verb != "PUT") AND (initial.verb != "OPTIONS")</Condition>
+                </Step>
+                <Step>
+                    <Name>RF-UnprocessableEntity-404</Name>
+                </Step>
+            </Request>
+            <Response/>
+        </Flow>
+    </Flows>
+    <PostFlow name="PostFlow">
+        <Request/>
+        <Response/>
+    </PostFlow>
+    <HTTPProxyConnection>
+        <BasePath>/customerbill/v1/cec/paymentmethods</BasePath>
+        <VirtualHost>secure</VirtualHost>
+    </HTTPProxyConnection>
+    <RouteRule name="noRouteRule">
+        <Condition>initial.verb = "OPTIONS"</Condition>
+    </RouteRule>
+    <RouteRule name="default">
+        <TargetEndpoint>TS-cecPaymentMethods</TargetEndpoint>
+    </RouteRule>
+</ProxyEndpoint>

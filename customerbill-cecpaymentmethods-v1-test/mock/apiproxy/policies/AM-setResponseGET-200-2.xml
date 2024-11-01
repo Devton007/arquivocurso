@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-setResponseGET-200-2">
+    <DisplayName>AM-setResponseGET-200-2</DisplayName>
+    <Properties/>
+    <Set>
+        <Headers/>
+        <QueryParams/>
+        <FormParams/>
+        <!-- <Verb>GET</Verb> -->
+        <Path/>
+        <Payload contentType="application/json">
+            {
+              "data": {
+                "paymentMethod": [
+                  {
+                    "id": "02i3I000000vKcqQAE",
+                    "status": "Ativo",
+                    "isactive": true,
+                    "brand": "VISA",
+                    "holder": "MARIA DA SILVA",
+                    "lastFourNumber": "1670",
+                    "expirationDate": "102028",
+                    "firstToken": "3256CA16-EFE0-48F5-B9F4-AD29B595BB4C",
+                    "secondToken": "3256CA16-EFE0-48F5-B9F4-AD29B595BB4C",
+                    "billingAccount": [
+                        null
+                    ]
+                  }
+                ]
+              }
+            }
+        </Payload>
+        <StatusCode>200</StatusCode>
+    </Set>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="true" transport="http" type="request"/>
+</AssignMessage>

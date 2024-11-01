@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="73" name="customerbill-cecpaymentmethods-v1-mock">
+    <Basepaths>/customerbill-cecpaymentmethods-v1</Basepaths>
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1683662893270</CreatedAt>
+    <CreatedBy>caio.pitta@spread.com.br</CreatedBy>
+    <Description></Description>
+    <DisplayName>customerbill-cecpaymentmethods-v1-mock</DisplayName>
+    <LastModifiedAt>1694704070034</LastModifiedAt>
+    <LastModifiedBy>matheus.grenfellsantos@nttdata.com</LastModifiedBy>
+    <ManifestVersion>SHA-512:a56829c4af6bffa261933e17dd54f2e214e8aea598202589e89cdc2b1b1d32afa94a2986458bdfbe780100eed332bbdfac1576afc4ed412a70b0f7649083a7dd</ManifestVersion>
+    <Policies>
+        <Policy>AM-400-Error</Policy>
+        <Policy>AM-401-Error</Policy>
+        <Policy>AM-403-Error</Policy>
+        <Policy>AM-422-Error-Customer</Policy>
+        <Policy>AM-422-Error-PUT</Policy>
+        <Policy>AM-422-Error</Policy>
+        <Policy>AM-422-ErrorGET</Policy>
+        <Policy>AM-422-PUT-Flex-EmUso</Policy>
+        <Policy>AM-429-Error</Policy>
+        <Policy>AM-500-Error</Policy>
+        <Policy>AM-ReturnOauthToken</Policy>
+        <Policy>AM-SuccessPOST-200</Policy>
+        <Policy>AM-SuccessPOST-CustomerAccountId-200</Policy>
+        <Policy>AM-SuccessPOST-DocNumber-200</Policy>
+        <Policy>AM-SuccessPOST-PaymentMethodId-200</Policy>
+        <Policy>AM-SuccessPUT-200-flex-EmUso</Policy>
+        <Policy>AM-SuccessPUT-200</Policy>
+        <Policy>AM-error-422-01</Policy>
+        <Policy>AM-error-422-02</Policy>
+        <Policy>AM-error-422-04</Policy>
+        <Policy>AM-error-422</Policy>
+        <Policy>AM-setResponseGET-200-1</Policy>
+        <Policy>AM-setResponseGET-200-2</Policy>
+        <Policy>AM-setResponseGET-200-3</Policy>
+        <Policy>AM-setResponseGET-200</Policy>
+        <Policy>EV-ExtractBody</Policy>
+        <Policy>EV-ExtractMock-GET</Policy>
+        <Policy>EV-ExtractMockParameter</Policy>
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>mockDefaultProxy</ProxyEndpoint>
+        <ProxyEndpoint>tokenGen</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources>
+        <Resource>jsc://X-QueryStringFormater.js</Resource>
+    </Resources>
+    <Spec></Spec>
+    <TargetServers/>
+    <TargetEndpoints/>
+</APIProxy>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-SuccessPUT-200-flex-EmUso">
+    <DisplayName>AM-SuccessPUT-200-flex-EmUso</DisplayName>
+    <Properties/>
+    <Set>
+        <Headers>
+            <Header name="Content-Type">application/json</Header>
+        </Headers>
+        <Payload contentType="application/json">
+            {
+                "response": {
+                    "": ""
+                },
+                "ResponseAction1Status": true,
+                "ConditionalFlexInativatePaymentMethodLoad": null,
+                "ConditionalFlexInativatePaymentMethodLoadStatus": true,
+                "DRFlexInativatePaymentMethodLoad": {
+                    "Case_2": [
+                        {
+                            "UpsertSuccess": true,
+                            "Id": "5007j00000DtyiiAAB",
+                            "RecordTypeId": "0127j000000HJ0MAAW",
+                            "Status": "Novo",
+                            "Origin": "Web",
+                            "Subject": "Exclusão de Cartão"
+                        }
+                    ],
+                    "vlocity_cmt__PaymentMethod__c_1": [
+                        {
+                            "UpsertSuccess": true,
+                            "vlocity_cmt__IsActive__c": false,
+                            "Id": "a2o7j000000UoKiAAK"
+                        }
+                    ],
+                    "error": "OK",
+                    "responseType": "SObject"
+                },
+                "DRFlexInativatePaymentMethodLoadStatus": true,
+                "DRFlexCheckPaymentMethodInUseExtract": {
+                    "data": {
+                        "CheckPaymentMethodInUse": ""
+                    }
+                },
+                "DRFlexCheckPaymentMethodInUseExtractStatus": true,
+                "ConditionalFlexUpdatePaymentMethodStatus": false,
+                "ConditionalFlexCreatePaymentMethodStatus": false,
+                "FlexCondiontionalStatus": false,
+                "options": {
+                    "Content-Type": "application/json",
+                    "X-B3-TraceId": "79856f8ecb0a9846",
+                    "X-Salesforce-SNI": "PRESENT",
+                    "Postman-Token": "3c556a12-0d75-4795-9126-3759b6bd6e0b",
+                    "X-B3-Sampled": "0",
+                    "X-B3-SpanId": "79856f8ecb0a9846",
+                    "X-Salesforce-SIP": "191.32.200.179",
+                    "Accept-Encoding": "gzip, deflate, br",
+                    "Host": "cec-claro--claroflex.sandbox.my.salesforce.com",
+                    "Connection": "keep-alive",
+                    "User-Agent": "PostmanRuntime/7.32.2",
+                    "CipherSuite": "ECDHE-RSA-AES256-GCM-SHA384 TLSv1.2 443",
+                    "Accept": "*/*"
+                },
+                "PaymentMethodId": "a2o7j000000UoKiAAK"
+            }
+        </Payload>
+        <StatusCode>200</StatusCode>
+    </Set>
+</AssignMessage>

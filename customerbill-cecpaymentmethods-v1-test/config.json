@@ -1,0 +1,190 @@
+{
+    "configurations": [
+        {
+            "name": "lab",
+            "policies": [],
+            "proxies": [],
+            "targets": [
+                {
+                    "name": "TS-cecPaymentMethods.xml",
+                    "tokens": [
+                        {
+                            "xpath": "/TargetEndpoint/HTTPTargetConnection/Path",
+                            "value": "/{apiproxy.name}/{uri}"
+                        },
+                        {
+                            "xpath": "/TargetEndpoint/HTTPTargetConnection/Properties/Property[@name='use.proxy']",
+                            "value": "false"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "lab_saas",
+            "policies": [],
+            "proxies": [],
+            "targets": [
+                {
+                    "name": "TS-cecPaymentMethods.xml",
+                    "tokens": [
+                        {
+                            "xpath": "/TargetEndpoint/HTTPTargetConnection/Path",
+                            "value": "/{apiproxy.name}/{uri}"
+                        },
+                        {
+                            "xpath": "/TargetEndpoint/HTTPTargetConnection/Properties/Property[@name='use.proxy']",
+                            "value": "false"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "dev",
+            "policies": [],
+            "proxies": [],
+            "targets": [
+                {
+                    "name": "TS-cecPaymentMethods.xml",
+                    "tokens": [
+                        {
+                            "xpath": "/TargetEndpoint/HTTPTargetConnection/Path",
+                            "value": "/{apiproxy.name}/{uri}"
+                        },
+                        {
+                            "xpath": "/TargetEndpoint/HTTPTargetConnection/Properties/Property[@name='use.proxy']",
+                            "value": "false"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "dev_saas",
+            "policies": [],
+            "proxies": [],
+            "targets": [
+                {
+                    "name": "TS-cecPaymentMethods.xml",
+                    "tokens": [
+                        {
+                            "xpath": "/TargetEndpoint/HTTPTargetConnection/Path",
+                            "value": "/{apiproxy.name}/{uri}"
+                        },
+                        {
+                            "xpath": "/TargetEndpoint/HTTPTargetConnection/Properties/Property[@name='use.proxy']",
+                            "value": "false"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "test",
+            "policies": [],
+            "proxies": [],
+            "targets": [
+                {
+                    "name": "TS-cecPaymentMethods.xml",
+                    "tokens": [
+                        {
+                            "xpath": "/TargetEndpoint/HTTPTargetConnection/Path",
+                            "value": "{uri}"
+                        },
+                        {
+                            "xpath": "/TargetEndpoint/HTTPTargetConnection/Properties/Property[@name='use.proxy']",
+                            "value": "false"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "test_saas",
+             "policies": [],
+            "proxies": [],
+            "targets": [
+                {
+                    "name": "TS-cecPaymentMethods.xml",
+                    "tokens": [
+                        {
+                            "xpath": "/TargetEndpoint/HTTPTargetConnection/Path",
+                            "value": "{uri}"
+                        },
+                        {
+                            "xpath": "/TargetEndpoint/HTTPTargetConnection/Properties/Property[@name='use.proxy']",
+                            "value": "false"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "homolog",
+            "policies": [],
+            "proxies": [],
+            "targets": []
+        },
+        {
+            "name": "homolog_saas",
+            "policies": [],
+            "proxies": [],
+            "targets": []
+        },
+        {
+            "name": "sandbox",
+            "policies": [],
+            "proxies": [],
+            "targets": []
+        },
+        {
+            "name": "sandbox_saas",
+            "policies": [],
+            "proxies": [],
+            "targets": []
+        },
+        {
+            "name": "prod",
+            "policies": [],
+            "proxies": [],
+            "targets": [
+                {
+                    "name": "TS-cecPaymentMethods.xml",
+                    "tokens": [
+                        {
+                            "xpath": "/TargetEndpoint/HTTPTargetConnection/Path",
+                            "value": "{uri}"
+                        },
+                        {
+                            "xpath": "/TargetEndpoint/HTTPTargetConnection/Properties/Property[@name='use.proxy']",
+                            "value": "true"
+                        }
+                    ]
+                }
+            ]
+
+        },
+        {
+            "name": "prod_saas",
+            "policies": [],
+            "proxies": [],
+            "targets": [
+                {
+                    "name": "TS-cecPaymentMethods.xml",
+                    "tokens": [
+                        {
+                            "xpath": "/TargetEndpoint/HTTPTargetConnection/Path",
+                            "value": "{uri}"
+                        },
+                        {
+                            "xpath": "/TargetEndpoint/HTTPTargetConnection/Properties/Property[@name='use.proxy']",
+                            "value": "true"
+                        }
+                    ]
+                }
+            ]
+
+        }
+    ]
+}

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-error-422">
+    <DisplayName>AM-error-422</DisplayName>
+    <Properties/>
+    <Set>
+        <Headers>
+            <Header name="Content-Type">application/json</Header>
+        </Headers>
+        <Payload contentType="application/json">
+            {
+          "error": {
+            "httpCode": "422",
+            "errorCode": "API-DETAILS-422",
+            "message": "Unprocessable Entity",
+            "detailedMessage": "Business fault occurred."
+          }
+        }
+        </Payload>
+        <StatusCode>422</StatusCode>
+    </Set>
+</AssignMessage>

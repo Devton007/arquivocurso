@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-422-Error-Customer">
+    <DisplayName>AM-422-Error-Customer</DisplayName>
+    <Properties/>
+    <Set>
+        <Payload contentType="application/json">
+            {
+                "response": {
+                    "": ""
+                },
+                "ResponseAction1Status": true,
+                "ConditionalFlexInativatePaymentMethodLoad": null,
+                "ConditionalFlexInativatePaymentMethodLoadStatus": true,
+                "DRFlexInativatePaymentMethodLoadStatus": false,
+                "DRFlexCheckPaymentMethodInUseExtract": {
+                    "data": {
+                        "CheckPaymentMethodInUse": "a2o6t000000UJvQAAW"
+                    }
+                },
+                "DRFlexCheckPaymentMethodInUseExtractStatus": true,
+                "ConditionalFlexUpdatePaymentMethodStatus": false,
+                "ConditionalFlexCreatePaymentMethodStatus": false,
+                "FlexCondiontionalStatus": false,
+                "options": {
+                    "Content-Type": "application/json",
+                    "X-B3-TraceId": "ee9dfb5022e9c2d9",
+                    "X-Salesforce-SNI": "PRESENT",
+                    "Postman-Token": "ea16f8d4-e66a-4d2c-9be2-e5c98ef02bb4",
+                    "X-B3-Sampled": "0",
+                    "X-B3-SpanId": "ee9dfb5022e9c2d9",
+                    "X-Salesforce-SIP": "177.97.249.177",
+                    "Accept-Encoding": "gzip, deflate, br",
+                    "Host": "cec-claro--partial.sandbox.my.salesforce.com",
+                    "Connection": "keep-alive",
+                    "User-Agent": "PostmanRuntime/7.32.3",
+                    "CipherSuite": "ECDHE-RSA-AES256-GCM-SHA384 TLSv1.2 443",
+                    "Accept": "*/*"
+                },
+                "paymentMethodStatus": "Inactive",
+                "PaymentMethodId": "a2o6t000000UJvQAAW"
+            }
+
+        </Payload>
+        <StatusCode>422</StatusCode>
+    </Set>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="true" transport="http" type="response"/>
+</AssignMessage>

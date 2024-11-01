@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables async="false" continueOnError="false" enabled="true" name="EV-ExtractMockParameter">
+    <DisplayName>EV-ExtractMockParameter</DisplayName>
+    <Properties/>
+    <JSONPayload>
+        <Variable name="ConsumerAccountId">
+            <JSONPath>$.ConsumerAccountId</JSONPath>
+        </Variable>
+        <Variable name="DocNumber">
+            <JSONPath>$.DocNumber</JSONPath>
+        </Variable>
+        <Variable name="PaymentMethodId">
+            <JSONPath>$.PaymentMethodId</JSONPath>
+        </Variable>
+        <Variable name="paymentMethodId">
+            <JSONPath>$.data.paymentMethodId</JSONPath>
+        </Variable>
+        <Variable name="PaymentMethodId">
+            <JSONPath>$.data.paymentMethodId</JSONPath>
+        </Variable>
+    </JSONPayload>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <Source clearPayload="false">request</Source>
+</ExtractVariables>

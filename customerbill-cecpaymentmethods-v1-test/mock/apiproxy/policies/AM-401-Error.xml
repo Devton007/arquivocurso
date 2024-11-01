@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-401-Error">
+    <DisplayName>AM-401-Error</DisplayName>
+    <Properties/>
+    <Set>
+        <Payload>{
+  "apiVersion": "1;2021-03-30",
+  "transactionId": "37d327fa-cd80-4ef7-b433-73ea72cd7669",
+  "error": {
+    "httpCode": "401",
+    "errorCode": "API-CECPAYMENTMETHODS-401",
+    "message": "Unauthorized",
+    "detailedMessage": "Unauthorized user.",
+    "link": {
+      "rel": "related",
+      "href": "https://api.net.com.br/docs/error_codes.html"
+    }
+  }
+}</Payload>
+        <StatusCode>401</StatusCode>
+    </Set>
+    <AssignTo createNew="true" transport="http" type="response"/>
+</AssignMessage>

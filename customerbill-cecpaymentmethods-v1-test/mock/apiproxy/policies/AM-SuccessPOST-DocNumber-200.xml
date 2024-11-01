@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-SuccessPOST-DocNumber-200">
+    <DisplayName>AM-SuccessPOST-DocNumber-200</DisplayName>
+    <Properties/>
+    <Set>
+        <Headers>
+            <Header name="Content-Type">application/json</Header>
+        </Headers>
+        <Payload contentType="application/json">
+       {
+            "response": {
+                "": ""
+            },
+            "ResponseAction1Status": true,
+            "ConditionalFlexInativatePaymentMethodLoadStatus": false,
+            "ConditionalFlexUpdatePaymentMethodStatus": false,
+            "ConditionalFlexCreatePaymentMethodStatus": false,
+            "FlexCondiontional": null,
+            "FlexCondiontionalStatus": true,
+            "SVErrorCodeStatus": false,
+            "DRFlexGetDetailsAccountExtract": {
+                "data": {
+                    "PaymentMethod": [
+                        {
+                            "CardNumber": "",
+                            "PaymentIdentifier2": "3256CA16-EFE0-48F5-B9F4-TOKEN02",
+                            "PaymentMethodId": "a2o7j000000UoJpAAK",
+                            "PaymentIdentifier": "3256CA16-EFE0-48F5-B9F4-TOKEN01",
+                            "ExpirationYear": "2024",
+                            "ExpirationMonth": "05",
+                            "Last4Numbers": "8019",
+                            "Name": "PM-0450",
+                            "IsActive": true,
+                            "CardType": "VISA",
+                            "CardHolderName": "Edson Vendramini (Visa)",
+                            "MethodType": "Credit Card"
+                        },
+                        {
+                            "PaymentIdentifier2": "",
+                            "CardHolderName": "",
+                            "PaymentMethodId": "a2o7j000000UnPDAA0",
+                            "PaymentIdentifier": "Token023",
+                            "ExpirationYear": "2030",
+                            "ExpirationMonth": "05",
+                            "Last4Numbers": "5678",
+                            "CardNumber": "2345678",
+                            "Name": "PM-0420",
+                            "IsActive": false,
+                            "CardType": "VISA",
+                            "MethodType": "Cartão de Credito"
+                        },
+                        {
+                            "PaymentIdentifier2": "",
+                            "CardHolderName": "",
+                            "PaymentMethodId": "a2o7j000000UnPNAA0",
+                            "PaymentIdentifier": "Token023",
+                            "ExpirationYear": "2030",
+                            "ExpirationMonth": "05",
+                            "Last4Numbers": "5678",
+                            "CardNumber": "2345678",
+                            "Name": "PM-0422",
+                            "IsActive": false,
+                            "CardType": "VISA",
+                            "MethodType": "Cartão de Credito"
+                        },
+                        {
+                            "CardNumber": "",
+                            "PaymentIdentifier2": "1234-EFE0-48F5-B9F4-TOKEN02",
+                            "PaymentMethodId": "a2o7j000000UoJzAAK",
+                            "PaymentIdentifier": "1234-EFE0-48F5-B9F4-TOKEN01",
+                            "ExpirationYear": "2025",
+                            "ExpirationMonth": "05",
+                            "Last4Numbers": "1234",
+                            "Name": "PM-0452",
+                            "IsActive": true,
+                            "CardType": "Master",
+                            "CardHolderName": "Edson Vendramini (MASTER)",
+                            "MethodType": "Credit Card"
+                        },
+                        {
+                            "CardNumber": "",
+                            "PaymentIdentifier2": "4o2rNVq6fkggpWURx6OaitJ7r0OxbRbU",
+                            "PaymentMethodId": "a2o7j000000UoK4AAK",
+                            "PaymentIdentifier": "4o2rNVq6fkggpWURx6OaitJ7r0OxbRbU",
+                            "ExpirationYear": "2026",
+                            "ExpirationMonth": "02",
+                            "Last4Numbers": "3217",
+                            "Name": "PM-0453",
+                            "IsActive": true,
+                            "CardType": "AMEXs",
+                            "CardHolderName": "Edson Vendramini (Adriano Teste2)",
+                            "MethodType": "Credit Cards"
+                        },
+                        {
+                            "PaymentIdentifier2": "",
+                            "CardNumber": "",
+                            "PaymentMethodId": "a2o7j000000UoJuAAK",
+                            "PaymentIdentifier": "3256CA16-EFE0-48F5-B9F4-TOKEN01",
+                            "ExpirationYear": "2024",
+                            "ExpirationMonth": "05",
+                            "Last4Numbers": "8019",
+                            "Name": "PM-0451",
+                            "IsActive": true,
+                            "CardType": "VISA",
+                            "CardHolderName": "Edson Vendramini (Visa)",
+                            "MethodType": "Credit Card"
+                        },
+                        {
+                            "PaymentIdentifier2": "",
+                            "CardNumber": "",
+                            "PaymentMethodId": "a2o7j000000UoJkAAK",
+                            "PaymentIdentifier": "4o2rNVq6fkggpWURx6OaitJ7r0OxbRbU",
+                            "ExpirationYear": "2026",
+                            "ExpirationMonth": "02",
+                            "Last4Numbers": "3217",
+                            "Name": "PM-0449",
+                            "IsActive": true,
+                            "CardType": "AMEXs",
+                            "CardHolderName": "Edson Vendramini (Adriano Teste2)",
+                            "MethodType": "Credit Cards"
+                        },
+                        {
+                            "PaymentIdentifier2": "",
+                            "CardHolderName": "",
+                            "PaymentMethodId": "a2o7j000000UnPSAA0",
+                            "PaymentIdentifier": "Token023",
+                            "ExpirationYear": "2030",
+                            "ExpirationMonth": "05",
+                            "Last4Numbers": "5678",
+                            "CardNumber": "2345678",
+                            "Name": "PM-0423",
+                            "IsActive": false,
+                            "CardType": "VISA",
+                            "MethodType": "Cartão de Credito"
+                        },
+                        {
+                            "PaymentIdentifier2": "",
+                            "CardHolderName": "",
+                            "PaymentMethodId": "a2o7j000000UnPXAA0",
+                            "PaymentIdentifier": "Token023",
+                            "ExpirationYear": "2030",
+                            "ExpirationMonth": "05",
+                            "Last4Numbers": "5678",
+                            "CardNumber": "2345678",
+                            "Name": "PM-0424",
+                            "IsActive": true,
+                            "CardType": "VISA",
+                            "MethodType": "Cartão de Credito"
+                        },
+                        {
+                            "PaymentIdentifier2": "",
+                            "CardNumber": "",
+                            "PaymentMethodId": "a2o7j000000UnROAA0",
+                            "PaymentIdentifier": "4o2rNVq6fkggpWURx6OaitJ7r0OxbRbU",
+                            "ExpirationYear": "2026",
+                            "ExpirationMonth": "02",
+                            "Last4Numbers": "3217",
+                            "Name": "PM-0443",
+                            "IsActive": true,
+                            "CardType": "AMEXs",
+                            "CardHolderName": "Edson Vendramini (Adriano Teste2)",
+                            "MethodType": "Credit Cards"
+                        },
+                        {
+                            "PaymentIdentifier2": "",
+                            "CardHolderName": "",
+                            "PaymentMethodId": "a2o7j000000UnR9AAK",
+                            "PaymentIdentifier": "Token023",
+                            "ExpirationYear": "2030",
+                            "ExpirationMonth": "05",
+                            "Last4Numbers": "5678",
+                            "CardNumber": "2345678",
+                            "Name": "PM-0440",
+                            "IsActive": true,
+                            "CardType": "VISA",
+                            "MethodType": "Cartão de Credito"
+                        },
+                        {
+                            "PaymentIdentifier2": "",
+                            "CardHolderName": "",
+                            "PaymentMethodId": "a2o7j000000UnP8AAK",
+                            "PaymentIdentifier": "Token023",
+                            "ExpirationYear": "2030",
+                            "ExpirationMonth": "05",
+                            "Last4Numbers": "5678",
+                            "CardNumber": "2345678",
+                            "Name": "PM-0419",
+                            "IsActive": false,
+                            "CardType": "VISA",
+                            "MethodType": "Cartão de Credito"
+                        },
+                        {
+                            "PaymentIdentifier2": "",
+                            "CardHolderName": "",
+                            "PaymentMethodId": "a2o7j000000UnOuAAK",
+                            "PaymentIdentifier": "Token023",
+                            "ExpirationYear": "2030",
+                            "ExpirationMonth": "05",
+                            "Last4Numbers": "5678",
+                            "CardNumber": "2345678",
+                            "Name": "PM-0418",
+                            "IsActive": true,
+                            "CardType": "VISA",
+                            "MethodType": "Cartão de Credito"
+                        },
+                        {
+                            "PaymentIdentifier2": "",
+                            "CardHolderName": "",
+                            "PaymentMethodId": "a2o7j000000UnPIAA0",
+                            "PaymentIdentifier": "Token023",
+                            "ExpirationYear": "2030",
+                            "ExpirationMonth": "05",
+                            "Last4Numbers": "5678",
+                            "CardNumber": "2345678",
+                            "Name": "PM-0421",
+                            "IsActive": true,
+                            "CardType": "VISA",
+                            "MethodType": "Cartão de Credito"
+                        },
+                        {
+                            "PaymentIdentifier2": "",
+                            "CardNumber": "",
+                            "PaymentMethodId": "a2o7j000000UnREAA0",
+                            "PaymentIdentifier": "4o2rNVq6fkggpWURx6OaitJ7r0OxbRbU",
+                            "ExpirationYear": "2026",
+                            "ExpirationMonth": "02",
+                            "Last4Numbers": "3217",
+                            "Name": "PM-0441",
+                            "IsActive": true,
+                            "CardType": "AMEXs",
+                            "CardHolderName": "Edson Vendramini (Adriano Teste2)",
+                            "MethodType": "Credit Cards"
+                        },
+                        {
+                            "PaymentIdentifier2": "",
+                            "CardNumber": "",
+                            "PaymentMethodId": "a2o7j000000UnRJAA0",
+                            "PaymentIdentifier": "4o2rNVq6fkggpWURx6OaitJ7r0OxbRbU",
+                            "ExpirationYear": "2026",
+                            "ExpirationMonth": "02",
+                            "Last4Numbers": "3217",
+                            "Name": "PM-0442",
+                            "IsActive": true,
+                            "CardType": "AMEXs",
+                            "CardHolderName": "Edson Vendramini (Adriano Teste2)",
+                            "MethodType": "Credit Cards"
+                        },
+                        {
+                            "PaymentIdentifier2": "",
+                            "CardNumber": "",
+                            "PaymentMethodId": "a2o7j000000Unl4AAC",
+                            "PaymentIdentifier": "4o2rNVq6fkggpWURx6OaitJ7r0OxbRbU",
+                            "ExpirationYear": "2026",
+                            "ExpirationMonth": "02",
+                            "Last4Numbers": "3217",
+                            "Name": "PM-0447",
+                            "IsActive": false,
+                            "CardType": "AMEXs",
+                            "CardHolderName": "Edson Vendramini (Adriano Teste2)",
+                            "MethodType": "Credit Cards"
+                        },
+                        {
+                            "PaymentIdentifier2": "",
+                            "CardNumber": "",
+                            "PaymentMethodId": "a2o7j000000UnRYAA0",
+                            "PaymentIdentifier": "4o2rNVq6fkggpWURx6OaitJ7r0OxbRbU",
+                            "ExpirationYear": "2026",
+                            "ExpirationMonth": "02",
+                            "Last4Numbers": "3217",
+                            "Name": "PM-0444",
+                            "IsActive": true,
+                            "CardType": "AMEXs",
+                            "CardHolderName": "Edson Vendramini (Adriano Teste2)",
+                            "MethodType": "Credit Cards"
+                        }
+                    ],
+                    "BillingAccount": {
+                        "PaymentMethosInUse": "a2o7j000000UnREAA0",
+                        "Name": "Adribill",
+                        "BillingAccountId": "0017j00000v2v7vAAA"
+                    },
+                    "Account": {
+                        "BusinessUnit": "",
+                        "RecordType": "Consumer",
+                        "AccountId": "0017j00000v2v7uAAA"
+                    }
+                }
+            },
+            "DRFlexGetDetailsAccountExtractStatus": true,
+            "options": {
+                "Content-Type": "application/json",
+                "X-B3-TraceId": "34bebfb2dad14be7",
+                "X-Salesforce-SNI": "PRESENT",
+                "Postman-Token": "ed6ac972-4d07-4846-bac2-6b996e38ba43",
+                "X-B3-Sampled": "0",
+                "X-B3-SpanId": "34bebfb2dad14be7",
+                "X-Salesforce-SIP": "191.32.200.179",
+                "Accept-Encoding": "gzip, deflate, br",
+                "Host": "cec-claro--claroflex.sandbox.my.salesforce.com",
+                "Connection": "keep-alive",
+                "User-Agent": "PostmanRuntime/7.32.2",
+                "CipherSuite": "ECDHE-RSA-AES256-GCM-SHA384 TLSv1.2 443",
+                "Accept": "*/*"
+            },
+            "IdentificationType": "CPF",
+            "DocNumber": "15578910360"
+        }
+        </Payload>
+        <StatusCode>200</StatusCode>
+    </Set>
+</AssignMessage>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="155" name="customerbill-cecpaymentmethods-v1">
+    <Basepaths>/customerbill/v1/cec/paymentmethods</Basepaths>
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1683661371936</CreatedAt>
+    <CreatedBy>caio.pitta@spread.com.br</CreatedBy>
+    <Description>API responsável por criar registros de Método de Pagamento na plataforma Salesforce/Vlocity.</Description>
+    <DisplayName>customerbill-cecpaymentmethods-v1</DisplayName>
+    <LastModifiedAt>1694703345841</LastModifiedAt>
+    <LastModifiedBy>matheus.grenfellsantos@nttdata.com</LastModifiedBy>
+    <ManifestVersion>SHA-512:7ea8cc150878f882bac2d15a94b866974511c41b51f9da254339b6f3199f2de7601c628680893271dfdd19b19811989498adc5f226ce9dedb33128173d0ee550</ManifestVersion>
+    <Policies>
+        <Policy>AM-DisablePathCopy</Policy>
+        <Policy>AM-SetRequest-GET</Policy>
+        <Policy>AM-SetRequest-PUT</Policy>
+        <Policy>EV-JSON-Header</Policy>
+        <Policy>JS-TransformRequest-GET</Policy>
+        <Policy>JS-TransformRequest-NewPUT-js</Policy>
+        <Policy>JS-TransformRequest-PUT</Policy>
+        <Policy>JS-TransformRequestPOST</Policy>
+        <Policy>JS-TransformResponse-GET</Policy>
+        <Policy>JS-TransformResponse-NewGET</Policy>
+        <Policy>JS-TransformResponse-NewPUT</Policy>
+        <Policy>JS-TransformResponse-POST</Policy>
+        <Policy>JS-TransformResponse-PUT</Policy>
+        <Policy>JS-ValidateRequest</Policy>
+        <Policy>JS-XQueryString</Policy>
+        <Policy>JS-requestParam</Policy>
+        <Policy>RF-BadRequest-400</Policy>
+        <Policy>RF-NotAcceptable-406</Policy>
+        <Policy>RF-RaiseMethodNotAllowed-405</Policy>
+        <Policy>RF-UnprocessableEntity-404</Policy>
+        <Policy>RF-UnsupportedMediaType-415</Policy>
+        <Policy>SF-cecPaymentMethods</Policy>
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources>
+        <Resource>jsc://JS-TransformRequest-GET.js</Resource>
+        <Resource>jsc://JS-TransformRequest-NewPUT.js</Resource>
+        <Resource>jsc://JS-TransformRequest-PUT.js</Resource>
+        <Resource>jsc://JS-TransformRequestPOST.js</Resource>
+        <Resource>jsc://JS-TransformResponse-GET.js</Resource>
+        <Resource>jsc://JS-TransformResponse-NewGET.js</Resource>
+        <Resource>jsc://JS-TransformResponse-NewPUT.js</Resource>
+        <Resource>jsc://JS-TransformResponse-POST.js</Resource>
+        <Resource>jsc://JS-TransformResponse-PUT.js</Resource>
+        <Resource>jsc://JS-ValidateRequest.js</Resource>
+        <Resource>jsc://JS-XQueryString.js</Resource>
+        <Resource>jsc://JS-requestParam.js</Resource>
+    </Resources>
+    <Spec></Spec>
+    <TargetServers/>
+    <TargetEndpoints>
+        <TargetEndpoint>TS-cecPaymentMethods</TargetEndpoint>
+    </TargetEndpoints>
+</APIProxy>

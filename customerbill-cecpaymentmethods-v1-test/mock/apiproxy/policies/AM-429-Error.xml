@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-429-Error">
+    <DisplayName>AM-429-Error</DisplayName>
+    <Properties/>
+    <Set>
+        <Payload contentType="application/json" variablePrefix="#" variableSuffix="%">
+            {
+  "apiVersion": "1;2021-03-30",
+  "transactionId": "37d327fa-cd80-4ef7-b433-73ea72cd7669",
+  "error": {
+    "httpCode": "429",
+    "errorCode": "API-CECPAYMENTMETHODS-429",
+    "message": "Too Many Requests",
+    "detailedMessage": "Consumer requests exceeded policies.",
+    "link": {
+      "rel": "related",
+      "href": "https://api.net.com.br/docs/error_codes.html"
+    }
+  
+        </Payload>
+        <StatusCode>429</StatusCode>
+    </Set>
+    <AssignTo createNew="true" transport="http" type="response"/>
+</AssignMessage>

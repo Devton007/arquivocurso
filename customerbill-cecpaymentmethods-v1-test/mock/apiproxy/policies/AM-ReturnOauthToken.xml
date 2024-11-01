@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-ReturnOauthToken">
+    <DisplayName>AM-ReturnOauthToken</DisplayName>
+    <Properties/>
+    <Set>
+        <Payload contentType="application/json">
+        {"access_token":"00D1H000000NEOi!AQQAQJrnl_YubvQAL6ahVwJJ0mC0__b4XbIlweHRAZhera5DNQTedJ_HEG9ZGrjFzquXv0mexvuugpgsO2_A3H5OYBPZNpuv","instance_url":"https://cec-claro.my.salesforce.com","id":"https://login.salesforce.com/id/00D1H000000NEOiUAO/0051H00000B0FSMQA3","token_type":"Bearer","issued_at":"1589551634745","signature":"azLRSgYto05zOZyyxMrxzKnr+aQ3Zrxxgl43K876HFI="}
+      </Payload>
+        <StatusCode>200</StatusCode>
+    </Set>
+    <AssignTo createNew="true" transport="http" type="response"/>
+</AssignMessage>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-error-422-02">
+    <DisplayName>AM-error-422-02</DisplayName>
+    <Properties/>
+    <Set>
+        <Headers>
+            <Header name="Content-Type">application/json</Header>
+        </Headers>
+        <Payload contentType="application/json">
+         {
+          "status": "FAIL",
+          "statusCode": 422,
+          "success": false,
+          "message": "Payment Method not found"
+        }
+        </Payload>
+        <StatusCode>422</StatusCode>
+    </Set>
+</AssignMessage>

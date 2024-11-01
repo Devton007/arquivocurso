@@ -1,0 +1,43 @@
+[
+  {
+    "entry": [
+      {
+        "name": "customerbill-cecpaymentmethods-v1__apiVersion",
+        "value": "1;2023-08-01"
+      }
+    ],
+    "name": "sf-initializeattributes-v1-config"
+  },
+  {
+    "entry": [
+    ],
+    "name": "sf-logging-v1-config"
+  },
+  {
+    "entry": [
+      {
+        "name": "customerbill-cecpaymentmethods-v1__POST",
+        "value": "200ps"
+      }
+    ],
+    "name": "sf-spikearrest-v1-config"
+  },
+  {
+    "entry": [
+        {
+            "name": "customerbill-cecpaymentmethods-v1__origins",
+            "value": "https://*.claro.com.br"
+        }
+    ],
+    "name": "sf-cors-v1-config"
+  },
+  {
+    "entry": [
+        {
+            "name": "customerbill-cecpaymentmethods-v1__POST",
+            "value": "12000,1,minute"
+        }
+    ],
+    "name": "sf-quota-v1-config"
+  }
+]

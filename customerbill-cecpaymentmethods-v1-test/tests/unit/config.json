@@ -1,0 +1,26 @@
+{
+    "parameters": {
+        "domain": "lab.apigw.claro.com.br",
+        "protocol": "https",
+        "port":  "443",
+        "basepath": "",
+        "apps": {
+            "customerbill-cecpaymentmethods-v1-app-ok": {
+                "name": "customerbill-cecpaymentmethods-v1-app-ok",
+                "authHeaderName": "Authorization",
+                "authHeaderValue": "Basic RldjNUVVODVEWjEwM3dFbEFtbXhpeXJyTVhGRGNuQWE6d0J2SHVnR2xRa25HSHBGMQ=="
+            },
+            "customerbill-cecpaymentmethods-v1-app-nq": {
+                "name": "customerbill-cecpaymentmethods-v1-app-nq",
+                "authHeaderName": "Authorization",
+                "authHeaderValue": "Basic NEc5N2R6bk5jT0pFSmtoeHNCYkl6dkQ2dzIySkd1TDk6ZGk2SW8wYjlmaGs0NDhCTg=="
+            },
+            "customerbill-cecpaymentmethods-v1-app-nper": {
+                "name": "customerbill-cecpaymentmethods-v1-app-nper",
+                "authHeaderName": "Authorization",
+                "authHeaderValue": "Basic aW4yTVRGeFdRODhjTUdySVJlMlVzSTB5cjlHbHpweW46UzdlekVqNWlWaUNkY3lYTw=="
+            }
+        },
+        "unitTesting": "true"
+    }
+}

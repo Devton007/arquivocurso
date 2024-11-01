@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-SuccessPUT-200">
+    <DisplayName>AM-SuccessPUT-200</DisplayName>
+    <Properties/>
+    <Set>
+        <Headers>
+            <Header name="Content-Type">application/json</Header>
+        </Headers>
+        <Payload contentType="application/json">
+            {
+          "apiVersion": "1;2022-10-19",
+          "transactionId": "dc08f892-6a3c-404f-8f11-db346b3e531c",
+          "data": {
+            "customerBill": {
+              "paymentMethodId": "0017j00000cFv1oAAC"
+            }
+          }
+        }
+        </Payload>
+        <StatusCode>200</StatusCode>
+    </Set>
+</AssignMessage>

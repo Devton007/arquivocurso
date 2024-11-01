@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-SuccessPOST-200">
+    <DisplayName>AM-SuccessPOST-200</DisplayName>
+    <Properties/>
+    <Set>
+        <Headers>
+            <Header name="Content-Type">application/json</Header>
+        </Headers>
+        <Payload contentType="application/json">
+            {
+              "data": {
+                "customerBill": {
+                  "paymentMethodId": "99999999"
+                }
+              }
+            }
+        </Payload>
+        <StatusCode>200</StatusCode>
+    </Set>
+</AssignMessage>

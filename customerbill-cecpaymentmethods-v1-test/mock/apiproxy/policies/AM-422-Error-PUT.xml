@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-422-Error-PUT">
+    <DisplayName>AM-422-Error-PUT</DisplayName>
+    <Properties/>
+    <Set>
+        <Payload contentType="application/json">
+       {
+    "result": {
+        "errors": {
+            "DRFlexInativatePaymentMethodLoad": {
+                "1:0": {
+                    "1": "'0016t00000WRMP0' is not a valid Salesforce ID for the type Payment Method "
+                }
+            }
+        },
+        "errorsAsJson": {
+            "DRError": "'0016t00000WRMP0' is not a valid Salesforce ID for the type Payment Method ",
+            "data": {
+                "PaymentMethodId": ""
+            },
+            "DRFlexCheckPaymentMethodInUseExtract": {
+                "data": {
+                    "CheckPaymentMethodInUse": ""
+                }
+            },
+            "DRFlexCheckPaymentMethodInUseExtractStatus": "",
+            "ConditionalFlexUpdatePaymentMethodStatus": "",
+            "ConditionalFlexCreatePaymentMethodStatus": "",
+            "FlexCondiontionalStatus": "",
+            "options": {
+                "Content-Type": "",
+                "X-Forwarded-Server": "",
+                "X-Real-IP": "",
+                "X-Forwarded-Ssl": "",
+                "X-B3-TraceId": "",
+                "X-Salesforce-SNI": "",
+                "X-Token-CacheHit": "",
+                "X-B3-Sampled": "",
+                "X-Forwarded-For": "",
+                "X-B3-SpanId": "",
+                "X-Salesforce-SIP": "",
+                "Host": "",
+                "Connection": "",
+                "X-Forwarded-Host": "",
+                "CipherSuite": "",
+                "X-Target": "",
+                "Accept": ""
+            },
+            "PaymentMethodId": ""
+        },
+        "Case_2": [],
+        "vlocity_cmt__PaymentMethod__c_1": [
+            {
+                "UpsertSuccess": false,
+                "UpsertError": "'0016t00000WRMP0' is not a valid Salesforce ID for the type Payment Method ",
+                "vlocity_cmt__IsActive__c": false,
+                "Id": "0016t00000WRMP0AAP"
+            }
+        ],
+        "error": true,
+        "responseType": "SObject"
+    },
+    "success": false
+}
+        </Payload>
+        <StatusCode>422</StatusCode>
+    </Set>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="true" transport="http" type="response"/>
+</AssignMessage>

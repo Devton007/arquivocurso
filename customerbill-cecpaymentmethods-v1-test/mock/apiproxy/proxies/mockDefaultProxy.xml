@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="mockDefaultProxy">
+    <Description/>
+    <FaultRules/>
+    <PreFlow name="PreFlow">
+        <Response/>
+    </PreFlow>
+    <PostFlow name="PostFlow">
+        <Response>
+            <Step>
+                <Name>AM-400-Error</Name>
+                <Condition>ConsumerAccountId = "400" OR DocNumber = "400" OR PaymentMethodId = "400"</Condition>
+            </Step>
+            <Step>
+                <Name>AM-401-Error</Name>
+                <Condition>ConsumerAccountId = "401" OR DocNumber = "401" OR PaymentMethodId = "401"</Condition>
+            </Step>
+            <Step>
+                <Name>AM-403-Error</Name>
+                <Condition>ConsumerAccountId = "403" OR DocNumber = "403" OR PaymentMethodId = "403"</Condition>
+            </Step>
+            <Step>
+                <Name>AM-422-Error</Name>
+                <Condition>ConsumerAccountId = "422" OR DocNumber = "422" OR PaymentMethodId = "422"</Condition>
+            </Step>
+            <Step>
+                <Name>AM-422-Error-Customer</Name>
+                <Condition>ConsumerAccountId = "4222" OR DocNumber = "4222" OR PaymentMethodId = "a2o6t000000UJvQAAW"</Condition>
+            </Step>
+            <Step>
+                <Name>AM-422-Error-PUT</Name>
+                <Condition>PaymentMethodId = "42222"</Condition>
+            </Step>
+            <Step>
+                <Name>AM-429-Error</Name>
+                <Condition>ConsumerAccountId = "429" OR DocNumber = "429" OR PaymentMethodId = "429"</Condition>
+            </Step>
+            <Step>
+                <Name>AM-SuccessPUT-200-flex-EmUso</Name>
+                <Condition>PaymentMethodId = "2000"</Condition>
+            </Step>
+        </Response>
+    </PostFlow>
+    <Flows>
+        <Flow name="POST">
+            <Description>validação de sucesso dos três métodos POST</Description>
+            <Request>
+                <Step>
+                    <Name>EV-ExtractMockParameter</Name>
+                </Step>
+            </Request>
+            <Response>
+                <Step>
+                    <Name>AM-500-Error</Name>
+                    <Condition>customerAccountId = "500" OR DocNumber = "500" OR PaymentMethodId = "500"</Condition>
+                </Step>
+                <Step>
+                    <Name>AM-SuccessPOST-CustomerAccountId-200</Name>
+                    <Condition>ConsumerAccountId = "200"</Condition>
+                </Step>
+                <Step>
+                    <Name>AM-SuccessPOST-DocNumber-200</Name>
+                    <Condition>DocNumber = "200"</Condition>
+                </Step>
+                <Step>
+                    <Name>AM-SuccessPOST-PaymentMethodId-200</Name>
+                    <Condition>PaymentMethodId = "200"</Condition>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/services/apexrest/vlocity_cmt/v1/integrationprocedure/Flex_Paymentmethods") and (request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name="POST/PUT">
+            <Description>validação de sucesso dos três métodos POST</Description>
+            <Request/>
+            <Response>
+                <Step>
+                    <Name>EV-ExtractBody</Name>
+                </Step>
+                <Step>
+                    <Name>EV-ExtractMockParameter</Name>
+                </Step>
+                <Step>
+                    <Name>AM-SuccessPOST-200</Name>
+                    <Condition>customerAccountId = "200"</Condition>
+                </Step>
+                <Step>
+                    <Name>AM-SuccessPUT-200</Name>
+                    <Condition>PaymentMethodId = "200"</Condition>
+                </Step>
+                <Step>
+                    <Name>AM-SuccessPUT-200-flex-EmUso</Name>
+                    <Condition>PaymentMethodId = "20001"</Condition>
+                </Step>
+                <Step>
+                    <Name>AM-error-422</Name>
+                    <Condition>PaymentMethodId = "422"</Condition>
+                </Step>
+                <Step>
+                    <Name>AM-error-422-01</Name>
+                    <Condition>PaymentMethodId = "42201"</Condition>
+                </Step>
+                <Step>
+                    <Name>AM-error-422-02</Name>
+                    <Condition>PaymentMethodId = "42202"</Condition>
+                </Step>
+                <Step>
+                    <Name>AM-error-422-04</Name>
+                    <Condition>customerAccountId = "42201"</Condition>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/services/apexrest/vlocity_cmt/v1/integrationprocedure/NewStack_UpsertPaymentMethod/status") and (request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name="POST-Newstack">
+            <Description>validação de sucesso dos três métodos POST</Description>
+            <Request/>
+            <Response>
+                <Step>
+                    <Name>EV-ExtractBody</Name>
+                </Step>
+                <Step>
+                    <Name>EV-ExtractMockParameter</Name>
+                </Step>
+                <Step>
+                    <Name>AM-SuccessPOST-200</Name>
+                    <Condition>customerAccountId = "200"</Condition>
+                </Step>
+                <Step>
+                    <Name>AM-422-Error-PUT</Name>
+                    <Condition>customerAccountId = "422"</Condition>
+                </Step>
+                <Step>
+                    <Name>AM-SuccessPUT-200</Name>
+                    <Condition>PaymentMethodId = "200"</Condition>
+                </Step>
+                <Step>
+                    <Name>AM-error-422</Name>
+                    <Condition>PaymentMethodId = "422"</Condition>
+                </Step>
+                <Step>
+                    <Name>AM-error-422-01</Name>
+                    <Condition>PaymentMethodId = "42201"</Condition>
+                </Step>
+                <Step>
+                    <Name>AM-error-422-02</Name>
+                    <Condition>PaymentMethodId = "42202"</Condition>
+                </Step>
+                <Step>
+                    <Name>AM-error-422-04</Name>
+                    <Condition>customerAccountId = "42201"</Condition>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/services/apexrest/vlocity_cmt/v1/integrationprocedure/NewStack_UpsertPaymentMethod/") and (request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name="GET">
+            <Description>validação de sucesso do GET</Description>
+            <Request>
+                <Step>
+                    <Name>EV-ExtractMock-GET</Name>
+                </Step>
+            </Request>
+            <Response>
+                <Step>
+                    <Name>AM-setResponseGET-200</Name>
+                    <Condition>x-target = 2000</Condition>
+                </Step>
+                <Step>
+                    <Name>AM-setResponseGET-200-1</Name>
+                    <Condition>x-target == "2001"</Condition>
+                </Step>
+                <Step>
+                    <Name>AM-setResponseGET-200-2</Name>
+                    <Condition>x-target == "2002"</Condition>
+                </Step>
+                <Step>
+                    <Name>AM-setResponseGET-200-3</Name>
+                    <Condition>x-target == "2003"</Condition>
+                </Step>
+                <Step>
+                    <Name>AM-422-ErrorGET</Name>
+                    <Condition>x-target == "422"</Condition>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/services/apexrest/vlocity_cmt/v1/integrationprocedure/NewStack_SearchPaymentMethod/") and (request.verb = "GET")</Condition>
+        </Flow>
+    </Flows>
+    <HTTPProxyConnection>
+        <BasePath>customerbill-cecpaymentmethods-v1</BasePath>
+        <Properties/>
+        <VirtualHost>secure</VirtualHost>
+        <VirtualHost>default</VirtualHost>
+    </HTTPProxyConnection>
+    <RouteRule name="default"/>
+</ProxyEndpoint>

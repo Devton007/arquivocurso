@@ -1,0 +1,25 @@
+variables:
+  CRITICIDADE: 'BAIXA'
+  NOVA_CORRETIVA: 'NOVA'
+  INDISPONIBILIDADE: 'NAO'
+  DEPENDENCIAS: 'NAO'
+  ANALISE_CAPACITY: 'SIM'
+  API_NAME: 'customerbill-cecpaymentmethods-v1'
+  DC: '*'
+
+  TEAMS_PRODUCT_OWNER_ACCOUNTS: 'Z224361'
+  TEAMS_PRODUCT_OWNER_EMAILS: 'edson.vendramini@spread.com.br'
+  TEAMS_TEST_ACCOUNTS: 'Z079801,Z234412,Z221519,Z079801,Z234412,Z224361,Z261404,Z328676,Z234412,Z079801' 
+  TEAMS_DEV_EMAILS: 'edson.vendramini@spread.com.br'
+
+  SQUAD: 'Solar ClaroFlex'
+  STRIP_BACKEND_CONFIG: 'true'
+    
+default:
+  tags:
+    - campinas 
+
+include:
+  project: 'Gestao_Fontes/pipelinegitrunner'
+  ref: 'master'
+  file: 'apigee.yml'

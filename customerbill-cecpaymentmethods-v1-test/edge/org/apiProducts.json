@@ -1,0 +1,91 @@
+[
+  {
+    "name": "customerbill-cecpaymentmethods-v1-ok",
+    "displayName": "customerbill-cecpaymentmethods-v1-ok",
+    "description": "API para manipular Metodos de Pagamento no Vlocity",
+    "apiResources": [],
+    "approvalType": "auto",
+    "attributes": [
+      {
+        "name": "authtype",
+        "value": "[basic,allowedips],[oauth]"
+      }
+    ],
+    "environments": [
+      "lab",
+      "dev",
+      "test"
+    ],
+    "proxies": [
+      "customerbill-cecpaymentmethods-v1",
+      "oauth-tokenissuer-v1"
+    ],
+    "quota": "1200",
+    "quotaInterval": "1",
+    "quotaTimeUnit": "minute",
+    "scopes": [],
+    "access": "private"
+  },
+  {
+    "name": "customerbill-cecpaymentmethods-v1-nq",
+    "displayName": "customerbill-cecpaymentmethods-v1-nq",
+    "description": "API para manipular Metodos de Pagamento no Vlocity No Quota",
+    "apiResources": [],
+    "approvalType": "auto",
+    "attributes": [
+      {
+        "name": "auth.apptype",
+        "value": "confidential"
+      },
+      {
+        "name": "auth.usertype",
+        "value": "false"
+      }
+    ],
+    "environments": [
+      "lab",
+      "dev",
+      "test"
+    ],
+    "proxies": [
+      "customerbill-cecpaymentmethods-v1"
+    ],
+    "quota": "1",
+    "quotaInterval": "1",
+    "quotaTimeUnit": "month",
+    "scopes": [],
+    "access": "private"
+  },
+  {
+    "name": "customerbill-cecpaymentmethods-v1-np",
+    "displayName": "customerbill-cecpaymentmethods-v1-np",
+    "description": "AAPI para manipular Metodos de Pagamento no Vlocity No Permission",
+    "apiResources": [
+      "/error"
+    ],
+    "approvalType": "auto",
+    "attributes": [
+      {
+        "name": "auth.apptype",
+        "value": "confidencial"
+      },
+      {
+        "name": "authtype",
+        "value": "basic"
+      }
+    ],
+    "environments": [
+      "lab",
+      "dev",
+      "test"
+    ],
+    "proxies": [
+      "customerbill-cecpaymentmethods-v1"
+    ],
+    "quota": "100",
+    "quotaInterval": "1",
+    "quotaTimeUnit": "minute",
+    "scopes": [],
+    "access": "private"
+  }
+]

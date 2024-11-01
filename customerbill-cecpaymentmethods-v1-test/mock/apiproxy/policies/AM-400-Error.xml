@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-400-Error">
+    <DisplayName>AM-400-Error</DisplayName>
+    <Properties/>
+    <Set>
+        <Payload contentType="application/json">
+            {
+  "apiVersion": "1;2021-03-30",
+  "transactionId": "37d327fa-cd80-4ef7-b433-73ea72cd7669",
+  "error": {
+    "httpCode": "400",
+    "errorCode": "API-CECPAYMENTMETHODS-400",
+    "message": "Bad Request",
+    "detailedMessage": "Invalid Request for operation.",
+    "link": {
+      "rel": "related",
+      "href": "https://api.net.com.br/docs/error_codes.html"
+    }
+  }
+}     
+        </Payload>
+        <StatusCode>400</StatusCode>
+    </Set>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="true" transport="http" type="response"/>
+</AssignMessage>

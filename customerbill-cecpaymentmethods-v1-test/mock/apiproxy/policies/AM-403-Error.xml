@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-403-Error">
+    <DisplayName>AM-403-Error</DisplayName>
+    <Properties/>
+    <Set>
+        <Payload contentType="application/json" variablePrefix="#" variableSuffix="%">
+            {
+  "apiVersion": "1;2021-03-30",
+  "transactionId": "37d327fa-cd80-4ef7-b433-73ea72cd7669",
+  "error": {
+    "httpCode": "403",
+    "errorCode": "API-CECPAYMENTMETHODS-403",
+    "message": "Forbidden",
+    "detailedMessage": "Access denied.",
+    "link": {
+      "rel": "related",
+      "href": "https://api.net.com.br/docs/error_codes.html"
+    }
+  }
+}
+        </Payload>
+        <StatusCode>403</StatusCode>
+    </Set>
+    <AssignTo createNew="true" transport="http" type="response"/>
+</AssignMessage>

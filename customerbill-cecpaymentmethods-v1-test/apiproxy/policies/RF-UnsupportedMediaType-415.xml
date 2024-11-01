@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RaiseFault async="false" continueOnError="false" enabled="true" name="RF-UnsupportedMediaType-415">
+    <DisplayName>RF-UnsupportedMediaType-415</DisplayName>
+    <Properties/>
+    <FaultResponse>
+        <Set>
+            <Headers>
+                <Header name="Content-Type">application/json</Header>
+            </Headers>
+            <Payload contentType="application/json">
+                {
+                  "apiVersion": "{apiVersion}",
+                  "transactionId": "{transactionId}",
+                  "error": {
+                    "httpCode": "415",
+                    "errorCode": "API-CECPAYMENTMETHODS-415"
+                    "message": "Unsupported Media Type",
+                    "detailedMessage": "Invalid request media type.",
+                    "link": {
+                      "rel": "related",
+                      "href": "https://api.claro.com.br/docs"
+                    }
+                  }
+                }
+            </Payload>
+            <StatusCode>415</StatusCode>
+            <ReasonPhrase>Unsupported Media Type</ReasonPhrase>
+        </Set>
+    </FaultResponse>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</RaiseFault>

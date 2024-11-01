@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Manifest name="manifest">
+    <Policies>
+        <VersionInfo resourceName="AM-DisablePathCopy" version="SHA-512:305d968b74e413c7d666a1c662b0dadf70e95c8a5c7e9edb56e6033b3b9e109111f324bb619d756b04d6e06da64ec517b907367684668949f1a817f3a508f4e9"/>
+        <VersionInfo resourceName="AM-SetRequest-GET" version="SHA-512:b6c37d36fd1f7b23c366f9b4d2b5ebcdf39ec380cb6b814d599a295e69f5c55ae8940e924fd14915fbdc339045e4aec79ca4ddbbf4bf636b64164164f827e9dc"/>
+        <VersionInfo resourceName="AM-SetRequest-PUT" version="SHA-512:33c3fd1350f6d8e40790f4694172af0825648a76a36d6dbda2a232397111783a37a29394cf34cb91208a3e587b12d7f564852178c9ec613546c2ff4c7fcd6655"/>
+        <VersionInfo resourceName="EV-JSON-Header" version="SHA-512:aec0234d6e20f411f17e10e0ccb10987ee5331b8a0271571999f2433be37f0c123ae59644065ab282f175a64b3ea199d42c88c17004ed6bc91fea0ebe8dea94a"/>
+        <VersionInfo resourceName="JS-TransformRequest-GET" version="SHA-512:efc6baaeeae894af05cc8768d243eafe6d708010cde2670c2a73d18d41c178d566a9fe7426a6ee3a78fe8c15afe6e88385b833523c2fdfa56932869645da9117"/>
+        <VersionInfo resourceName="JS-TransformRequest-NewPUT-js" version="SHA-512:6f0b67ba2959d25f5a697eaac1d2a08bad5d2a87d5b012a4d3e349842bcea71fa1b13bcee7d1a5e7e2ed4f1ca25b2694008243131231a3d8a0ddb6cb09c67ce2"/>
+        <VersionInfo resourceName="JS-TransformRequest-PUT" version="SHA-512:2ce61f7dc492ac64f0c7f46cce2bb737057399ca36e4080319346e1ed545725f7c4ee3b040acee5342dda161640377ef61729c76a9d189bbb7987af6e654c5cc"/>
+        <VersionInfo resourceName="JS-TransformRequestPOST" version="SHA-512:faef61c185d8c1a858107e93f3a1c7ca42f834ca376b478d42a75d1a77f8fb3235088acf442ca5b79fa660e294b8a5bc017f9dd187b8e56131242b4fd1188007"/>
+        <VersionInfo resourceName="JS-TransformResponse-GET" version="SHA-512:1c8015f5a7b95582da7bb3e2d3258395685d1df8fbf549ef8cf4dd08cb7c4359fafdea7eb5e70310017af564eb08e661dc0467b0193c81eb71c19af3e5dcea83"/>
+        <VersionInfo resourceName="JS-TransformResponse-NewGET" version="SHA-512:9988f72e68dae6bdc943d86dfa2a9d130bd5dbdc2ec48c0847b93d479a9c83557dc176321c8f9914b87284fca5bc252b958d84a13791901cb26409a6f0ed2d78"/>
+        <VersionInfo resourceName="JS-TransformResponse-NewPUT" version="SHA-512:7901c7e628c4b080c41a1518547004675fa4a43637d9f3af468f99b49325594de04969bbcdeb828b3ea2964b532556531915f141970de99f4ac7987999ae8a6b"/>
+        <VersionInfo resourceName="JS-TransformResponse-POST" version="SHA-512:408d0fe9db52ab002104d2d859a41f550619be1d0760df49124870056a1afeb86fc177225ddf5af0caabb7241b7339157edd7f653cf87d7216b7a6b968867bdc"/>
+        <VersionInfo resourceName="JS-TransformResponse-PUT" version="SHA-512:d98956685a74f1927bbae7b4f298bb46363e3e9c6b4f961d19b97264dcc8092c9bcdddd9c3524e9fc02b06a24c4877e92474b3ab5becc7decc72c27baa92e22c"/>
+        <VersionInfo resourceName="JS-ValidateRequest" version="SHA-512:cdb3403efa6390e9a1122efa3fffe7565706943b69499e130bbf74c51d5e8e2d2f8fe580a9df61f32ed2d0dabc6fbb5179c528b41425f107c51ff10cedf16c6a"/>
+        <VersionInfo resourceName="JS-XQueryString" version="SHA-512:28c79d4002777a5911e0d92d8390efe967780b1646878fe648c8a9d88bc375424ff35ce40a3076f88e21621b71847329c07434e444bedd4896d3473f946dba1b"/>
+        <VersionInfo resourceName="JS-requestParam" version="SHA-512:8feeb11608804746fdf29f09cfd6cf8331a334922c86844b8824d197eb846cd87b33caa74b485b0261a09e3ebbe42881b638e1444fe8aa4e803c97e620ab016a"/>
+        <VersionInfo resourceName="RF-BadRequest-400" version="SHA-512:efc5220ed1e76f964484645c9c76b4bdb05e203ed2d33be1e68fa8b2ef97a174c0cdf5f3f4f4a5f53c957121cd9e4472699c18d42802adb63e69942188c82318"/>
+        <VersionInfo resourceName="RF-NotAcceptable-406" version="SHA-512:7dce3457bba8bc30f0a3d097fe47171cf17af482ced6a7be2bd28df52eb3b7fef57d861c78d879a626755c7c9711ec51b0280e6fdf86f6720f6af2810962191c"/>
+        <VersionInfo resourceName="RF-RaiseMethodNotAllowed-405" version="SHA-512:f3a1e3f1019c53821bd16d80f4a1234c7c95c5b93036a8655cbcbeaa6277c447bafadd17e85120c71f1b52cc294d6ad8adf0b1f7c94605d4f64f43d16903aade"/>
+        <VersionInfo resourceName="RF-UnprocessableEntity-404" version="SHA-512:636dd241f4e82413cdfeb5b27b2d8a6e7537919475c5e0895ef4e9bcb4278832e3ddaa0ef383228ed00b42d98fa9823f70de0c3608f36c525d1cb7ae69d845a9"/>
+        <VersionInfo resourceName="RF-UnsupportedMediaType-415" version="SHA-512:6662282fe191d8856d162e6a3c7ac76c69564e8c914284a52683242927163d6ab24962b3a290d35af6d140259d0b897ce819c2070ec36aa1a80e0189e6339f99"/>
+        <VersionInfo resourceName="SF-cecPaymentMethods" version="SHA-512:a322cfe337637fd8eed1ca18495de12e8931dd47afb272e7c912c8478d5ea187cb374a4084cdc628aa41787dec8ea51e2b11147b305b1983f529d666b84b3c6d"/>
+    </Policies>
+    <ProxyEndpoints>
+        <VersionInfo resourceName="default" version="SHA-512:f2b7c0f048e59ef3bfe430fa47076438a28de34d2e21e040d7e04c482c8dca7bd3f2bbbe80bb7d300d1ddc8e78afebce6361eea65428a9e08d18f0c11e3c64fb"/>
+    </ProxyEndpoints>
+    <Resources>
+        <VersionInfo resourceName="jsc://JS-TransformRequest-GET.js" version="SHA-512:ea45c5221274e2051bf59dc17d2657d051ea6259e71f2a602a8999b899738df25aef438c935e22c0d7abdb1395f7cce02077c9139499f457e24e5438a30ed7ed"/>
+        <VersionInfo resourceName="jsc://JS-TransformRequest-NewPUT.js" version="SHA-512:6e5de0932095dbbf279891a3546766b56672183841d51dbb187c89f07ea09534d12cae7e3564662fac86a6b19faa4978c47f9ba9c0af1fd2f7cda0092ce4f6c2"/>
+        <VersionInfo resourceName="jsc://JS-TransformRequest-PUT.js" version="SHA-512:05b22d2761c83eb98f35a707b9c1eab4ceccb1e29de12277b240ba63ec7736b5d85e3c7f651e408b2ce6e3ef080cc77e9afb2de88198085ce7fe7ee896064e72"/>
+        <VersionInfo resourceName="jsc://JS-TransformRequestPOST.js" version="SHA-512:a5c5ca94c8613238720d5fa3f29e87ed64b4ba4b89cd6afcdc6b0fb0b2f6cda5fd26c0ce58c1e39d0a63fe9f362a6cbd9c31ef21bcc5f506fd93805646853618"/>
+        <VersionInfo resourceName="jsc://JS-TransformResponse-GET.js" version="SHA-512:5f3573b0b12ff8e0479b40e5e2c050e4be0654c05ca271d14d6ce389a206a2f234bc40f00779b4a156786cbbce7ec3c6aee4d029d52f07c33274b54ca2f41714"/>
+        <VersionInfo resourceName="jsc://JS-TransformResponse-NewGET.js" version="SHA-512:0174bbe6b1dbe84b541c202f63d010f64eb0fff026d2ab7e15c79d83f490e19cb8910776f2880470cb43b2ca47cda65d53f87e1e200dd29ede46f79a02e117f1"/>
+        <VersionInfo resourceName="jsc://JS-TransformResponse-NewPUT.js" version="SHA-512:ec1c5ed25fcbd05dc59f802b1c9926e6366f5d31185b42329bb78503acbc8c35933ae0858ad59fecdd7f33263e53cac27379550d2e3de8dff2ac6259792f16bf"/>
+        <VersionInfo resourceName="jsc://JS-TransformResponse-POST.js" version="SHA-512:8440b62a3d2412b2c8a6e7a0b84a0cb978443dbeb8fedf17dfb2cff35089dca9c7b2867bce1575712b5c04826fca67f6e75af21dee31de09ad7cbf841d003d57"/>
+        <VersionInfo resourceName="jsc://JS-TransformResponse-PUT.js" version="SHA-512:098737b80dd7341b242c9d3320c54af3bc4ef9ce4512dd7a3052c6f3598a59828adde5580d7e57ffb171e7220b75d4aee94c2e35a979b66fb983666187d62af0"/>
+        <VersionInfo resourceName="jsc://JS-ValidateRequest.js" version="SHA-512:9238b31f2d0c8b9fe12ef182b55152ed4d4eb195abb4246a9ea2efa63ecb381931f779cd4deeb42ae779a736aa3bc203560897190570d28f6a727de31b762170"/>
+        <VersionInfo resourceName="jsc://JS-XQueryString.js" version="SHA-512:9b62602028aeab49b1a2911cc947d9108e14b25f5a64a19778f84115377aea943af1400b2cdc7c5369babd8c5fe803187c736014f9c1484efe20dba8edd7105d"/>
+        <VersionInfo resourceName="jsc://JS-requestParam.js" version="SHA-512:c1c7b16b16b88f75fd0b0c2b819784add78eea6082cbb5908beb34b025472a0630e20a13d228e3ca26e0bd9bd198bcff8cfc7acacc53d04d234148de327fa8ec"/>
+    </Resources>
+    <SharedFlows/>
+    <TargetEndpoints>
+        <VersionInfo resourceName="TS-cecPaymentMethods" version="SHA-512:e1dde265f8df15eb4812e04695bfd72e8279db8dca21b45680821ef4deea796999e55bce700f78a98af0902798341b71c79a6b75716a996503c2cccc2577935b"/>
+    </TargetEndpoints>
+</Manifest>

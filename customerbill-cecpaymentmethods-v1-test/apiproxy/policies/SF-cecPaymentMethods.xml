@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<FlowCallout async="false" continueOnError="false" enabled="true" name="SF-cecPaymentMethods">
+    <DisplayName>SF-cecPaymentMethods</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <Parameters>
+        <Parameter name="backendconfiguration.targetname">salesforceSolar</Parameter>
+    </Parameters>
+    <SharedFlowBundle>sf-backendconfiguration-salesforce-v1</SharedFlowBundle>
+</FlowCallout>

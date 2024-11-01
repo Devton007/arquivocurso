@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables async="false" continueOnError="false" enabled="true" name="EV-ExtractMock-GET">
+    <DisplayName>EV-ExtractMock-GET</DisplayName>
+    <Properties/>
+    <Header name="x-target">
+        <Pattern ignoreCase="true">{x-target}</Pattern>
+    </Header>
+</ExtractVariables>

@@ -1,0 +1,150 @@
+{
+  "edson.vendramini@spread.com.br": [
+    {
+      "name": "customerbill-cecpaymentmethods-v1-app-ok",
+      "displayName": "customerbill-cecpaymentmethods-v1-app-ok",
+      "apiProducts": [
+        "customerbill-cecpaymentmethods-v1-ok"      
+      ],
+      "callbackUrl": "",
+      "scopes": [
+      ],
+      "attributes": [
+        {
+          "name": "authtype",
+          "value": "oauth"
+        },
+        {
+          "name": "allowedips",
+          "value": "0.0.0.0/0"
+        },
+        {
+					"name": "targetsuffix_salesforce",
+					"value": "partial"
+				},
+        {
+					"name": "x-target",
+					"value": "test06"
+				}
+      ]
+    },
+    {
+      "name": "customerbill-cecpaymentmethods-v1-app-nq",
+      "displayName": "customerbill-cecpaymentmethods-v1-app-nq",
+      "apiProducts": [
+        "customerbill-cecpaymentmethods-v1-nq"
+      ],
+      "callbackUrl": "",
+      "scopes": [
+      ],
+      "attributes": [
+        {
+          "name": "apptype",
+          "value": "confidential"
+        },
+        {
+          "name": "allowedips",
+          "value": "0.0.0.0/0"
+        }
+      ]
+    },
+    {
+      "name": "customerbill-cecpaymentmethods-v1-app-np",
+      "displayName": "customerbill-cecpaymentmethods-v1-app-np",
+      "apiProducts": [
+        "customerbill-cecpaymentmethods-v1-np"
+      ],
+      "callbackUrl": "",
+      "scopes": [
+      ],
+      "attributes": [
+        {
+          "name": "apptype",
+          "value": "confidential"
+        },
+        {
+          "name": "authtype",
+          "value": "basic"
+        }        
+      ]
+    }
+  ],
+  "victhor.duque.alencar@nttdata.com":[
+    {
+      "name": "customerbill-cecpaymentmethods-v1-newstack-app-ok",
+      "displayName": "customerbill-cecpaymentmethods-v1-newstack-app-ok",
+      "apiProducts": [
+        "customerbill-cecpaymentmethods-v1-ok"      
+      ],
+      "callbackUrl": "",
+      "scopes": [
+      ],
+      "attributes": [
+        {
+          "name": "authtype",
+          "value": "oauth"
+        },
+        {
+          "name": "allowedips",
+          "value": "0.0.0.0/0"
+        },
+        {
+          "name": "channel",
+          "value": "nowonlineclarotvavs"
+        }
+      ]
+    },
+    {
+      "name": "customerbill-cecpaymentmethods-v1-app-nq",
+      "displayName": "customerbill-cecpaymentmethods-v1-app-nq",
+      "apiProducts": [
+        "customerbill-cecpaymentmethods-v1-nq"
+      ],
+      "callbackUrl": "",
+      "scopes": [
+      ],
+      "attributes": [
+        {
+          "name": "apptype",
+          "value": "confidential"
+        },
+        {
+          "name": "allowedips",
+          "value": "0.0.0.0/0"
+        },
+        {
+          "name": "channel",
+          "value": "nowonlineclarotvavs"
+        }
+      ]
+    },
+    {
+      "name": "customerbill-cecpaymentmethods-v1-app-np",
+      "displayName": "customerbill-cecpaymentmethods-v1-app-np",
+      "apiProducts": [
+        "customerbill-cecpaymentmethods-v1-np"
+      ],
+      "callbackUrl": "",
+      "scopes": [
+      ],
+      "attributes": [
+        {
+          "name": "apptype",
+          "value": "confidential"
+        },
+        {
+          "name": "authtype",
+          "value": "basic"
+        },
+        {
+          "name": "channel",
+          "value": "nowonlineclarotvavs"
+        },
+        {
+          "name": "targetsuffix_salesforce",
+          "value": "partial"
+        }      
+      ]
+    }
+  ]
+}

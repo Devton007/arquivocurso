@@ -1,0 +1,1245 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Customers - CEC Customers Payment Methods (Proxy Apigee: customerbill-cecpaymentmethods-v1)",
+    "description": "<table>   \n  <thead>  \n    <tr>\n      <th>Version</th>\n      <th>Author</th>\n      <th>Data</th>\n      <th>Changes</th>\n    </tr>  \n  </thead>\n  <tbody>\n    <tr>\n      <td>1.0.0</td>\n      <td>Edson Vendramini</td>\n      <td>2023-04-10</td>\n      <td>[Solar ClaroFlex] Versão inicial</td>\n    </tr>\n    <tr>\n      <td>1.0.1</td>\n      <td>Diogo Rocha</td>\n      <td>2023-08-01</td>\n      <td>[New Stack de TV] POST - Adição campo \"businessUnit\" <br>\n          GET - Filtro por isActive e businessUnit <br>\n          PUT - Response incluido o campo paymentMethodId\n      </td>\n    </tr>\n</tbody>\n</table> \n\n## Objetivo\n  API responsável por criar registros de Método de Pagamento na plataforma Salesforce/Vlocity.\n  \nO Cliente (Account) é a pessoa (Inicialmente Física) que solicitará a criação de seu Método de Pagamento (Payment Method).\n\n## Público-Alvo\nAté a data desta especificação os potenciais consumidores será o Front-End da aplicação do app ClaroFlex.\n\n## Provedores\nO back-end provedor da API será o SalesForce, que será responsável por gerar os dados para pagamento do produto no Salesforce/Vlocity.\n\n## Contexto em que a API se Insere\n\n Esta API é um item nativo do Salesforce/Vlocity que foi apontada para que fosse utilizada nos casos em que um cliente, interessado em consumir produtos do novo ClaroFlex, pudesse realizar seu cadastro. O principal elemento desta é:\n \n    *Método de Pagamento (Payment Method): É a forma de pagamento que será utilizada pela Conta de Pagamento.",
+    "version": "1;2023-08-01",
+    "contact": {
+      "name": "CC-Integração - Edson Vendramini",
+      "email": "coee.api.integracao@claro.com.br"
+    },
+    "x-claro-domains": [
+      "Customer Bill"
+    ]
+  },
+  "security": [
+    {
+      "BasicAuth": []
+    },
+    {
+      "BearerAuth": []
+    },
+    {
+      "ApiKeyAuth": []
+    },
+    {
+      "OAuth2": []
+    }
+  ],
+  "paths": {
+    "/cec/paymentmethods": {
+      "post": {
+        "summary": "Esta operação realiza a criação de métodos de pagamento (payment method) no SalesForce. Gerar registro de payment method no Salesforce. Backend: Vlocity",
+        "description": "Esta operação realiza a criação de uma método de pagamento (payment method). Backend:Salesforce/Vlocity.",
+        "tags": [
+          "CEC Customers Payment Methods"
+        ],
+        "responses": {
+          "201": {
+            "description": "Business object representing Payment Method added.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/paymentMethodsPostResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "405": {
+            "$ref": "#/components/responses/405"
+          },
+          "406": {
+            "$ref": "#/components/responses/406"
+          },
+          "413": {
+            "$ref": "#/components/responses/413"
+          },
+          "414": {
+            "$ref": "#/components/responses/414"
+          },
+          "422": {
+            "description": "Unprocessable Entity - Identify business errors that can be detailed according to backend system rules.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error"
+                },
+                "examples": {
+                  "CustomerNotFound": {
+                    "value": {
+                      "apiVersion": "1;2023-08-01",
+                      "transactionId": "dc08f892-6a3c-404f-8f11-db346b3e531c",
+                      "error": {
+                        "httpCode": "422",
+                        "errorCode": "API-CECPAYMENTMETHODS-001",
+                        "message": "Unprocessable Entity",
+                        "detailedMessage": "Customer not found.",
+                        "link": {
+                          "rel": "related",
+                          "href": "https://api.claro.com.br/docs"
+                        }
+                      }
+                    }
+                  },
+                  "DataRaptorError": {
+                    "value": {
+                      "apiVersion": "1;2023-08-01",
+                      "transactionId": "dc08f892-6a3c-404f-8f11-db346b3e531c",
+                      "error": {
+                        "httpCode": "422",
+                        "errorCode": "API-CECBILLINGACCOUNTS-422",
+                        "message": "Unprocessable Entity",
+                        "detailedMessage": "Dataraptor execution error.",
+                        "link": {
+                          "rel": "related",
+                          "href": "https://api.claro.com.br/docs"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "$ref": "#/components/responses/429"
+          },
+          "451": {
+            "$ref": "#/components/responses/451"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          },
+          "503": {
+            "$ref": "#/components/responses/503"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/paymentMethodsPostRequest"
+              },
+              "example": {
+                "data": {
+                  "customerAccountId": "0016t00000WRMP0AAP",
+                  "businessUnit": "ClaroFlex",
+                  "paymentMethod": {
+                    "type": "CreditCard",
+                    "creditCard": {
+                      "brand": "Master",
+                      "holder": "Marco Antonio Ribeiro Vendramini",
+                      "lastFourNumber": "8019",
+                      "expirationDate": "052024",
+                      "firstToken": "3256CA16-EFE0-48F5-B9F4-AD29B595BB4C",
+                      "secondToken": "3256CA16-EFE0-48F5-B9F4-AD29B595BB4C"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "description": "Request body for payment method.",
+          "required": true
+        }
+      },
+      "get": {
+        "summary": "Esta operação realiza a consulta de métodos de pagamento (payment method) no SalesForce. Consultar registro de payment method no Salesforce. Backend: Vlocity",
+        "description": "Esta operação realiza a consulta de uma método de pagamento (payment method). Backend:Salesforce/Vlocity.",
+        "tags": [
+          "CEC Customers Payment Methods"
+        ],
+        "responses": {
+          "201": {
+            "description": "Business object representing Payment Method added.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/paymentMethodsGetResponse"
+                },
+                "examples": {
+                  "PaymentAdded": {
+                    "description": "Business object representing Payment Method added.",
+                    "value": {
+                      "apiVersion": "1;2023-08-01",
+                      "transactionId": "dc08f892-6a3c-404f-8f11-db346b3e531c",
+                      "data": {
+                        "paymentMethod": [
+                          {
+                            "id": "02i3I000000vKcqQAE",
+                            "status": "Ativo",
+                            "brand": "VISA",
+                            "holder": "MARIA DA SILVA",
+                            "lastFourNumber": "1670",
+                            "expirationDate": "102028",
+                            "firstToken": "3256CA16-EFE0-48F5-B9F4-AD29B595BB4C",
+                            "secondToken": "3256CA16-EFE0-48F5-B9F4-AD29B595BB4C",
+                            "isActive": true,
+                            "billingAccountId": "02i3I000000vKcqQAE",
+                            "billingAccount": [
+                              {
+                                "id": "02i3I000000vKcqQAE",
+                                "businessUnit": "NewStack"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "SemCartoes": {
+                    "description": "Retorno sem cartoes cadastrados.",
+                    "value": {
+                      "apiVersion": "1;2023-08-01",
+                      "transactionId": "dc08f892-6a3c-404f-8f11-db346b3e531c",
+                      "data": {
+                        "paymentMethod": [
+                          null
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "405": {
+            "$ref": "#/components/responses/405"
+          },
+          "406": {
+            "$ref": "#/components/responses/406"
+          },
+          "413": {
+            "$ref": "#/components/responses/413"
+          },
+          "414": {
+            "$ref": "#/components/responses/414"
+          },
+          "422": {
+            "description": "Unprocessable Entity - Identify business errors that can be detailed according to backend system rules.\n\nThe possible values are: \n  * API-CECPAYMENTMETHODS-001: Customer not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error"
+                },
+                "examples": {
+                  "CustomerNotFound": {
+                    "value": {
+                      "apiVersion": "1;2023-08-01",
+                      "transactionId": "dc08f892-6a3c-404f-8f11-db346b3e531c",
+                      "error": {
+                        "httpCode": "422",
+                        "errorCode": "API-CECPAYMENTMETHODS-001",
+                        "message": "Unprocessable Entity",
+                        "detailedMessage": "Customer not found.",
+                        "link": {
+                          "rel": "related",
+                          "href": "https://api.claro.com.br/docs"
+                        }
+                      }
+                    }
+                  },
+                  "CustomerNotExist": {
+                    "value": {
+                      "apiVersion": "1;2023-08-01",
+                      "transactionId": "dc08f892-6a3c-404f-8f11-db346b3e531c",
+                      "error": {
+                        "httpCode": "422",
+                        "errorCode": "API-CECPAYMENTMETHODS-001",
+                        "message": "Unprocessable Entity",
+                        "detailedMessage": "Customer does not exists",
+                        "link": {
+                          "rel": "related",
+                          "href": "https://api.claro.com.br/docs"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "$ref": "#/components/responses/429"
+          },
+          "451": {
+            "$ref": "#/components/responses/451"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          },
+          "503": {
+            "$ref": "#/components/responses/503"
+          }
+        },
+        "parameters": [
+          {
+            "name": "X-QueryString",
+            "in": "header",
+            "description": "Header query string (LGPD compliant) onde são informados os campos abaixo podem ser informados:\n\n  * documentType - Tipo do Documento de Cadastro do cliente. Ex.: CPF, CNPJ\n  * documentNumber - Número do Documento de Cadastro do cliente. Ex.: 28497366867\n\n",
+            "required": true,
+            "example": "documentType=CPF&documentNumber=28497366867",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "isActive",
+            "in": "query",
+            "description": "Status do metodo de pagamento retorna true or false\n",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": true
+            }
+          },
+          {
+            "name": "businessUnit",
+            "in": "query",
+            "description": "Unidade de Negocio.<br>\nDefault: ClaroFlex\n",
+            "required": false,
+            "example": "NewStack",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/cec/paymentmethods/status": {
+      "put": {
+        "summary": "Esta operação realiza a inativação de métodos de pagamento (payment method) no SalesForce. Inativa payment method no Salesforce. Backend: Vlocity",
+        "description": "Esta operação realiza a inativação de métodos de pagamento (payment method). Backend:Salesforce/Vlocity.<br><br>\nPara o consumo deste proxy é necessario configurar o custom attribute <b>(channel)</b> no APP. <br><br> Values Esperados: - newstack (New Stack de TV) ",
+        "tags": [
+          "CEC Customers Payment Methods"
+        ],
+        "responses": {
+          "200": {
+            "description": "Business object representing Payment Method added.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/paymentMethodsStatusPutResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "405": {
+            "$ref": "#/components/responses/405"
+          },
+          "406": {
+            "$ref": "#/components/responses/406"
+          },
+          "413": {
+            "$ref": "#/components/responses/413"
+          },
+          "414": {
+            "$ref": "#/components/responses/414"
+          },
+          "422": {
+            "description": "Unprocessable Entity - Identify business errors that can be detailed according to backend system rules.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error"
+                },
+                "examples": {
+                  "CustomerNotFound": {
+                    "value": {
+                      "apiVersion": "1;2023-08-01",
+                      "transactionId": "dc08f892-6a3c-404f-8f11-db346b3e531c",
+                      "error": {
+                        "httpCode": "422",
+                        "errorCode": "API-CECPAYMENTMETHODS-001",
+                        "message": "Unprocessable Entity",
+                        "detailedMessage": "Payment Method not found",
+                        "link": {
+                          "rel": "related",
+                          "href": "https://api.claro.com.br/docs"
+                        }
+                      }
+                    }
+                  },
+                  "PaymentInUse": {
+                    "value": {
+                      "apiVersion": "1;2023-08-01",
+                      "transactionId": "dc08f892-6a3c-404f-8f11-db346b3e531c",
+                      "error": {
+                        "httpCode": "422",
+                        "errorCode": "API-CECPAYMENTMETHODS-002",
+                        "message": "Unprocessable Entity",
+                        "detailedMessage": "Payment Method in use",
+                        "link": {
+                          "rel": "related",
+                          "href": "https://api.claro.com.br/docs"
+                        }
+                      }
+                    }
+                  },
+                  "PaymentNotFound": {
+                    "value": {
+                      "apiVersion": "1;2023-08-01",
+                      "transactionId": "dc08f892-6a3c-404f-8f11-db346b3e531c",
+                      "error": {
+                        "httpCode": "422",
+                        "errorCode": "API-CECPAYMENTMETHODS-003",
+                        "message": "Unprocessable Entity",
+                        "detailedMessage": "Payment Method not found",
+                        "link": {
+                          "rel": "related",
+                          "href": "https://api.claro.com.br/docs"
+                        }
+                      }
+                    }
+                  },
+                  "IntegrationProcedureError": {
+                    "value": {
+                      "apiVersion": "1;2023-08-01",
+                      "transactionId": "dc08f892-6a3c-404f-8f11-db346b3e531c",
+                      "error": {
+                        "httpCode": "422",
+                        "errorCode": "API-CECPAYMENTMETHODS-004",
+                        "message": "Unprocessable Entity",
+                        "detailedMessage": "Integration procedure execution error",
+                        "link": {
+                          "rel": "related",
+                          "href": "https://api.claro.com.br/docs"
+                        }
+                      }
+                    }
+                  },
+                  "FailedToDeleteError": {
+                    "value": {
+                      "apiVersion": "1;2023-08-01",
+                      "transactionId": "dc08f892-6a3c-404f-8f11-db346b3e531c",
+                      "error": {
+                        "httpCode": "422",
+                        "errorCode": "API-CECPAYMENTMETHODS-005",
+                        "message": "Unprocessable Entity",
+                        "detailedMessage": "Failed to delete payment method",
+                        "link": {
+                          "rel": "related",
+                          "href": "https://api.claro.com.br/docs"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "$ref": "#/components/responses/429"
+          },
+          "451": {
+            "$ref": "#/components/responses/451"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          },
+          "503": {
+            "$ref": "#/components/responses/503"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/paymentMethodsStatusPutRequest"
+              },
+              "example": {
+                "data": {
+                  "paymentMethodId": "0016t00000WRMP0AAP",
+                  "paymentMethodStatus": "Inactive"
+                }
+              }
+            }
+          },
+          "description": "Request body for payment method.",
+          "required": true
+        }
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://api-sandbox.claro.com.br/customerbill/v1",
+      "description": "Sandbox (SaaS)"
+    },
+    {
+      "url": "https://test.apigw.claro.com.br/customerbill/v1",
+      "description": "Test (on-premises)"
+    },
+    {
+      "url": "https://api-test.claro.com.br/customerbill/v1",
+      "description": "Test (SaaS)"
+    },
+    {
+      "url": "https://api.claro.com.br/customerbill/v1",
+      "description": "Production (SaaS)"
+    },
+    {
+      "url": "https://cas.apigw.claro.com.br/customerbill/v1",
+      "description": "Production (on-premises DC Campinas)"
+    },
+    {
+      "url": "https://lpa.apigw.claro.com.br/customerbill/v1",
+      "description": "Production (on-premises DC Lapa)"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "BasicAuth": {
+        "type": "http",
+        "scheme": "basic"
+      },
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      },
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-API-Key"
+      },
+      "OAuth2": {
+        "type": "oauth2",
+        "flows": {
+          "clientCredentials": {
+            "tokenUrl": "/oauth2/v1/token",
+            "scopes": {}
+          }
+        }
+      }
+    },
+    "schemas": {
+      "creditCardObject": {
+        "description": "Dados de Cartão de Crédito",
+        "type": "object",
+        "required": [
+          "brand",
+          "holder",
+          "lastFourNumber",
+          "expirationDate",
+          "firstToken"
+        ],
+        "properties": {
+          "brand": {
+            "type": "string",
+            "description": "Bandeira do Cartão de Crédito.",
+            "example": "VISA"
+          },
+          "holder": {
+            "type": "string",
+            "description": "Titular do Cartão de Crédito.",
+            "example": "MARIA DA SILVA"
+          },
+          "lastFourNumber": {
+            "type": "string",
+            "description": "Últimos 4 dígitos do número do Cartão de Crédito",
+            "example": "1670"
+          },
+          "expirationDate": {
+            "type": "string",
+            "description": "Data de Vencimento do Cartão de Crédito",
+            "example": "102028"
+          },
+          "firstToken": {
+            "type": "string",
+            "description": "Token do Cartão de Crédito gerado pela M4U",
+            "example": "3256CA16-EFE0-48F5-B9F4-AD29B595BB4C"
+          },
+          "secondToken": {
+            "type": "string",
+            "description": "Token do Cartão de Crédito gerado pelo Novo Hub de Pagamentos",
+            "example": "3256CA16-EFE0-48F5-B9F4-AD29B595BB4C"
+          }
+        }
+      },
+      "paymentMethodsPostRequest": {
+        "description": "Root structure of an add paymentMethods post request.",
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "properties": {
+          "data": {
+            "description": "Root structure of an add paymentMethods post request.",
+            "type": "object",
+            "required": [
+              "customerAccountId",
+              "paymentMethod"
+            ],
+            "properties": {
+              "customerAccountId": {
+                "type": "string",
+                "description": "ID da conta do Cliente.\n",
+                "example": "0016t00000WRMSsAAP"
+              },
+              "businessUnit": {
+                "type": "string",
+                "description": "Unidade de Negocio.\n",
+                "example": "NewStack",
+                "enum": [
+                  "NewStack",
+                  "ClaroFlex"
+                ]
+              },
+              "paymentMethod": {
+                "description": "Dados do Método de Pagamento",
+                "type": "object",
+                "required": [
+                  "paymentType",
+                  "creditCard"
+                ],
+                "properties": {
+                  "paymentType": {
+                    "type": "string",
+                    "description": "Tipo de Método de Pagamento.",
+                    "example": "CreditCard"
+                  },
+                  "creditCard": {
+                    "$ref": "#/components/schemas/creditCardObject"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "paymentMethodsPostResponse": {
+        "description": "Root structure of an add payment method post response.",
+        "type": "object",
+        "required": [
+          "apiVersion",
+          "transactionId"
+        ],
+        "properties": {
+          "apiVersion": {
+            "type": "string",
+            "description": "Major and minor API Version.",
+            "example": "1;2023-08-01"
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Transaction's tracking identification generated by API.",
+            "example": "dc08f892-6a3c-404f-8f11-db346b3e531c"
+          },
+          "data": {
+            "type": "object",
+            "description": "Structure of an Customer Bill.",
+            "properties": {
+              "customerBill": {
+                "type": "object",
+                "description": "Structure of an Billing Account.",
+                "properties": {
+                  "paymentMethodId": {
+                    "type": "string",
+                    "description": "Número de Identificação do método de pagamento do Cliente (Payment Method)",
+                    "example": "0017j00000cFv1oAAC"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "paymentMethodsObject": {
+        "description": "Structure of an add payment method id.",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "02i3I000000vKcqQAE"
+          },
+          "status": {
+            "type": "string",
+            "description": "Status do Método de Pagamento",
+            "example": "Ativo"
+          },
+          "brand": {
+            "type": "string",
+            "description": "Bandeira do Cartão de Crédito.",
+            "example": "VISA"
+          },
+          "holder": {
+            "type": "string",
+            "description": "Titular do Cartão de Crédito.",
+            "example": "MARIA DA SILVA"
+          },
+          "lastFourNumber": {
+            "type": "string",
+            "description": "Últimos 4 dígitos do número do Cartão de Crédito",
+            "example": "1670"
+          },
+          "expirationDate": {
+            "type": "string",
+            "description": "Data de Vencimento do Cartão de Crédito",
+            "example": "102028"
+          },
+          "firstToken": {
+            "type": "string",
+            "description": "Token do Cartão de Crédito gerado pela M4U",
+            "example": "3256CA16-EFE0-48F5-B9F4-AD29B595BB4C"
+          },
+          "secondToken": {
+            "type": "string",
+            "description": "Token do Cartão de Crédito gerado pelo Novo Hub de Pagamentos",
+            "example": "3256CA16-EFE0-48F5-B9F4-AD29B595BB4C"
+          },
+          "isActive": {
+            "type": "boolean",
+            "description": "Status do metodo de pagamento",
+            "example": true
+          },
+          "billingAccountId": {
+            "type": "string",
+            "description": "Identificação do Billing Account que utiliza este Método de Pagamento.",
+            "example": "02i3I000000vKcqQAE"
+          },
+          "billingAccount": {
+            "type": "array",
+            "description": "Identificação do Billing Account que utiliza este Método de Pagamento.",
+            "items": {
+              "$ref": "#/components/schemas/billingAccountMethodsObject"
+            }
+          }
+        }
+      },
+      "billingAccountMethodsObject": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "02i3I000000vKcqQAE"
+          },
+          "businessUnit": {
+            "type": "string",
+            "description": "Status da billingAccount",
+            "example": "NewStack"
+          }
+        }
+      },
+      "paymentMethodsGetResponse": {
+        "description": "Root structure of an add payment method post response.",
+        "type": "object",
+        "required": [
+          "apiVersion",
+          "transactionId"
+        ],
+        "properties": {
+          "apiVersion": {
+            "type": "string",
+            "description": "Major and minor API Version.",
+            "example": "1;2023-08-01"
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Transaction's tracking identification generated by API.",
+            "example": "dc08f892-6a3c-404f-8f11-db346b3e531c"
+          },
+          "data": {
+            "type": "object",
+            "description": "Structure of an Payment Method.",
+            "properties": {
+              "paymentMethod": {
+                "type": "array",
+                "description": "Structure of an Billing Account.",
+                "items": {
+                  "$ref": "#/components/schemas/paymentMethodsObject"
+                }
+              }
+            }
+          }
+        }
+      },
+      "paymentMethodsStatusPutRequest": {
+        "description": "Root structure of an add paymentMethods post request.",
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "properties": {
+          "data": {
+            "description": "Root structure of an add paymentMethods post request.",
+            "type": "object",
+            "required": [
+              "paymentMethodId",
+              "status"
+            ],
+            "properties": {
+              "paymentMethodId": {
+                "type": "string",
+                "description": "ID do Método de Pagamento.\n",
+                "example": "0016t00000WRMSsAAP"
+              },
+              "paymentMethodStatus": {
+                "type": "string",
+                "description": "Status do Método de Pagamento.\n",
+                "enum": [
+                  "Active",
+                  "Inactive"
+                ],
+                "example": "Inactive"
+              }
+            }
+          }
+        }
+      },
+      "paymentMethodsStatusPutResponse": {
+        "description": "Root structure of an add payment method post response.",
+        "type": "object",
+        "required": [
+          "apiVersion",
+          "transactionId"
+        ],
+        "properties": {
+          "apiVersion": {
+            "type": "string",
+            "description": "Major and minor API Version.",
+            "example": "1;2023-08-01"
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Transaction's tracking identification generated by API.",
+            "example": "dc08f892-6a3c-404f-8f11-db346b3e531c"
+          },
+          "data": {
+            "type": "object",
+            "description": "Structure of an Payment Method.",
+            "properties": {
+              "customerBill": {
+                "type": "object",
+                "description": "Structure of an Payment Method.",
+                "properties": {
+                  "paymentMethodStatus": {
+                    "type": "string",
+                    "description": "Status do Método de Pagamento",
+                    "example": "Inactive"
+                  },
+                  "paymentMethodId": {
+                    "type": "string",
+                    "description": "Id do Método de Pagamento",
+                    "example": "0016t00000WRMP0AAP"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "error": {
+        "description": "Object returned when an error occurs (4xx/5xx)",
+        "type": "object",
+        "required": [
+          "apiVersion",
+          "transactionId",
+          "error"
+        ],
+        "properties": {
+          "apiVersion": {
+            "type": "string",
+            "description": "Major and minor API Version.",
+            "example": "1;2023-08-01"
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Transaction's tracking identification generated by API.",
+            "example": "dc08f892-6a3c-404f-8f11-db346b3e531c"
+          },
+          "error": {
+            "type": "object",
+            "properties": {
+              "httpCode": {
+                "type": "string",
+                "description": "HTTP error code"
+              },
+              "errorCode": {
+                "type": "string",
+                "description": "Internal API error code. Ex.: API-3566. This code can be used by consumer to map its error message."
+              },
+              "message": {
+                "type": "string",
+                "description": "Error Message."
+              },
+              "detailedMessage": {
+                "type": "string",
+                "description": "Detailed error message."
+              },
+              "link": {
+                "type": "object",
+                "description": "Object containing page link to errors detailed documentation on API Portal.",
+                "properties": {
+                  "rel": {
+                    "type": "string",
+                    "enum": [
+                      "related"
+                    ],
+                    "description": "To reference the API portal error page is used the “related” semantics in this scenario."
+                  },
+                  "href": {
+                    "type": "string",
+                    "description": "Resource URL"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "xml": {
+          "name": "xml"
+        }
+      }
+    },
+    "responses": {
+      "400": {
+        "description": "Bad Request",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/error"
+            },
+            "example": {
+              "apiVersion": "1;2023-08-01",
+              "transactionId": "dc08f892-6a3c-404f-8f11-db346b3e531c",
+              "error": {
+                "httpCode": "400",
+                "errorCode": "API-CECPAYMENTMETHODS-400",
+                "message": "Bad Request",
+                "detailedMessage": "Bad Request",
+                "link": {
+                  "rel": "related",
+                  "href": "https://api.claro.com.br/docs"
+                }
+              }
+            }
+          }
+        }
+      },
+      "401": {
+        "description": "Unauthorized",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/error"
+            },
+            "example": {
+              "apiVersion": "1;2023-08-01",
+              "transactionId": "dc08f892-6a3c-404f-8f11-db346b3e531c",
+              "error": {
+                "httpCode": "401",
+                "errorCode": "API-CECPAYMENTMETHODS-401",
+                "message": "Unauthorized",
+                "detailedMessage": "Unauthorized user.",
+                "link": {
+                  "rel": "related",
+                  "href": "https://api.claro.com.br/docs"
+                }
+              }
+            }
+          }
+        }
+      },
+      "403": {
+        "description": "Forbidden",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/error"
+            },
+            "example": {
+              "apiVersion": "1;2023-08-01",
+              "transactionId": "dc08f892-6a3c-404f-8f11-db346b3e531c",
+              "error": {
+                "httpCode": "403",
+                "errorCode": "API-CECPAYMENTMETHODS-403",
+                "message": "Forbidden",
+                "detailedMessage": "Client authorization failed.",
+                "link": {
+                  "rel": "related",
+                  "href": "https://api.claro.com.br/docs"
+                }
+              }
+            }
+          }
+        }
+      },
+      "404": {
+        "description": "Not Found",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/error"
+            },
+            "example": {
+              "apiVersion": "1;2023-08-01",
+              "transactionId": "dc08f892-6a3c-404f-8f11-db346b3e531c",
+              "error": {
+                "httpCode": "404",
+                "errorCode": "API-CECPAYMENTMETHODS-404",
+                "message": "Not found",
+                "detailedMessage": "Resource not found.",
+                "link": {
+                  "rel": "related",
+                  "href": "https://api.claro.com.br/docs"
+                }
+              }
+            }
+          }
+        }
+      },
+      "405": {
+        "description": "Method Not Allowed",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/error"
+            },
+            "example": {
+              "apiVersion": "1;2023-08-01",
+              "transactionId": "dc08f892-6a3c-404f-8f11-db346b3e531c",
+              "error": {
+                "httpCode": "405",
+                "errorCode": "API-CECPAYMENTMETHODS-405",
+                "message": "Method Not Allowed",
+                "detailedMessage": "Unavailable HTTP method.",
+                "link": {
+                  "rel": "related",
+                  "href": "https://api.claro.com.br/docs"
+                }
+              }
+            }
+          }
+        }
+      },
+      "406": {
+        "description": "Not Acceptable",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/error"
+            },
+            "example": {
+              "apiVersion": "1;2023-08-01",
+              "transactionId": "dc08f892-6a3c-404f-8f11-db346b3e531c",
+              "error": {
+                "httpCode": "406",
+                "errorCode": "API-CECPAYMENTMETHODS-406",
+                "message": "Request Not Acceptable",
+                "detailedMessage": "Requested content type not acceptable.",
+                "link": {
+                  "rel": "related",
+                  "href": "https://api.claro.com.br/docs"
+                }
+              }
+            }
+          }
+        }
+      },
+      "413": {
+        "description": "Request Entity Too Large",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/error"
+            },
+            "example": {
+              "apiVersion": "1;2023-08-01",
+              "transactionId": "dc08f892-6a3c-404f-8f11-db346b3e531c",
+              "error": {
+                "httpCode": "413",
+                "errorCode": "API-CECPAYMENTMETHODS-413",
+                "message": "Request Entity Too Large",
+                "detailedMessage": "Payload limits check failed.",
+                "link": {
+                  "rel": "related",
+                  "href": "https://api.claro.com.br/docs"
+                }
+              }
+            }
+          }
+        }
+      },
+      "414": {
+        "description": "Request-URI Too Large",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/error"
+            },
+            "example": {
+              "apiVersion": "1;2023-08-01",
+              "transactionId": "dc08f892-6a3c-404f-8f11-db346b3e531c",
+              "error": {
+                "httpCode": "414",
+                "errorCode": "API-CECPAYMENTMETHODS-414",
+                "message": "Request-URI Too Large",
+                "detailedMessage": "URI limits check failed.",
+                "link": {
+                  "rel": "related",
+                  "href": "https://api.claro.com.br/docs"
+                }
+              }
+            }
+          }
+        }
+      },
+      "415": {
+        "description": "Unsupported Media Type",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/error"
+            },
+            "example": {
+              "apiVersion": "1;2023-08-01",
+              "transactionId": "dc08f892-6a3c-404f-8f11-db346b3e531c",
+              "error": {
+                "httpCode": "415",
+                "errorCode": "API-CECPAYMENTMETHODS-415",
+                "message": "Unsupported Media Type",
+                "detailedMessage": "Unsupported Media Type.",
+                "link": {
+                  "rel": "related",
+                  "href": "https://api.claro.com.br/docs"
+                }
+              }
+            }
+          }
+        }
+      },
+      "429": {
+        "description": "Too Many Requests",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/error"
+            },
+            "example": {
+              "apiVersion": "1;2023-08-01",
+              "transactionId": "dc08f892-6a3c-404f-8f11-db346b3e531c",
+              "error": {
+                "httpCode": "429",
+                "errorCode": "API-CECPAYMENTMETHODS-429",
+                "message": "Too Many Requests",
+                "detailedMessage": "Consumer requests exceeded policies.",
+                "link": {
+                  "rel": "related",
+                  "href": "https://api.claro.com.br/docs"
+                }
+              }
+            }
+          }
+        }
+      },
+      "451": {
+        "description": "Unavailable For Legal Reasons",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/error"
+            },
+            "example": {
+              "apiVersion": "1;2023-08-01",
+              "transactionId": "dc08f892-6a3c-404f-8f11-db346b3e531c",
+              "error": {
+                "httpCode": "451",
+                "errorCode": "API-CECPAYMENTMETHODS-451",
+                "message": "Unavailable For Legal Reasons",
+                "detailedMessage": "Unavailable For Legal Reasons.",
+                "link": {
+                  "rel": "related",
+                  "href": "https://api.claro.com.br/docs"
+                }
+              }
+            }
+          }
+        }
+      },
+      "500": {
+        "description": "Internal Server Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/error"
+            },
+            "example": {
+              "apiVersion": "1;2023-08-01",
+              "transactionId": "dc08f892-6a3c-404f-8f11-db346b3e531c",
+              "error": {
+                "httpCode": "500",
+                "errorCode": "API-CECPAYMENTMETHODS-500",
+                "message": "Internal Server Error",
+                "detailedMessage": "Internal Server Error.",
+                "link": {
+                  "rel": "related",
+                  "href": "https://api.claro.com.br/docs"
+                }
+              }
+            }
+          }
+        }
+      },
+      "503": {
+        "description": "Service unavailable",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/error"
+            },
+            "example": {
+              "apiVersion": "1;2023-08-01",
+              "transactionId": "dc08f892-6a3c-404f-8f11-db346b3e531c",
+              "error": {
+                "httpCode": "503",
+                "errorCode": "API-CECPAYMENTMETHODS-503",
+                "message": "Service Unavailable",
+                "detailedMessage": "Service Unavailable.",
+                "link": {
+                  "rel": "related",
+                  "href": "https://api.claro.com.br/docs"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

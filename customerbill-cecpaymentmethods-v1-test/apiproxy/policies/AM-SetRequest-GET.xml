@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-SetRequest-GET">
+    <DisplayName>AM-SetRequest-GET</DisplayName>
+    <Properties/>
+    <AssignTo createNew="true" type="request"/>
+    <Set>
+        <Headers>
+            <Header name="Accept">application/json</Header>
+            <Header name="Content-Type">application/json; charset="utf-8"</Header>
+        </Headers>
+        <Payload contentType="application/json">
+            {
+                "DocNumber": "{request.queryparam.documentNumber}",
+                "IdentificationType": "{request.queryparam.documentType}"
+            }
+        </Payload>
+        <Verb>POST</Verb>
+        <Method>POST</Method>
+    </Set>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</AssignMessage>

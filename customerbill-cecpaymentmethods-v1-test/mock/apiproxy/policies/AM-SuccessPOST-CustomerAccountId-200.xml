@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-SuccessPOST-CustomerAccountId-200">
+    <DisplayName>AM-SuccessPOST-CustomerAccountId-200</DisplayName>
+    <Properties/>
+    <Set>
+        <Headers>
+            <Header name="Content-Type">application/json</Header>
+        </Headers>
+        <Payload contentType="application/json">
+             {
+                "response": {
+                    "": ""
+                },
+                "ResponseAction1Status": true,
+                "ConditionalFlexInativatePaymentMethodLoadStatus": false,
+                "ConditionalFlexUpdatePaymentMethodStatus": false,
+                "ConditionalFlexCreatePaymentMethod": null,
+                "ConditionalFlexCreatePaymentMethodStatus": true,
+                "DRFlexCreatePaymentMethodLoad": {
+                    "vlocity_cmt__CustomerInteraction__c_3": [
+                        {
+                            "UpsertSuccess": true,
+                            "vlocity_cmt__Status__c": "In Progress",
+                            "Name": "Criação de forma de pagamento",
+                            "RecordTypeId": "0120n0000006KdiAAE",
+                            "vlocity_cmt__AccountId__c": "0017j00000v2v7uAAA",
+                            "Id": "a197j00000JM6d5AAD"
+                        }
+                    ],
+                    "Case_2": [
+                        {
+                            "UpsertSuccess": true,
+                            "Id": "5007j00000Dtyh9AAB",
+                            "Subject": "Criação de cartão",
+                            "Origin": "Web",
+                            "RecordTypeId": "0127j000000HJ0MAAW",
+                            "Status": "Novo"
+                        }
+                    ],
+                    "vlocity_cmt__PaymentMethod__c_1": [
+                        {
+                            "UpsertSuccess": true,
+                            "Id": "a2o7j000000UoKiAAK",
+                            "vlocity_cmt__CardNumber__c": null,
+                            "vlocity_cmt__AccountId__c": "0017j00000v2v7uAAA",
+                            "vlocity_cmt__MethodType__c": "Credit Card",
+                            "vlocity_cmt__CardHolderName__c": "Edson Vendramini (MASTER)",
+                            "vlocity_cmt__Last4Numbers__c": "1234",
+                            "vlocity_cmt__CardType__c": "MASTER",
+                            "vlocity_cmt__ExpirationMonth__c": "05",
+                            "vlocity_cmt__ExpirationYear__c": "2025",
+                            "vlocity_cmt__PaymentMethodIdentifier__c": "TOKEN01-EFE0-48F5-B9F4-TOKEN01",
+                            "PaymentMethodIdentifier2__c": "TOKEN02-EFE0-48F5-B9F4-TOKEN02"
+                        }
+                    ],
+                    "error": "OK",
+                    "responseType": "SObject"
+                },
+                "DRFlexCreatePaymentMethodLoadStatus": true,
+                "FlexCondiontionalStatus": false,
+                "options": {
+                    "Content-Type": "application/json",
+                    "X-B3-TraceId": "41c5aba585c2c1ba",
+                    "X-Salesforce-SNI": "PRESENT",
+                    "Postman-Token": "7ce8192c-4bef-4ac9-887c-005bb7e41bff",
+                    "X-B3-Sampled": "0",
+                    "X-B3-SpanId": "41c5aba585c2c1ba",
+                    "X-Salesforce-SIP": "191.32.200.179",
+                    "Accept-Encoding": "gzip, deflate, br",
+                    "Host": "cec-claro--claroflex.sandbox.my.salesforce.com",
+                    "Connection": "keep-alive",
+                    "User-Agent": "PostmanRuntime/7.32.2",
+                    "CipherSuite": "ECDHE-RSA-AES256-GCM-SHA384 TLSv1.2 443",
+                    "Accept": "*/*"
+                },
+                "PaymentMethodIdentifier2__c": "TOKEN02-EFE0-48F5-B9F4-TOKEN02",
+                "vlocity_cmt__PaymentMethodIdentifier__c": "TOKEN01-EFE0-48F5-B9F4-TOKEN01",
+                "vlocity_cmt__ExpirationYear__c": "2025",
+                "vlocity_cmt__ExpirationMonth__c": "05",
+                "vlocity_cmt__Last4Numbers__c": "1234",
+                "vlocity_cmt__CardHolderName__c": "Edson Vendramini (MASTER)",
+                "vlocity_cmt__CardType__c": "MASTER",
+                "vlocity_cmt__MethodType__c": "Credit Card",
+                "ConsumerAccountId": "0017j00000v2v7uAAA"
+            }
+        </Payload>
+        <StatusCode>200</StatusCode>
+    </Set>
+</AssignMessage>

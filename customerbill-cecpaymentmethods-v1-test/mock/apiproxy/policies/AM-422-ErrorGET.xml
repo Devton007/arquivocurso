@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-422-ErrorGET">
+    <DisplayName>AM-422-ErrorGET</DisplayName>
+    <Properties/>
+    <Set>
+        <Payload contentType="application/json">
+           {
+          "error": {
+            "httpCode": "422",
+            "errorCode": "API-CECPAYMENTMETHODS-001",
+            "message": "Unprocessable Entity",
+            "detailedMessage": "Customer not found.",
+            "link": {
+              "rel": "related",
+              "href": "https://api.claro.com.br/docs"
+            }
+          }
+        }
+        </Payload>
+        <StatusCode>422</StatusCode>
+    </Set>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="true" transport="http" type="response"/>
+</AssignMessage>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables async="false" continueOnError="false" enabled="true" name="EV-ExtractBody">
+    <DisplayName>EV-ExtractBody</DisplayName>
+    <Properties/>
+    <JSONPayload>
+        <Variable name="customerAccountId">
+            <JSONPath>$.data.customerAccountId</JSONPath>
+        </Variable>
+    </JSONPayload>
+    <Source clearPayload="false">request</Source>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</ExtractVariables>

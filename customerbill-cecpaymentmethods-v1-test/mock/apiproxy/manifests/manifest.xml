@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Manifest name="manifest">
+    <Policies>
+        <VersionInfo resourceName="AM-400-Error" version="SHA-512:382852390a8899a1678dea76d68a439245f6c61638e720dd16382dbbfb4a45fc5be63c6f65506e6c6d00ee2f1e1e2e94462b3d9017ca892d026d1bb1e0eeba06"/>
+        <VersionInfo resourceName="AM-401-Error" version="SHA-512:053c98d22495d553121cdafe94724838ca9b2dda56c57c6846b5af9892d1526be2a19e0086e4198a6f05faee347365ff1349af5a7c732cdb0c1b97592d070852"/>
+        <VersionInfo resourceName="AM-403-Error" version="SHA-512:7fe47423d298f05f53f92f47aca03687c8934022d25e7894d2df994cebbdd1495e7b8d27321429592521d9c16d5d79d5bfd2db2777abf5248967c65427ad6164"/>
+        <VersionInfo resourceName="AM-422-Error" version="SHA-512:775c2b779ed94cb07b5251af10ddf43cb7575e2cc3b8a5eff27b9ce0b91ebeb32fdd32f7f2c1c31461146e5569238de6097c77b15d9532566da7cdb7cdb43b17"/>
+        <VersionInfo resourceName="AM-422-Error-Customer" version="SHA-512:b859946dc900e19c1fc85bdc9b8c59eb62d9a96097789f73fe4b08915d69a5a46e37c49cfa47e892f560553bc5991890697c93a34fcf5743a6301e6a378de147"/>
+        <VersionInfo resourceName="AM-422-Error-PUT" version="SHA-512:9f1079f22c774fda47b40c496966cc7f8039cc4ed081b68a3e42c38b29f13f5627c702aac5825fa9698e5c27b7bbb4e57f5416664bde34adbba8189083db4034"/>
+        <VersionInfo resourceName="AM-422-ErrorGET" version="SHA-512:50a2cf31cfc91ab08f027f2227cffcd76c9f62c3a6f71d524d45c4d43d875d865fcecfa02f7db5215b67e297a8444b237b3c12e213db924c8103b362260b0ba1"/>
+        <VersionInfo resourceName="AM-422-PUT-Flex-EmUso" version="SHA-512:ba0c1d4cf26f5b524ed91a16af6b9f4ec643e022c3c54122ccd0e998a5e13570d55a98de6af0e7579e6273fd561c8f5f5137293d1cfeb10386e00242509f5931"/>
+        <VersionInfo resourceName="AM-429-Error" version="SHA-512:e974f95bf8039e34628a4bcf3906ffdfb04f722bd59fd49c08830ceb6bb66e595d832155f65954e1c13a58c3a23872a737471ed19121a3c09c655f82b3c95b07"/>
+        <VersionInfo resourceName="AM-500-Error" version="SHA-512:80667370bbe0fb72499f097cb022e0b5dc0d2ee300796e78f662563201ab6a0bdb29e8475d9179bab56fb26f13e782213c82a00852add2ea4068c0fbe36e5495"/>
+        <VersionInfo resourceName="AM-ReturnOauthToken" version="SHA-512:bc3f69343243d59f38763288efc9658dc3f8226b36c9f7f7ca8e4d5212b97194ecd5a55e56f376f5c84254319abd9e98a21606356cab277f33fe6286a7f1b7c8"/>
+        <VersionInfo resourceName="AM-SuccessPOST-200" version="SHA-512:d1cd2502261620a86fbe6ab3c9620e10bf1b43de748ee49dfafa7c41935e94970ce65373d1c0b61b982c3f31baf9ba7f7b6eb4eecf5a0b5db7b1bcd6a297b82d"/>
+        <VersionInfo resourceName="AM-SuccessPOST-CustomerAccountId-200" version="SHA-512:61224a98ed89bc5157ca92ad3dc0db8cca9a13ef3c935538b9dc294be4a72ab54159866a08e099b9d5435028a613a1a1f8c06ad3ee5b7e05642c33dfef7e9a85"/>
+        <VersionInfo resourceName="AM-SuccessPOST-DocNumber-200" version="SHA-512:6bafe327f6b057702f2e4064aed28eb3864256cd40124d302ea3af804fb719b5d5c9664f614fe4a40fc6ad66eda1aa07c1b3891f4154d9b53cfb9c145cb5cf2f"/>
+        <VersionInfo resourceName="AM-SuccessPOST-PaymentMethodId-200" version="SHA-512:8c0e14d5f9adba5a7b3d64e66fa82262e6c243bc3705499bb8b7d6a953d592c4090e1ea08eb6c7db67f2d06403c6c72c821e9eb36c6b99db917a0ea6a4ede765"/>
+        <VersionInfo resourceName="AM-SuccessPUT-200" version="SHA-512:54219ae2ccb499934076c8e930be40085f7b7b739ec1691e7e2f10d475186eda7a3f336ad7ae1d5a6a410cace05cc7816797f0062784b7b189ec165b7461eedb"/>
+        <VersionInfo resourceName="AM-SuccessPUT-200-flex-EmUso" version="SHA-512:cf0ab8518e9fac6f587211646bb76a4b4345bc924be6500400f8b2776c5645a1db1c04fc0952bbd107f359ffb4282726d7f448fe5556c98084558105e012ed2d"/>
+        <VersionInfo resourceName="AM-error-422" version="SHA-512:058792c4780edca23500daf3fc0c86b4d4c830557063bea01be21d2fc032363f231cb5af5d0fe897028e9fe9da7a836a8113ad5831b1e39441d17f26a1be43f1"/>
+        <VersionInfo resourceName="AM-error-422-01" version="SHA-512:c76b6774f8c5bcbc0c695479f25e1f5f840d9e8b672563a735491e459aa716678815c3c56dce819e546f217940871c804238edaae5290b5caba5a2156aad46b0"/>
+        <VersionInfo resourceName="AM-error-422-02" version="SHA-512:ebfa3e967132d9a3a1bab5ba59d205ba33f66f523259147082d164fe884bf358a9a4564e672989bd8bc8c9b7426acbcc7bd7022497aa3e7e2bd503d57b43d650"/>
+        <VersionInfo resourceName="AM-error-422-04" version="SHA-512:4fa04b1d0b3bac4374721f3c03982592e746a99f9d22e9b2d35f32b660a7104115de23566223a6d7aaebae3ebb26b44ffe8f5c7d912cc6513e8fb0a40bceef21"/>
+        <VersionInfo resourceName="AM-setResponseGET-200" version="SHA-512:a29c00432e25c7d1b64d1de7aaacfd81ea43c0a4e7b754e769384d8c38e3cfdfa0e3d3188d3a9dddcb6e178215ac941c20043863e30589046743427637310941"/>
+        <VersionInfo resourceName="AM-setResponseGET-200-1" version="SHA-512:74830771819a01d568578c7a8293be5bcd1c6934aac9bdf629663165156e7a0b6f75fcebf4ef403829d1d3d430b272e32fcd6af7ab78dd06f66839798749511b"/>
+        <VersionInfo resourceName="AM-setResponseGET-200-2" version="SHA-512:174ff0cb47dc86f8217d84442308b9216145ab5b11d8b629ea22c41e92193df9f4b5ccbd148ba0f3f5cb8bd9620c882ecbf9d177fc9dbbfafd46f013cef43d6e"/>
+        <VersionInfo resourceName="AM-setResponseGET-200-3" version="SHA-512:b770a3b2e85794b738d677a2e6ea9c1b7c5c7a548980e40d673c8fdd604376c869d9c3defe9b4499f892704848d361d461767e7533d9d45461482b82030fb02c"/>
+        <VersionInfo resourceName="EV-ExtractBody" version="SHA-512:39b93244886f8941e692ce0c81638768ec0c24679665b8d55c67d35a52241ef7d38edca39d6a599b0311355cc8eaafaeda8a0212dde066cd1a4265c4d559c610"/>
+        <VersionInfo resourceName="EV-ExtractMock-GET" version="SHA-512:b0c8cc2229e3021644d1a8f66beee203c3fae1578b5ce2e9d307021f6d023376ab915ab5839d05a77f615fec9d0d39a050730bcec8cb517998da0845bfe5ccea"/>
+        <VersionInfo resourceName="EV-ExtractMockParameter" version="SHA-512:35cc4af135152ecc2e3e0738b76afd55c9ce3e2ba9af0af378d2b46ac66f8debff43ba9e312f6683d67775a846cb7a99abb978f42cee6d371959b65f797a9882"/>
+    </Policies>
+    <ProxyEndpoints>
+        <VersionInfo resourceName="mockDefaultProxy" version="SHA-512:699468db3e8f6ebdac4e36ac3f353ff153c696b3939cce5943cde11294d32ca46f86b43ef997ff4b7b205d45adf91b2ee1d8feeaecc0f06c3d5e272c1121c9a8"/>
+        <VersionInfo resourceName="tokenGen" version="SHA-512:a0379bb614af30271e749c11509fc13377d81b8648767e578a627db1bfadb01cd8051d33e40e263e8d58ae0f2e2d6413d81154c68dafb00edda5c6b5e30f77ec"/>
+    </ProxyEndpoints>
+    <Resources>
+        <VersionInfo resourceName="jsc://X-QueryStringFormater.js" version="SHA-512:6a48b0f1c430e64ddacdc50782fb5f44adb7cd51e63ac817b99db5dcf9cb241196158496ae8da14892d2791d8f6fe1cd980525a86152eb5ffc65674bae53d0a2"/>
+    </Resources>
+    <SharedFlows/>
+    <TargetEndpoints/>
+</Manifest>
