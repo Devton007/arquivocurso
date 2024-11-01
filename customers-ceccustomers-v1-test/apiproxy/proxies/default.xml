@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+    <PreFlow name="PreFlow">
+        <Request>
+            <Step>
+                <Name>JS-ValidateRequest</Name>
+            </Step>
+            <Step>
+                <Name>RF-BadRequest-400</Name>
+                <Condition>validateRequest.fail = true</Condition>
+            </Step>
+            <Step>
+                <Name>JS-GenerateRequest</Name>
+            </Step>
+        </Request>
+        <Response/>
+    </PreFlow>
+    <Flows>
+        <Flow name="post /customers/cec/customers">
+            <Description>Esta operação realiza a criação de clientes, que se traduzem na criação de conta (account) e contato no SalesForce. Gerar registro de conta e contato no Salesforce. Backend: Vlocity</Description>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/customers/cec/customers") and (request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name="OPTIONS">
+            <Description>Flow para tratar a requisição OPTIONS referente a política de CORS dos browsers.</Description>
+            <Request/>
+            <Response/>
+            <Condition>request.verb = "OPTIONS"</Condition>
+        </Flow>
+        <Flow name="default">
+            <Description>proxy default</Description>
+            <Request>
+                <Step>
+                    <Name>RF-RaiseMethodNotAllowed-405</Name>
+                    <Condition>(proxy.pathsuffix = "" and initial.verb != "POST" and initial.verb != "OPTIONS")</Condition>
+                </Step>
+            </Request>
+            <Response/>
+        </Flow>
+    </Flows>
+    <PostFlow name="PostFlow">
+        <Request/>
+        <Response/>
+    </PostFlow>
+    <HTTPProxyConnection>
+        <BasePath>/customers/cec/customers</BasePath>
+        <VirtualHost>secure</VirtualHost>
+    </HTTPProxyConnection>
+    <RouteRule name="noRouteRule">
+        <Condition>initial.verb = "OPTIONS"</Condition>
+    </RouteRule>
+    <RouteRule name="default">
+        <Condition>(proxy.pathsuffix = "") and (request.verb = "POST")</Condition>
+        <TargetEndpoint>TS-Ceccustomers</TargetEndpoint>
+    </RouteRule>
+</ProxyEndpoint>

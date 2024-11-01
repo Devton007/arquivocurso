@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Manifest name="manifest">
+    <Policies>
+        <VersionInfo resourceName="AM-AddCors" version="SHA-512:d8eafa1e741374d5db5f8fb22737c1476a7839c12b483849add07f6d3aa0ec32e253a3ae8896ef08eaefcc4d24f05af9e5ed212b8bf3ba1913c9cf2eada3d139"/>
+        <VersionInfo resourceName="AM-CreateNewResponseFault" version="SHA-512:623cc5cb0c43a0460017cb65667befd1b095df77ba71c16c41450ec90b3f35ac8aa77750e0d5b12fe1dcf32413b61ddf9d6f9b2f5450986f05d133d099f4c59d"/>
+        <VersionInfo resourceName="AM-RemovePathSuffix" version="SHA-512:c965623e3058ef484e7782c31638aed70c72eb9db0e778d09b119c6bdc14fbc56033835fd60d7e44a3c64441a508275f1c031f4a47ee0cf275c37fb89077357b"/>
+        <VersionInfo resourceName="EV-ExtractBodyIdentifiersResponseFault" version="SHA-512:0339cb796b48e4a0eee4e371d5266410973886f66a81bd6290933ed88d82a13f07ccc86644a6bd3ec72f795a35239f7b30cc29bf1539c7a1d2c75b1d48b062a3"/>
+        <VersionInfo resourceName="JS-GenerateRequest" version="SHA-512:e7361c82bfba34f1f2a32b9c375bf70315a70b4221a082bff039dd745628ae2262be8979da78e228090423d6b9442b03c03aab812f99d34e5c4f0daae52436cd"/>
+        <VersionInfo resourceName="JS-GenerateResponse" version="SHA-512:9a5e7fb4b9afbe87c6c1c32b8f68f39c34a454e75ef53425742ca0c80ebd2d4cae0b899aeb7e9c0a8a05c82e44988cc5d3593f30a5fdea63ce1e53a53fbee808"/>
+        <VersionInfo resourceName="JS-ValidateRequest" version="SHA-512:cdb3403efa6390e9a1122efa3fffe7565706943b69499e130bbf74c51d5e8e2d2f8fe580a9df61f32ed2d0dabc6fbb5179c528b41425f107c51ff10cedf16c6a"/>
+        <VersionInfo resourceName="RF-BadRequest-400" version="SHA-512:586802c3b2f07e721d70a48f72270572aecafe997bee7caad171126373b8b46792423ac3c5162dde064c2ee03a583e2be8bdf20e15bb3f99f7be4628c8ca9805"/>
+        <VersionInfo resourceName="RF-RaiseMethodNotAllowed-405" version="SHA-512:da5ff6888e8fffbea87a85b955ccc7d88c1df0125ca8a75da4f13db0a16c7cd33c6967affea94e65bb977bc604b574baf4b378fbee5665ab6c136ef8b2e084f2"/>
+        <VersionInfo resourceName="RF-UnprocessableEntity-404" version="SHA-512:3af090a619b37139bb424d914c5b07185339bde73a8f27efa644080a5ed31695c92f1e73971cf46c11d9c9f3ce800585d1dd7c64a166bea11234a91475390919"/>
+        <VersionInfo resourceName="SF-CECCUSTOMERS" version="SHA-512:2116987ce7028b0a2edc8e10ebbffde6cdeb78006647808a9c5d7866f5dff5b9be2ec3ce54b7db9e4f963ae361533d56d11e998e632c0f9386f64d7abacebec1"/>
+    </Policies>
+    <ProxyEndpoints>
+        <VersionInfo resourceName="default" version="SHA-512:0f95504f35050030bb6498173ffee01b91af8fa11e8bffc1c0adc0fd11a825643ce12ce3427fea3801c7b5e8fd505ab13849029f4dfd8580a78224e001bbb6e3"/>
+    </ProxyEndpoints>
+    <Resources>
+        <VersionInfo resourceName="jsc://JS-GenerateRequest.js" version="SHA-512:6ec209b4d7b25e45755529c2f96ea16d7ae1b4bb3188b080f657e89340636d7a75e6487e08d9e5ab2b80d777aa3c5e735601c8eb821d841d769dc5e2566c0d15"/>
+        <VersionInfo resourceName="jsc://JS-GenerateResponse.js" version="SHA-512:2f375fd24e7f487438463c43e8bb9bef844695cdb8c44e2fc7e7629a7da7ad54929d20bb87b9ca5124fb68d36f45f071a9362a60f3cb492afa9db133af96a921"/>
+        <VersionInfo resourceName="jsc://JS-ValidateRequest.js" version="SHA-512:a3479e8ce13fe5ae4ba8c151d3a8a30da2e57c764be5c261a02cf4c526b0498e07ea157b5af5f445200fdca95982c9f1d9a03e9faa2ac8de825cefa3d8b1cc5e"/>
+        <VersionInfo resourceName="openapi://association.json" version="SHA-512:02b7722009f433968409000d50b3b84518738d474baa32b178cfa0a51c58f969265ecffaf91fe3c6b32005259fed8e962107d764d77eac40041fa2573ff9d108"/>
+    </Resources>
+    <SharedFlows/>
+    <TargetEndpoints>
+        <VersionInfo resourceName="TS-Ceccustomers" version="SHA-512:9f95c8072337629b8749553679d4214c1e5efa3587f3d7bdd0ededd81730f49055b52e7b88b8bb5249ef536b219240443c511bb5587f6e4ffb679f842c844158"/>
+    </TargetEndpoints>
+</Manifest>

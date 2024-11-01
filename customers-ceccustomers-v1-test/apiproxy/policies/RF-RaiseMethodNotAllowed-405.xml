@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RaiseFault async="false" continueOnError="false" enabled="true" name="RF-RaiseMethodNotAllowed-405">
+    <DisplayName>RF-RaiseMethodNotAllowed-405</DisplayName>
+    <Properties/>
+    <FaultResponse>
+        <Set>
+            <Headers>
+                <Header name="Content-Type">application/json</Header>
+            </Headers>
+            <Headers/>
+            <Payload contentType="application/json" variablePrefix="#" variableSuffix="%">
+                {
+                    "apiVersion": "#apiVersion%",
+                    "transactionId": "#transactionId%",
+                  "error": {
+                    "httpCode": "405",
+                    "errorCode": "API-CECCUSTOMERS-405",
+                    "message": "Method Not Allowed",
+                    "detailedMessage": "Method Not Allowed",
+                    "link": {
+                      "rel": "related",
+                      "href": "https://api.claro.com.br/docs"
+                    }
+                  }
+                }
+            </Payload>
+            <StatusCode>405</StatusCode>
+            <ReasonPhrase>Method not allowed</ReasonPhrase>
+        </Set>
+    </FaultResponse>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</RaiseFault>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RaiseFault async="false" continueOnError="false" enabled="true" name="RF-503-Error">
+    <DisplayName>RF-503 Error</DisplayName>
+    <Properties/>
+    <FaultResponse>
+        <Set>
+            <Headers/>
+            <Payload contentType="application/json">
+            {
+              "error": {
+                "httpCode": "503",
+                "errorCode": "API-DETAILS-503",
+                "message": "Service Unavailable",
+                "detailedMessage": "Service Unavailable."
+              }
+            }
+            </Payload>
+            <StatusCode>503</StatusCode>
+            <ReasonPhrase>Service Unavailable</ReasonPhrase>
+        </Set>
+    </FaultResponse>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</RaiseFault>

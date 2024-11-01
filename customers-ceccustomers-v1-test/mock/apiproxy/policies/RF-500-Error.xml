@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RaiseFault async="false" continueOnError="false" enabled="true" name="RF-500-Error">
+    <DisplayName>RF-500 Error</DisplayName>
+    <Properties/>
+    <FaultResponse>
+        <Set>
+            <Headers/>
+            <Payload contentType="application/json">
+            {
+              "error": {
+                "httpCode": "500",
+                "errorCode": "API-DETAILS-500",
+                "message": "Internal Server Error",
+                "detailedMessage": "Internal Server Error"
+              }
+            }
+            </Payload>
+            <StatusCode>500</StatusCode>
+            <ReasonPhrase>Internal Server Error</ReasonPhrase>
+        </Set>
+    </FaultResponse>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</RaiseFault>

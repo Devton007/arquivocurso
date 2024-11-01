@@ -1,0 +1,41 @@
+[
+    {
+       "encrypted":true,
+       "entry":[
+          {
+             "name":"user_customers_ceccustomers",
+             "value":"ceccustomers"
+          },
+          {
+             "name":"pass_customers_ceccustomers",
+             "value":"callmeXyz#claro!"
+          }
+       ],
+       "name":"KVM-BackEnd-CecCustomers"
+    },
+    {
+       "entry":[
+          {
+             "name":"customers-ceccustomers-v1__apiVersion",
+             "value":"1;2021-10-11"
+          }
+       ],
+       "name":"sf-initializeattributes-v1-config"
+    },
+    {
+       "entry":[
+          
+       ],
+       "name":"sf-logging-v1-config"
+    },
+    {
+       "entry":[
+          {
+             "name":"customers-ceccustomers-v1__POST",
+             "value":"50ps"
+          }
+       ],
+       "name":"sf-spikearrest-v1-config"
+    }
+ ]
+ 

@@ -1,0 +1,784 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Customer Engagement Center(Proxy Apigee: customers-ceccustomers-v1)",
+    "description": "<table>   \n  <thead>  \n    <tr>\n      <th>Version</th>\n      <th>Author</th>\n      <th>Data</th>\n      <th>Changes</th>\n    </tr>  \n  </thead>\n  <tbody>\n    <tr>\n      <td>1.0.0</td>\n      <td>Airton Franco</td>\n      <td>2021-10-11</td>\n      <td>[Clientes da plataforma CEC - Novo BSS/New Stack] Versão inicial</td>\n    </tr>\n  </tbody>\n</table> \n\n## Objetivo\nAPI responsável por criar registros de Clientes na plataforma Salesforce/Vlocity.\n  \nO Cliente (Account) é a pessoa (Inicialmente Física) que solicitará a criação de sua Conta gerando dados de Contato (Contact).\n\n## Público-Alvo\nAté a data desta especificação os potenciais consumidores será o Front-End da aplicação do app (New Stack - BSS) através de plataformas dos conteúdos de ganais digitais.\n\n## Provedores\nO back-end provedor da API será o BFF (AVS), que será responável por gerar os dados do cliente no SSO para informações de acesso e no Salesforce/Vlocity.\n\n## Contexto em que a API se Insere\n\n Esta API é um item nativo do Salesforce/Vlocity que foi apontada para que fosse utilizada nos casos em que um cliente, interessado em consumir produtos do novo BSS, pudesse realizar seu cadastro. Os principais elementos desta são:\n \n    *Cliente (Account): É o cliente da Claro que possuirá apenas uma conta.\n     Exemplos: Now On Line, APP, STB\n    \n",
+    "version": "1;2021-10-11",
+    "contact": {
+      "name": "CC-Integração - Airton Franco",
+      "email": "coee.api.integracao@claro.com.br"
+    },
+    "x-claro-domains": [
+      "Customer"
+    ]
+  },
+  "security": [
+    {
+      "BasicAuth": []
+    },
+    {
+      "BearerAuth": []
+    },
+    {
+      "ApiKeyAuth": []
+    },
+    {
+      "OAuth2": []
+    }
+  ],
+  "servers": [
+    {
+      "url": "https://api-sandbox.claro.com.br/customers-ceccustomers/v1",
+      "description": "Sandbox (SaaS)"
+    },
+    {
+      "url": "https://test.apigw.claro.com.br/customers-ceccustomers/v1",
+      "description": "Test (on-premises)"
+    },
+    {
+      "url": "https://api-test.claro.com.br/customers-ceccustomers/v1",
+      "description": "Test (SaaS)"
+    },
+    {
+      "url": "https://api.claro.com.br/customers-ceccustomers/v1",
+      "description": "Production (SaaS)"
+    },
+    {
+      "url": "https://cas.apigw.claro.com.br/customers-ceccustomers/v1",
+      "description": "Production (on-premises DC Campinas)"
+    },
+    {
+      "url": "https://lpa.apigw.claro.com.br/customers-ceccustomers/v1",
+      "description": "Production (on-premises DC Lapa)"
+    }
+  ],
+  "paths": {
+    "/customers/cec/customers": {
+      "post": {
+        "summary": "Esta operação realiza a criação de clientes, que se traduzem na criação de conta (account) e contato no SalesForce. Gerar registro de conta e contato no Salesforce. Backend: Vlocity",
+        "description": "Esta operação a criação de um ciente(account). A Operação para adicionar o contato ao cadastro de um cliente ocorre de forma sequencial. Backend:Salesforce/Vlocity.",
+        "responses": {
+          "201": {
+            "description": "Business object representing debtor's contacts added.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/customersPostResponse"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/customersPostResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "405": {
+            "$ref": "#/components/responses/405"
+          },
+          "406": {
+            "$ref": "#/components/responses/406"
+          },
+          "413": {
+            "$ref": "#/components/responses/413"
+          },
+          "414": {
+            "$ref": "#/components/responses/414"
+          },
+          "422": {
+            "description": "Unprocessable Entity - Identify business errors that can be detailed according to backend system rules.\n\nThe possible values are: \n  * API-CECCUSTOMERS-001: Customer not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error"
+                },
+                "example": {
+                  "apiVersion": "1;2021-10-11",
+                  "transactionId": "Id-34fcb05c6d1923e35cef248d",
+                  "error": {
+                    "httpCode": "422",
+                    "errorCode": "API-CECCUSTOMERS-001",
+                    "message": "Customer not found.",
+                    "detailedMessage": "Customer not found.",
+                    "link": {
+                      "rel": "related",
+                      "href": "https://api.claro.com.br/docs"
+                    }
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          },
+          "429": {
+            "$ref": "#/components/responses/429"
+          },
+          "451": {
+            "$ref": "#/components/responses/451"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          },
+          "503": {
+            "$ref": "#/components/responses/503"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/customersPostRequest"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/customersPostRequest"
+              }
+            }
+          },
+          "description": "Request body for customers's add contacts.",
+          "required": true
+        },
+        "tags": [
+          "Adicionar Cliente a um Conta (Post Customers's Contacts)"
+        ]
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "BasicAuth": {
+        "type": "http",
+        "scheme": "basic"
+      },
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      },
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-API-Key"
+      },
+      "OAuth2": {
+        "type": "oauth2",
+        "flows": {
+          "clientCredentials": {
+            "tokenUrl": "/oauth2/v1/token",
+            "scopes": {}
+          }
+        }
+      }
+    },
+    "schemas": {
+      "customersPostRequest": {
+        "description": "Root structure of an add customers post request.",
+        "type": "object",
+        "required": [
+          "customer"
+        ],
+        "properties": {
+          "customer": {
+            "type": "object",
+            "required": [
+              "name",
+              "partyIdentificationObject",
+              "phoneContacts",
+              "emailAddress",
+              "channelId"
+            ],
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Nome completo do Cliente.\n",
+                "example": "KAELLY ALVES LIRIO"
+              },
+              "partyIdentificationObject": {
+                "type": "array",
+                "description": "Corresponde ao identificador de Parte, neste caso o Cliente. Identificador da parte se refere à correspondência exata de número de identificação,  e Tipo de identificação de parte.\n",
+                "items": {
+                  "$ref": "#/components/schemas/PartyIdentificationObject"
+                }
+              },
+              "phoneContacts": {
+                "type": "array",
+                "description": "Telefone de Contato do Cliente\n",
+                "items": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/phoneContactObject"
+                    },
+                    {
+                      "type": "object",
+                      "required": [
+                        "phoneType",
+                        "phoneNumber"
+                      ]
+                    }
+                  ]
+                }
+              },
+              "emailAddress": {
+                "type": "string",
+                "description": "E-mail de Contato do Cliente.\n",
+                "example": "kaelly.lirio@email.com.br"
+              },
+              "channelId": {
+                "type": "string",
+                "enum": [
+                  "Now On Line",
+                  "APP",
+                  "STB"
+                ],
+                "description": "Código de identificação do Canal de Origen do Comprador/Cliente.\n",
+                "example": "Now On Line"
+              }
+            }
+          }
+        }
+      },
+      "customersPostResponse": {
+        "description": "Root structure of an add contacts post response.",
+        "type": "object",
+        "required": [
+          "apiVersion",
+          "transactionId"
+        ],
+        "properties": {
+          "apiVersion": {
+            "type": "string",
+            "description": "Major and minor API Version.",
+            "example": "1;2021-10-11"
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Transaction´s tracking identification generated by API.",
+            "example": "Id-2d0384f0823434"
+          },
+          "customer": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CustomerIdentificationObject"
+            }
+          }
+        }
+      },
+      "CustomerIdentificationObject": {
+        "description": "Objeto que identifica a  conta associada a  um cliente.",
+        "type": "object",
+        "required": [
+          "customerId"
+        ],
+        "properties": {
+          "customerId": {
+            "type": "string",
+            "description": "Número de Identificação do Cliente (Account)",
+            "example": "0017j00000cFv1oAAC"
+          }
+        }
+      },
+      "phoneContactObject": {
+        "description": "Representa o conjunto de telefones de contato da pessoa.",
+        "type": "object",
+        "properties": {
+          "phoneType": {
+            "type": "string",
+            "enum": [
+              "Residencial",
+              "Celular",
+              "Comercial"
+            ],
+            "description": "Tipo de telefone de contato.",
+            "example": "Residencial"
+          },
+          "phoneNumber": {
+            "type": "string",
+            "description": "Número do telefone da pessoa de contato.",
+            "example": "1122334455"
+          }
+        }
+      },
+      "PartyIdentificationObject": {
+        "description": "Refere-se à informações básicas de identificação ou e Tipo de identificação de um Perfil ou  contato.\n\n  A string resultante são campos com nome/valor separados pelo símbolo\n    \"&\". Exemplos de preenchimento do X-QueryStrig:\n      * 'identificationType=CPF&identificationId=31242354678'\n      * 'identificationType=CNPJ&identificationId=06032456000134'\n  required: true\n  example: identificationType=CPF&identificationId=31242354678\n",
+        "type": "object",
+        "required": [
+          "identificationType",
+          "identificationId"
+        ],
+        "properties": {
+          "identificationType": {
+            "type": "string",
+            "enum": [
+              "CPF",
+              "CNJ"
+            ],
+            "description": "É o tipo da identificação.  Este campo obrigatório",
+            "example": "CPF"
+          },
+          "identificationId": {
+            "type": "string",
+            "description": "É o valor da identificação propriamente, de acordo com o tipo informado. É comparado para resolução de identidade.",
+            "example": 31242354678
+          }
+        }
+      },
+      "error": {
+        "description": "Object returned when an error occurs (4xx/5xx)",
+        "type": "object",
+        "required": [
+          "apiVersion",
+          "transactionId",
+          "error"
+        ],
+        "properties": {
+          "apiVersion": {
+            "type": "string",
+            "description": "Major and minor API Version.",
+            "example": "1;2021-10-11"
+          },
+          "transactionId": {
+            "type": "string",
+            "description": "Transaction´s tracking identification generated by API.",
+            "example": "Id-2d0384f0823434"
+          },
+          "error": {
+            "type": "object",
+            "properties": {
+              "httpCode": {
+                "type": "string",
+                "description": "HTTP error code"
+              },
+              "errorCode": {
+                "type": "string",
+                "description": "Internal API error code. Ex.: API-3566. This code can be used by consumer to map its error message."
+              },
+              "message": {
+                "type": "string",
+                "description": "Error Message."
+              },
+              "detailedMessage": {
+                "type": "string",
+                "description": "Detailed error message."
+              },
+              "link": {
+                "type": "object",
+                "description": "Object containing page link to errors detailed documentation on API Portal.",
+                "properties": {
+                  "rel": {
+                    "type": "string",
+                    "enum": [
+                      "related"
+                    ],
+                    "description": "To reference the API portal error page is used the “related” semantics in this scenario."
+                  },
+                  "href": {
+                    "type": "string",
+                    "description": "Resource URL"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "xml": {
+          "name": "xml"
+        }
+      }
+    },
+    "responses": {
+      "400": {
+        "description": "Bad Request",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/error"
+            },
+            "example": {
+              "apiVersion": "1;2021-10-11",
+              "transactionId": "Id-2d0384f0823434",
+              "error": {
+                "httpCode": "400",
+                "errorCode": "API-CECCUSTOMERS-400",
+                "message": "Bad Request",
+                "detailedMessage": "Bad Request",
+                "link": {
+                  "rel": "related",
+                  "href": "https://api.claro.com.br/docs"
+                }
+              }
+            }
+          },
+          "application/xml": {
+            "schema": {
+              "$ref": "#/components/schemas/error"
+            }
+          }
+        }
+      },
+      "401": {
+        "description": "Unauthorized",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/error"
+            },
+            "example": {
+              "apiVersion": "1;2021-10-11",
+              "transactionId": "Id-2d0384f0823435",
+              "error": {
+                "httpCode": "401",
+                "errorCode": "API-CECCUSTOMERS-401",
+                "message": "Unauthorized",
+                "detailedMessage": "Unauthorized user.",
+                "link": {
+                  "rel": "related",
+                  "href": "https://api.claro.com.br/docs"
+                }
+              }
+            }
+          },
+          "application/xml": {
+            "schema": {
+              "$ref": "#/components/schemas/error"
+            }
+          }
+        }
+      },
+      "403": {
+        "description": "Forbidden",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/error"
+            },
+            "example": {
+              "apiVersion": "1;2021-10-11",
+              "transactionId": "Id-2d0384f0823437",
+              "error": {
+                "httpCode": "403",
+                "errorCode": "API-CECCUSTOMERS-403",
+                "message": "Forbidden",
+                "detailedMessage": "Client authorization failed.",
+                "link": {
+                  "rel": "related",
+                  "href": "https://api.claro.com.br/docs"
+                }
+              }
+            }
+          },
+          "application/xml": {
+            "schema": {
+              "$ref": "#/components/schemas/error"
+            }
+          }
+        }
+      },
+      "404": {
+        "description": "Not Found",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/error"
+            },
+            "example": {
+              "apiVersion": "1;2021-10-11",
+              "transactionId": "Id-2d0384f0823436",
+              "error": {
+                "httpCode": "404",
+                "errorCode": "API-CECCUSTOMERS-404",
+                "message": "Not found",
+                "detailedMessage": "Resource not found.",
+                "link": {
+                  "rel": "related",
+                  "href": "https://api.claro.com.br/docs"
+                }
+              }
+            }
+          },
+          "application/xml": {
+            "schema": {
+              "$ref": "#/components/schemas/error"
+            }
+          }
+        }
+      },
+      "405": {
+        "description": "Method Not Allowed",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/error"
+            },
+            "example": {
+              "apiVersion": "1;2021-10-11",
+              "transactionId": "Id-2d0384f0823435",
+              "error": {
+                "httpCode": "405",
+                "errorCode": "API-CECCUSTOMERS-405",
+                "message": "Method Not Allowed",
+                "detailedMessage": "Unavailable HTTP method.",
+                "link": {
+                  "rel": "related",
+                  "href": "https://api.claro.com.br/docs"
+                }
+              }
+            }
+          },
+          "application/xml": {
+            "schema": {
+              "$ref": "#/components/schemas/error"
+            }
+          }
+        }
+      },
+      "406": {
+        "description": "Not Acceptable",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/error"
+            },
+            "example": {
+              "apiVersion": "1;2021-10-11",
+              "transactionId": "Id-2d0384f0823433",
+              "error": {
+                "httpCode": "406",
+                "errorCode": "API-CECCUSTOMERS-406",
+                "message": "Request Not Acceptable",
+                "detailedMessage": "Requested content type not acceptable.",
+                "link": {
+                  "rel": "related",
+                  "href": "https://api.claro.com.br/docs"
+                }
+              }
+            }
+          },
+          "application/xml": {
+            "schema": {
+              "$ref": "#/components/schemas/error"
+            }
+          }
+        }
+      },
+      "413": {
+        "description": "Request Entity Too Large",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/error"
+            },
+            "example": {
+              "apiVersion": "1;2021-10-11",
+              "transactionId": "Id-2d0384f0823434",
+              "error": {
+                "httpCode": "413",
+                "errorCode": "API-CECCUSTOMERS-413",
+                "message": "Request Entity Too Large",
+                "detailedMessage": "Payload limits check failed.",
+                "link": {
+                  "rel": "related",
+                  "href": "https://api.claro.com.br/docs"
+                }
+              }
+            }
+          },
+          "application/xml": {
+            "schema": {
+              "$ref": "#/components/schemas/error"
+            }
+          }
+        }
+      },
+      "414": {
+        "description": "Request-URI Too Large",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/error"
+            },
+            "example": {
+              "apiVersion": "1;2021-10-11",
+              "transactionId": "Id-2d0384f0823433",
+              "error": {
+                "httpCode": "414",
+                "errorCode": "API-CECCUSTOMERS-414",
+                "message": "Request-URI Too Large",
+                "detailedMessage": "URI limits check failed.",
+                "link": {
+                  "rel": "related",
+                  "href": "https://api.claro.com.br/docs"
+                }
+              }
+            }
+          },
+          "application/xml": {
+            "schema": {
+              "$ref": "#/components/schemas/error"
+            }
+          }
+        }
+      },
+      "415": {
+        "description": "Unsupported Media Type",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/error"
+            },
+            "example": {
+              "apiVersion": "1;2021-10-11",
+              "transactionId": "Id-2d0384f0823433",
+              "error": {
+                "httpCode": "415",
+                "errorCode": "API-CECCUSTOMERS-415",
+                "message": "Unsupported Media Type",
+                "detailedMessage": "Unsupported Media Type.",
+                "link": {
+                  "rel": "related",
+                  "href": "https://api.claro.com.br/docs"
+                }
+              }
+            }
+          },
+          "application/xml": {
+            "schema": {
+              "$ref": "#/components/schemas/error"
+            }
+          }
+        }
+      },
+      "429": {
+        "description": "Too Many Requests",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/error"
+            },
+            "example": {
+              "apiVersion": "1;2021-10-11",
+              "transactionId": "Id-2d0384f0823433",
+              "error": {
+                "httpCode": "429",
+                "errorCode": "API-CECCUSTOMERS-429",
+                "message": "Too Many Requests",
+                "detailedMessage": "The maximum request limit for this MSISDN has been exceeded.",
+                "link": {
+                  "rel": "related",
+                  "href": "https://api.claro.com.br/docs"
+                }
+              }
+            }
+          },
+          "application/xml": {
+            "schema": {
+              "$ref": "#/components/schemas/error"
+            }
+          }
+        }
+      },
+      "451": {
+        "description": "Unavailable For Legal Reasons",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/error"
+            },
+            "example": {
+              "apiVersion": "1;2021-10-11",
+              "transactionId": "Id-2d0384f0823433",
+              "error": {
+                "httpCode": "451",
+                "errorCode": "API-CECCUSTOMERS-451",
+                "message": "Unavailable For Legal Reasons",
+                "detailedMessage": "Unavailable For Legal Reasons.",
+                "link": {
+                  "rel": "related",
+                  "href": "https://api.claro.com.br/docs"
+                }
+              }
+            }
+          },
+          "application/xml": {
+            "schema": {
+              "$ref": "#/components/schemas/error"
+            }
+          }
+        }
+      },
+      "500": {
+        "description": "Internal Server Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/error"
+            },
+            "example": {
+              "apiVersion": "1;2021-10-11",
+              "transactionId": "Id-2d0384f0823433",
+              "error": {
+                "httpCode": "500",
+                "errorCode": "API-CECCUSTOMERS-500",
+                "message": "Internal Server Error",
+                "detailedMessage": "Internal Server Error.",
+                "link": {
+                  "rel": "related",
+                  "href": "https://api.claro.com.br/docs"
+                }
+              }
+            }
+          },
+          "application/xml": {
+            "schema": {
+              "$ref": "#/components/schemas/error"
+            }
+          }
+        }
+      },
+      "503": {
+        "description": "Service unavailable",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/error"
+            },
+            "example": {
+              "apiVersion": "1;2021-10-11",
+              "transactionId": "Id-2d0384f0823433",
+              "error": {
+                "httpCode": "503",
+                "errorCode": "API-CECCUSTOMERS-503",
+                "message": "Service Unavailable",
+                "detailedMessage": "Service Unavailable.",
+                "link": {
+                  "rel": "related",
+                  "href": "https://api.claro.com.br/docs"
+                }
+              }
+            }
+          },
+          "application/xml": {
+            "schema": {
+              "$ref": "#/components/schemas/error"
+            }
+          }
+        }
+      }
+    }
+  }
+}

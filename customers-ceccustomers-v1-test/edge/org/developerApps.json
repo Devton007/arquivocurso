@@ -1,0 +1,32 @@
+{
+	"airton.silveira.3@globalhitss.com.br": [
+		{
+			"name": "customers-ceccustomers-v1-app-ok",
+			"displayName": "customers-ceccustomers-v1-app-ok",
+			"apiProducts": [
+				"customers-ceccustomers-v1-ok"
+			],
+			"callbackUrl": "",
+			"scopes": [
+			],
+			"attributes": [
+				{
+					"name": "authtype",
+					"value": "oauth"
+				}
+			],
+			"credentials": [
+				{
+					"apiProducts": [
+						{
+							"apiproduct": "customers-ceccustomers-v1-ok", 
+							"status": "approved"
+						}
+					],
+					"attributes": [],
+					"status": "approved"
+				}
+			]
+		}
+	]
+}

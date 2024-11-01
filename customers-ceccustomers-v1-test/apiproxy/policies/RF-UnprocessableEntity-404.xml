@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RaiseFault async="false" continueOnError="false" enabled="true" name="RF-UnprocessableEntity-404">
+    <DisplayName>RF-UnprocessableEntity-404</DisplayName>
+    <Properties/>
+    <FaultResponse>
+        <Set>
+            <Headers>
+                <Header name="Content-Type">application/json</Header>
+            </Headers>
+            <Payload contentType="application/json" variablePrefix="#" variableSuffix="%">
+                {
+                    "apiVersion": "#apiVersion%",
+                    "transactionId": "#transactionId%",
+                  "error": {
+                    "httpCode": "404",
+                    "errorCode": "API-CECCUSTOMERS-404",
+                    "message": "Not found",
+                    "detailedMessage": "Resource not found.",
+                    "link": {
+                      "rel": "related",
+                      "href": "https://api.claro.com.br/docs"
+                    }
+                  }
+                }
+            </Payload>
+            <StatusCode>404</StatusCode>
+            <ReasonPhrase>Resource Not Found</ReasonPhrase>
+        </Set>
+    </FaultResponse>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</RaiseFault>

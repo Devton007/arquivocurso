@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables async="false" continueOnError="false" enabled="true" name="EV-ExtractBodyIdentifiersResponseFault">
+    <DisplayName>EV-ExtractBodyIdentifiersResponseFault</DisplayName>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <JSONPayload>
+        <Variable name="bodyFault-code">
+            <JSONPath>$.error.httpCode</JSONPath>
+        </Variable>
+        <Variable name="bodyFault-message">
+            <JSONPath>$.error.message</JSONPath>
+        </Variable>
+        <Variable name="bodyFault-faultstring">
+            <JSONPath>$.error.detailedMessage</JSONPath>
+        </Variable>
+    </JSONPayload>
+    <Source clearPayload="false">response</Source>
+    <VariablePrefix>backendResponse</VariablePrefix>
+</ExtractVariables>

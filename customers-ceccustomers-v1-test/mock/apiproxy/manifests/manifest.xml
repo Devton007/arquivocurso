@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Manifest name="manifest">
+    <Policies>
+        <VersionInfo resourceName="AM-ResponseBodyCustomerConfiguration" version="SHA-512:fe24fa488adda5a7b0dee5cef5d2e8d24979853076b9123f9325e3cfa92b9c4557276a861f2079938065240c5c6561d1a77073f0ea1bc3e3c571982f467ab453"/>
+        <VersionInfo resourceName="EV-JSON-Identifier" version="SHA-512:43f282cd4a9e26f8f4d23d1bcf6baab914d1ad5f803fb3e55fb4e84f47899dc1c39f2e38b4479b396b36f3c9812d845de01dd04993190eaef12efad3d3e1d0c4"/>
+        <VersionInfo resourceName="JS-ValidaRequest" version="SHA-512:c1675f0f92e74b508dc325e0442cda94c41a4847dc65d0ae53814ce2942975a7d938222204a49e8ab6cb5845f65bcfbc6e164c16a79385aec1ed587953f5a9b7"/>
+        <VersionInfo resourceName="JS-XQueryString" version="SHA-512:28c79d4002777a5911e0d92d8390efe967780b1646878fe648c8a9d88bc375424ff35ce40a3076f88e21621b71847329c07434e444bedd4896d3473f946dba1b"/>
+        <VersionInfo resourceName="JTP-Request" version="SHA-512:1ac47b426be4693c6ab8161de34f4f4a299dae2d8c65bd5aa35a241374313cb8b9215fa7018df4d04e2821aeb7eff585871f320656bf0ac89c3d5ac51b68aae3"/>
+        <VersionInfo resourceName="RF-400-Error" version="SHA-512:796b3f4d792b5c08ed3c9964eeaff8546721ec19d075a8cd72249d03bbe4c5e7a134fa67bf58dd3fdb7c2fdda612541c7f5066241ef0bc3b1b615e0ac1017f3b"/>
+        <VersionInfo resourceName="RF-401-Error" version="SHA-512:54316e0b69fab94a53c4bfb6c3aeb1220549224bb2b2603f7ba94bf9c57323435adb134b935292b568b39de3caea4d56e4c2714408e414139d297ff5620b9817"/>
+        <VersionInfo resourceName="RF-403-Error" version="SHA-512:e9ff67b81d6a5a7f07df680547825100623ee841bab1b50e53b18edc5641bbed421b59a391e547865c42437d31bb7a147099fd93bbc1ad22f5c02fd8348f0855"/>
+        <VersionInfo resourceName="RF-404-Error" version="SHA-512:50214ec710294ae7c7e3a3994e6d1ef557389b5a500a299b7caea2ab6106f7424eddc309a3ff71600c38971b110cf22f1fa6cf447619518dc6f134700cd122af"/>
+        <VersionInfo resourceName="RF-405-Error" version="SHA-512:08712e79ad379a06beeaf4f86cc525f08e249751f56953b7af8344e8d928171d8aee92831184cae63acc37f2647624bda7ba3b104eb911335cd919a318c5ecd7"/>
+        <VersionInfo resourceName="RF-406-Error" version="SHA-512:c0b59a68d5713efbf697f10c5133d983041afddef8fa1e1b7961c2a03e61bc5b52dfa770af9ee965ec3f79a91469863e66f9371b1cf64dcf93d488eab4c1ee3e"/>
+        <VersionInfo resourceName="RF-413-Error" version="SHA-512:4cbe5f90634b78e8da569ee362163aad9e92478f691d9a39edaebe0f43f2caacd887ca740b6bc320748f87cec4598b800b40d38b83f36969a125d7a119e9a835"/>
+        <VersionInfo resourceName="RF-414-Error" version="SHA-512:483f8c485bd1ff96cd064a4bb4563788e9604e7c2be456053b9800616d2921a85464eaf2254f3ba4d02109c5d5a643f942d94dcf7479791c0d952a711714f742"/>
+        <VersionInfo resourceName="RF-415-Error" version="SHA-512:60b8a4c506b14cb42bf8cc34acc3d053c6265cd5e35aecddf565d0d81164508b9a009320c0f07c6b94c54e73d52124001c166f7292a0907e75798a54c58a3e27"/>
+        <VersionInfo resourceName="RF-422-Error" version="SHA-512:90dbd06f7c49f2323b0835ffaaa26cd8e8f3e605755d92558f4fa1f1347e010835a698ac8d5fe9545c0dfd367e2815826ddbdae855c0815e8fc6e935bf9fef7a"/>
+        <VersionInfo resourceName="RF-429-Error" version="SHA-512:9143409fbaf3838884881e7aec72c2c342d16af4ec8465864a21ab3719f62e1e1cdebcb919464925b777c7eab2e887ebcdac165ba20d8fbe500d7876535b59e9"/>
+        <VersionInfo resourceName="RF-451-Error" version="SHA-512:dad68627addbc298936a7e2caf6ebfebcc4f11f9dabe4a28cff602a80f70edebda6c087595e305cf92f4a515be3b201014754700607dcca567731391248cf73d"/>
+        <VersionInfo resourceName="RF-500-Error" version="SHA-512:accd17e3b9c4e835402c096a6d91dcb4d89c71417c94fb646d2c722f241f16a54618e93f278af57873875a3b6aa4659d86d13b89812787ece141275a2dcca689"/>
+        <VersionInfo resourceName="RF-503-Error" version="SHA-512:1cd6b43e4cff3d16eb53269769bfa018377308a787a0adbdad6f96f9952538375d43d88f3ff93f02845e0a50f4c272d25cba2b331537754b1be18af2c0e16633"/>
+    </Policies>
+    <ProxyEndpoints>
+        <VersionInfo resourceName="mockDefaultProxy" version="SHA-512:6985d913fb9156c99ee745fdbee726519bf673909b024cb0b6706e25e629f0b2494e355a5af7ae6d9c48da45ced1c683fc76c4003c174759889a8359a8911e49"/>
+    </ProxyEndpoints>
+    <Resources>
+        <VersionInfo resourceName="jsc://JS-ValidaRequest.js" version="SHA-512:da5bd68bd6a955969d5aadf97d271f657e1554acc022c31865b95b2f4d6355d84e85f21ed9cc14f67d605daf41d283aeb641c1e9841f8b5142c622b8f8d40174"/>
+        <VersionInfo resourceName="jsc://JS-XQueryString.js" version="SHA-512:a8d0a6b9deab42454492f4f03b2394820f2a6366165b195f8f1a5a6ff8862ca3c78f339c1487e58b8ddcba8c6a98fd81167723ab633c7d5d3424b6890ad56bbf"/>
+    </Resources>
+    <SharedFlows/>
+    <TargetEndpoints/>
+</Manifest>

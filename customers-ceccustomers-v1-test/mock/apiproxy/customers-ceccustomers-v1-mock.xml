@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="8" name="customers-ceccustomers-v1-mock">
+    <Basepaths>/configuration-vascustomers-v1-mock</Basepaths>
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1635273815420</CreatedAt>
+    <CreatedBy>airton.silveira.3@globalhitss.com.br</CreatedBy>
+    <Description>Mock do backend SGVAS para configuração de usuário VAS para o Flex</Description>
+    <DisplayName>configuration-vascustomers-v1-mock</DisplayName>
+    <LastModifiedAt>1635550465277</LastModifiedAt>
+    <LastModifiedBy>airton.silveira.3@globalhitss.com.br</LastModifiedBy>
+    <ManifestVersion>SHA-512:bc265cbb7065ca4d7872adde8f47d00b29865a38d391585145e907f725093347be7e888d50aa76d18bb896f9e4a13d7fab8e995ab3e64781f7d891db63388049</ManifestVersion>
+    <Policies>
+        <Policy>AM-ResponseBodyCustomerConfiguration</Policy>
+        <Policy>EV-JSON-Identifier</Policy>
+        <Policy>JS-ValidaRequest</Policy>
+        <Policy>JS-XQueryString</Policy>
+        <Policy>JTP-Request</Policy>
+        <Policy>RF-400-Error</Policy>
+        <Policy>RF-401-Error</Policy>
+        <Policy>RF-403-Error</Policy>
+        <Policy>RF-404-Error</Policy>
+        <Policy>RF-405-Error</Policy>
+        <Policy>RF-406-Error</Policy>
+        <Policy>RF-413-Error</Policy>
+        <Policy>RF-414-Error</Policy>
+        <Policy>RF-415-Error</Policy>
+        <Policy>RF-422-Error</Policy>
+        <Policy>RF-429-Error</Policy>
+        <Policy>RF-451-Error</Policy>
+        <Policy>RF-500-Error</Policy>
+        <Policy>RF-503-Error</Policy>
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>mockDefaultProxy</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources>
+        <Resource>jsc://JS-ValidaRequest.js</Resource>
+        <Resource>jsc://JS-XQueryString.js</Resource>
+    </Resources>
+    <Spec></Spec>
+    <TargetServers/>
+    <TargetEndpoints/>
+</APIProxy>

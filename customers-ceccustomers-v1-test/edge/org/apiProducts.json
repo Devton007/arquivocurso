@@ -1,0 +1,27 @@
+[
+	{
+		"name": "customers-ceccustomers-v1-ok",
+		"displayName": "customers-ceccustomers-v1-ok",
+		"description": "Customers CE v1 Ok",
+		"apiResources": [
+		],
+		"approvalType": "auto",
+		"attributes": [
+			{
+				"name": "authtype",
+				"value": "[oauth]"
+			}
+		],
+		"environments":["lab","dev","test"]
+		,
+		"proxies": [
+			"customers-ceccustomers-v1",
+			"oauth-tokenissuer-v1"
+		],
+		"quota": "1200",
+		"quotaInterval": "1",
+		"quotaTimeUnit": "minute",
+		"scopes": [],
+		"access": "private"
+	}
+]

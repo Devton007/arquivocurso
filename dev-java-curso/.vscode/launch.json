@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CadastroCliente",
+            "request": "launch",
+            "mainClass": "edu.everton.estudojava.CadastroCliente",
+            "projectName": "dev-java-curso_fbfdd031"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"

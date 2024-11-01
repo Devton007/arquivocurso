@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RaiseFault async="false" continueOnError="false" enabled="true" name="RF-414-Error">
+    <DisplayName>RF-414 Error</DisplayName>
+    <Properties/>
+    <FaultResponse>
+        <Set>
+            <Headers/>
+            <Payload contentType="application/json">
+            {
+              "error": {
+                "httpCode": "414",
+                "errorCode": "API-DETAILS-414",
+                "message": "Request-URI Too Large",
+                "detailedMessage": "URI limits check failed."
+              }
+            }
+            </Payload>
+            <StatusCode>414</StatusCode>
+            <ReasonPhrase>Request-URI Too Large</ReasonPhrase>
+        </Set>
+    </FaultResponse>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</RaiseFault>

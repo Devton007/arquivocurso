@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RaiseFault async="false" continueOnError="false" enabled="true" name="RF-429-Error">
+    <DisplayName>RF-429 Error</DisplayName>
+    <Properties/>
+    <FaultResponse>
+        <Set>
+            <Headers/>
+            <Payload contentType="application/json">
+               {
+                  "error": {
+                    "httpCode": "429",
+                    "errorCode": "API-DETAILS-429",
+                    "message": "Too Many Requests",
+                    "detailedMessage": "Too Many Requests"
+                  }
+                }
+            </Payload>
+            <StatusCode>429</StatusCode>
+            <ReasonPhrase>Too Many Requests</ReasonPhrase>
+        </Set>
+    </FaultResponse>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</RaiseFault>

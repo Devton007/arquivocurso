@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RaiseFault async="false" continueOnError="false" enabled="true" name="RF-406-Error">
+    <DisplayName>RF-406 Error</DisplayName>
+    <Properties/>
+    <FaultResponse>
+        <Set>
+            <Headers/>
+            <Payload contentType="application/json">
+           {
+              "error": {
+                "httpCode": "406",
+                "errorCode": "API-DETAILS-406",
+                "message": "Request Not Acceptable",
+                "detailedMessage": "Requested content type not acceptable."
+              }
+            }
+            </Payload>
+            <StatusCode>406</StatusCode>
+            <ReasonPhrase>Not Acceptable</ReasonPhrase>
+        </Set>
+    </FaultResponse>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</RaiseFault>

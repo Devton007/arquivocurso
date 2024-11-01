@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="40" name="customers-ceccustomers-v1">
+    <Basepaths>/customers/v1/ceccustomers</Basepaths>
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1636675522998</CreatedAt>
+    <CreatedBy>airton.silveira.3@globalhitss.com.br</CreatedBy>
+    <Description>
+    API responsável por criar registros de Clientes na plataforma Salesforce/Vlocity.
+  </Description>
+    <DisplayName>customers-ceccustomers-v1</DisplayName>
+    <LastModifiedAt>1636675522998</LastModifiedAt>
+    <LastModifiedBy>airton.silveira.3@globalhitss.com.br</LastModifiedBy>
+    <ManifestVersion>SHA-512:23c253b6afc04910e093ad6efea149e51a99d507feeaf7dec7fea57b5b742211ffd88f492009c4a97dad8adccb3c99530ba9ff91822c84571fd77db93698acf0</ManifestVersion>
+    <Policies>
+        <Policy>AM-AddCors</Policy>
+        <Policy>AM-CreateNewResponseFault</Policy>
+        <Policy>AM-RemovePathSuffix</Policy>
+        <Policy>EV-ExtractBodyIdentifiersResponseFault</Policy>
+        <Policy>JS-GenerateRequest</Policy>
+        <Policy>JS-GenerateResponse</Policy>
+        <Policy>JS-ValidateRequest</Policy>
+        <Policy>RF-BadRequest-400</Policy>
+        <Policy>RF-RaiseMethodNotAllowed-405</Policy>
+        <Policy>RF-UnprocessableEntity-404</Policy>
+        <Policy>SF-CECCUSTOMERS</Policy>
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources>
+        <Resource>openapi://association.json</Resource>
+        <Resource>jsc://JS-GenerateRequest.js</Resource>
+        <Resource>jsc://JS-GenerateResponse.js</Resource>
+        <Resource>jsc://JS-ValidateRequest.js</Resource>
+    </Resources>
+    <Spec></Spec>
+    <TargetServers/>
+    <TargetEndpoints>
+        <TargetEndpoint>TS-Ceccustomers</TargetEndpoint>
+    </TargetEndpoints>
+</APIProxy>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RaiseFault async="false" continueOnError="false" enabled="true" name="RF-413-Error">
+    <DisplayName>RF-413 Error</DisplayName>
+    <Properties/>
+    <FaultResponse>
+        <Set>
+            <Headers/>
+            <Payload contentType="application/json">
+            {
+              "error": {
+                "httpCode": "413",
+                "errorCode": "API-DETAILS-413",
+                "message": "Request Entity Too Large",
+                "detailedMessage": "Payload limits check failed.."
+              }
+            }
+            </Payload>
+            <StatusCode>413</StatusCode>
+            <ReasonPhrase>Request Entity Too Large</ReasonPhrase>
+        </Set>
+    </FaultResponse>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</RaiseFault>

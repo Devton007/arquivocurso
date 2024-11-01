@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RaiseFault async="false" continueOnError="false" enabled="true" name="RF-422-Error">
+    <DisplayName>RF-422 Error</DisplayName>
+    <Properties/>
+    <FaultResponse>
+        <Set>
+            <Headers/>
+            <Payload contentType="application/json">
+            {
+                  "error": {
+                    "httpCode": "422",
+                    "errorCode": "API-DETAILS-422",
+                    "message": "Unprocessable Entity",
+                    "detailedMessage": "Business fault occurred."
+                  }
+                }
+            </Payload>
+            <StatusCode>422</StatusCode>
+            <ReasonPhrase>Unprocessable Entity</ReasonPhrase>
+        </Set>
+    </FaultResponse>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</RaiseFault>

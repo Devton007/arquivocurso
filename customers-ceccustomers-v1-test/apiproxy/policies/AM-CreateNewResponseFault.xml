@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-CreateNewResponseFault">
+    <DisplayName>AM-CreateNewResponseFault</DisplayName>
+    <Set>
+        <Payload contentType="application/json" variablePrefix="#" variableSuffix="%">
+        {
+          "apiVersion": "#apiVersion%",
+          "transactionId": "#transactionId%",
+          "error": {
+            "httpCode": "#response.status.code%",
+            "errorCode": "API-CECCUSTOMERS-#response.status.code%",
+            "message": "#response.reason.phrase%",
+            "detailedMessage": "#backendResponse.bodyFault-message% - #backendResponse.bodyFault-faultstring%",
+            "link": {
+              "rel": "related",
+              "href": "https://api.net.com.br/docs/error_codes.html"
+            }
+          }
+        }
+        </Payload>
+    </Set>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="false" transport="http" type="response"/>
+</AssignMessage>

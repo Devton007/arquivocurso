@@ -1,0 +1,17 @@
+{
+    "parameters": {
+        "domain": "api-test.claro.com.br",
+        "protocol": "https",
+        "port":  "443",
+        "basepath": "",
+        "apps": {
+            "customers-ceccustomers-v1-app-ok": {
+                "name": "customers-ceccustomers-v1-app-ok",
+                "authHeaderName": "Authorization",
+                "authHeaderValue": "Bearer tvCGUOgfnwT9S9LdAp6Q9ZwgaAGu"
+            }
+        },
+        "unitTesting": "true"
+    }
+}
+

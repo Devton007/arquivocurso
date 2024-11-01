@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="mockDefaultProxy">
+    <PreFlow name="PreFlow">
+        <Request>
+            <Step>
+                <Name>JTP-Request</Name>
+            </Step>
+            <Step>
+                <Name>EV-JSON-Identifier</Name>
+            </Step>
+            <Step>
+                <Name>JS-ValidaRequest</Name>
+            </Step>
+            <Step>
+                <Name>RF-400-Error</Name>
+                <Condition>error-400 = true</Condition>
+            </Step>
+            <Step>
+                <Name>RF-401-Error</Name>
+                <Condition>error-401 = true</Condition>
+            </Step>
+            <Step>
+                <Name>RF-403-Error</Name>
+                <Condition>error-403 = true</Condition>
+            </Step>
+            <Step>
+                <Name>RF-404-Error</Name>
+                <Condition>error-404 = true</Condition>
+            </Step>
+            <Step>
+                <Name>RF-405-Error</Name>
+                <Condition>error-405 = true</Condition>
+            </Step>
+            <Step>
+                <Name>RF-406-Error</Name>
+                <Condition>error-406 = true</Condition>
+            </Step>
+            <Step>
+                <Name>RF-413-Error</Name>
+                <Condition>error-413 = true</Condition>
+            </Step>
+            <Step>
+                <Name>RF-414-Error</Name>
+                <Condition>error-414 = true</Condition>
+            </Step>
+            <Step>
+                <Name>RF-415-Error</Name>
+                <Condition>error-415 = true</Condition>
+            </Step>
+            <Step>
+                <Name>RF-422-Error</Name>
+                <Condition>error-422 = true</Condition>
+            </Step>
+            <Step>
+                <Name>RF-429-Error</Name>
+                <Condition>error-429 = true</Condition>
+            </Step>
+            <Step>
+                <Name>RF-451-Error</Name>
+                <Condition>error-451 = true</Condition>
+            </Step>
+            <Step>
+                <Name>RF-500-Error</Name>
+                <Condition>error-500 = true</Condition>
+            </Step>
+            <Step>
+                <Name>RF-503-Error</Name>
+                <Condition>error-503 = true</Condition>
+            </Step>
+        </Request>
+        <Response/>
+    </PreFlow>
+    <Flows>
+        <Flow name="postCustomerConfiguration">
+            <Description>Esta operação possibilita a configuração do cliente de VAS, a partir de dados de uma  identificação.  Permite a limpeza de todas as ofertas de VAS e OTT do cliente ou sincronismo de ciclo de vida de assinante: (Troca de MSISDN, Troca de simcard, Troca de titularidade. É retornado o ID da transação realizada. Backend: Sgvas.</Description>
+            <Condition>(proxy.pathsuffix MatchesPath "/composite") and (request.verb = "POST")</Condition>
+            <Request>
+                <Step>
+                    <Name>AM-ResponseBodyCustomerConfiguration</Name>
+                </Step>
+            </Request>
+            <Response/>
+        </Flow>
+    </Flows>
+    <PostFlow name="PostFlow">
+        <Request/>
+        <Response/>
+    </PostFlow>
+    <HTTPProxyConnection>
+        <BasePath>/customers-ceccustomers/v1/mock/customers/cec/customers</BasePath>
+        <VirtualHost>secure</VirtualHost>
+    </HTTPProxyConnection>
+    <RouteRule name="noroute"/>
+</ProxyEndpoint>

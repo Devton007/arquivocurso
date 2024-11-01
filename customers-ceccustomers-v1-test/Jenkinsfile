@@ -1,0 +1,57 @@
+@Library('SharedLibraryApiV2@release') _
+node {
+    stage('Call ') {
+        try {
+            commonJenkinsfile(
+                ambiente: "AMBOS",
+                criticidade: "BAIXA",                                   // Opcional - 'BAIXA' || >'MEDIA' || 'ALTA'
+                nova_corretiva : "NOVA",                                // Opcional - >'NOVA' || 'CORRETIVA'
+                indisponibilidade: "NAO",                               // Opcional - 'NAO' || >'SIM'
+                dependencias: "SIM",                                    // Opcional - >'NAO' || 'SIM'
+                analise_capacity: "EFETUADO",
+                api_name: "customers-ceccustomers-v1",                              // Opcional - Nome da API >(Nome do Repositório)
+                productOwner: [                                         // Obrigatório:            
+                    emails:"airton.silveira.3@globalhitss.com.br",       //      email do PO 
+                    claroAccounts: 'Z215488'                            //      conta Para Aprovação           
+                ],
+                test: [                                                 // Obrigatório:
+                    emails:[                                            //      email do Tester Adicionar sempre após com virgula o email do lider de test
+                        "airton.silveira.3@globalhitss.com.br",
+                        "emmanuelle.almeida.3@globalhitss.com.br",
+                        "jose.fernandes.3@globalhitss.com.br",
+                        "cesar.oliveira.3@globalhitss.com.br",
+                        "diego.marins.3@globalhitss.com.br",
+                        "vilasboas.ca@ibm.com" 
+                    ],
+                    claroAccounts: [                                    //      conta Para Aprovação
+                        'Z215488',
+                        'Z233459',
+                        'Z245515',
+                        'Z234412',
+                        'Z233293',
+                        'Z213277'
+                    ]
+                ],                                                      //      Ex: productOwner: [claroAccounts: "z12345678", emails: "po@email.com" ]                                                      //      Ex: test: [claroAccounts: "z12345678", emails: "tester@email.com" ]
+                devEmail: [                                             // Opcional
+                    "airton.silveira.3@globalhitss.com.br",
+                    "glauce.oliveira.3@globalhitss.com.br",            //      > email do Commit no Git ou email do PO
+                ],                                                     //      Ex: devEmail: 'dev@email.com'
+                squad: "APIGEE",                                          // Opcional - Nome da Squad
+                stripBackendConfig: true                                // Opcional - true or >false
+            )            
+        }
+        catch (err) {
+            print err
+            currentBuild.result = 'FAILURE'
+            throw err
+        }
+    }
+}
+
+//VALORES INFORMATIVOS NO PREENCHIMENTO PARA GMUD CLARO-BRASIL
+//AMBIENTE: DIGITAR ON-PREMISES, SAAS OU AMBOS
+//CRITICIDADE: DIGITAR "SIM" ou "NAO"
+//NOVA_CORRETIVA : CASSO FOR UMA API NOVA DIGITAR "NOVA", SE FOR CORRETIVA DIGITAR "CORRETIVA"
+//INDISPONIILIDADE: CASO A API EM PRODUÇÃO SOFRER INDISPONIBILIDADE DIGITAR "SIM" OU "NÃO"
+//DEPENDENCIAS: CASO A API HOUVER DEPENDENCIAS COM OUTROS SISTEMAS DIGITAR "SIM" OU "NÃO"
+//ANALISE_CAPACITY: CASO JÁ HOUVER ALGUMA ANÁLISE DE CAPACITY EFETUDO PELA ÁREA RESPONSÁVEL DIGITAR "SIM" OU "NÃO"

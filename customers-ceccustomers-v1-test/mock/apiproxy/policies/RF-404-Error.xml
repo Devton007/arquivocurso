@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RaiseFault async="false" continueOnError="false" enabled="true" name="RF-404-Error">
+    <DisplayName>RF-404 Error</DisplayName>
+    <Properties/>
+    <FaultResponse>
+        <Set>
+            <Headers/>
+            <Payload contentType="application/json">
+            {
+              "error": {
+                "httpCode": "404",
+                "errorCode": "API-DETAILS-404",
+                "message": "Not found",
+                "detailedMessage": "Resource not found."
+              }
+            }
+            </Payload>
+            <StatusCode>404</StatusCode>
+            <ReasonPhrase>Not found</ReasonPhrase>
+        </Set>
+    </FaultResponse>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</RaiseFault>

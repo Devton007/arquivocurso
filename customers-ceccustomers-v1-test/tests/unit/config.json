@@ -1,0 +1,16 @@
+{
+    "parameters": {
+        "domain": "dev.apigw.claro.com.br",
+        "protocol": "https",
+        "port":  "443",
+        "basepath": "",
+        "apps": {
+            "customers-ceccustomers-v1-app-ok": {
+                "name": "customers-ceccustomers-v1-app-ok",
+                "authHeaderName": "Authorization",
+                "authHeaderValue": "Basic aUhHSk96NUFBOTU3NTRZSmtWdWFKczNLM1ZWWVpMWnI6MVhSZHc0V3hNTHpmcFlUVA=="
+            }
+        },
+        "unitTesting": "true"
+    }
+}

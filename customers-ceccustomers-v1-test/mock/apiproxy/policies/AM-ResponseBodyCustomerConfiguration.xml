@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-ResponseBodyCustomerConfiguration">
+    <DisplayName>AM-Response-Body-postCustomerConfiguration</DisplayName>
+    <Properties/>
+    <Set>
+        <Payload contentType="application/json">
+        {
+           "accountResponseBody":{
+              "body":{
+                 "id":"0017j00000cFv1oAAC",
+                 "success":"true",
+                 "errors":"[]"
+              },
+              "httpHeaders":{
+                 "Location":"/services/data/v52.0/sobjects/Account/0017j00000cFv1oAAC"
+              },
+              "httpStatusCode":"string",
+              "referenceId":"refAccount"
+           },
+           "contactResponseBody":{
+              "body":{
+                 "id":"0017j00000cFv1oAAC",
+                 "success":"true",
+                 "errors":"[]"
+              },
+              "httpHeaders":{
+                 "Location":"/services/data/v52.0/sobjects/Contact/0017j00000cFv1oAAC"
+              },
+              "httpStatusCode":"string",
+              "referenceId":"refContact"
+           }
+        }
+        </Payload>
+        <StatusCode>201</StatusCode>
+    </Set>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="true" transport="http" type="response"/>
+</AssignMessage>

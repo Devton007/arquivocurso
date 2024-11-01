@@ -1,0 +1,6 @@
+{
+    "parameters": {
+        "domain": "dev.apigw.claro.com.br/",
+        "protocol": "https"
+    }
+}

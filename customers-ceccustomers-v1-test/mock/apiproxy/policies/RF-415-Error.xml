@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RaiseFault async="false" continueOnError="false" enabled="true" name="RF-415-Error">
+    <DisplayName>RF-415 Error</DisplayName>
+    <Properties/>
+    <FaultResponse>
+        <Set>
+            <Headers/>
+            <Payload contentType="application/json">
+            {
+              "error": {
+                "httpCode": "415",
+                "errorCode": "API-DETAILS-415",
+                "message": "Unsupported Media Type",
+                "detailedMessage": "Unsupported Request Media Type."
+              }
+            }
+            </Payload>
+            <StatusCode>415</StatusCode>
+            <ReasonPhrase>Unsupported Media Type</ReasonPhrase>
+        </Set>
+    </FaultResponse>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</RaiseFault>

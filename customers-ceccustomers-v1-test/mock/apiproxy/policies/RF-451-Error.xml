@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RaiseFault async="false" continueOnError="false" enabled="true" name="RF-451-Error">
+    <DisplayName>RF-451 Error</DisplayName>
+    <Properties/>
+    <FaultResponse>
+        <Set>
+            <Headers/>
+            <Payload contentType="application/json">
+             {
+                  "error": {
+                    "httpCode": "451",
+                    "errorCode": "API-DETAILS-451",
+                    "message": "Unavailable For Legal Reasons",
+                    "detailedMessage": "Unavailable For Legal Reasons"
+                  }
+              }
+            </Payload>
+            <StatusCode>451</StatusCode>
+            <ReasonPhrase>Service Unavailable</ReasonPhrase>
+        </Set>
+    </FaultResponse>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</RaiseFault>
