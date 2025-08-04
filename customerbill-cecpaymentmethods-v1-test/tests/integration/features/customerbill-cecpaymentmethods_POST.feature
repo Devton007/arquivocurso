@@ -1,411 +1,266 @@
-# Autor: Ramiro Brandão @ Spread
-# Data: 02/06/2023
+@apiproxy
+Feature: customerbill-cecpaymentmethods-v1-app-bss-ok
 
-# Autor: Ramiro Brandão @ Spread
-# Data: 11/09/2023
+    @services @POST
+    Scenario: 0. Prep variables
 
-Feature: @customerbill-cecpaymentmethods-v1
+        Given I set variable body201 in global scope to { "data": { "customerAccountId": "0016t00000msf0JAAQ", "businessUnit": "NewStack", "paymentMethod": { "type": "CreditCard", "creditCard": { "brand": "Master", "holder": "Naomi Ferreira", "lastFourNumber": "8391", "expirationDate": "042025", "firstToken": "91CDC1AD-DFB9-4460-9393-3D3C8A83B1A5", "secondToken": "3256CA16-EFE0-48F5-B9F4-AD29B595BB4C" } } } }
+        Given I set variable body400_1 in global scope to { "data": { "customerAccountId": "", "businessUnit": "NewStack", "paymentMethod": { "type": "CreditCard", "creditCard": { "brand": "Master", "holder": "Hildegardo da Cunha", "lastFourNumber": "0099", "expirationDate": "052024", "firstToken": "FADCCBE7-D363-44C7-919E-D6D7162A83B0", "secondToken": "3256CA16-EFE0-48F5-B9F4-AD29B595BB4C" } } } }
+        Given I set variable body400_2 in global scope to { "data": { "customerAccountId": "0016t00000lVfP0AAK", "businessUnit": "", "paymentMethod": { "type": "CreditCard", "creditCard": { "brand": "", "holder": "Hildegardo da Cunha", "lastFourNumber": "0099", "expirationDate": "052024", "firstToken": "FADCCBE7-D363-44C7-919E-D6D7162A83B0", "secondToken": "3256CA16-EFE0-48F5-B9F4-AD29B595BB4C" } } } }
+        Given I set variable body400_3 in global scope to { "data": { "customerAccountId": "0016t00000lVfP0AAK", "businessUnit": "NewStack", "paymentMethod": { "type": "CreditCard", "creditCard": { "brand": "", "holder": "Hildegardo da Cunha", "lastFourNumber": "0099", "expirationDate": "052024", "firstToken": "FADCCBE7-D363-44C7-919E-D6D7162A83B0", "secondToken": "3256CA16-EFE0-48F5-B9F4-AD29B595BB4C" } } } }
+        Given I set variable body400_4 in global scope to { "data": { "customerAccountId": "0016t00000lVfP0AAK", "businessUnit": "NewStack", "paymentMethod": { "type": "CreditCard", "creditCard": { "brand": "Master", "holder": "", "lastFourNumber": "0099", "expirationDate": "052024", "firstToken": "FADCCBE7-D363-44C7-919E-D6D7162A83B0", "secondToken": "3256CA16-EFE0-48F5-B9F4-AD29B595BB4C" } } } }
+        Given I set variable body400_5 in global scope to { "data": { "customerAccountId": "0016t00000lVfP0AAK", "businessUnit": "NewStack", "paymentMethod": { "type": "CreditCard", "creditCard": { "brand": "Master", "holder": "Hildegardo da Cunha", "lastFourNumber": "", "expirationDate": "052024", "firstToken": "FADCCBE7-D363-44C7-919E-D6D7162A83B0", "secondToken": "3256CA16-EFE0-48F5-B9F4-AD29B595BB4C" } } } }
+        Given I set variable body400_6 in global scope to { "data": { "customerAccountId": "0016t00000lVfP0AAK", "businessUnit": "NewStack", "paymentMethod": { "type": "CreditCard", "creditCard": { "brand": "Master", "holder": "Hildegardo da Cunha", "lastFourNumber": "0099", "expirationDate": "", "firstToken": "FADCCBE7-D363-44C7-919E-D6D7162A83B0", "secondToken": "3256CA16-EFE0-48F5-B9F4-AD29B595BB4C" } } } }
+        Given I set variable body400_7 in global scope to { "data": { "customerAccountId": "0016t00000lVfP0AAK", "businessUnit": "NewStack", "paymentMethod": { "type": "CreditCard", "creditCard": { "brand": "Master", "holder": "Hildegardo da Cunha", "lastFourNumber": "0099", "expirationDate": "052024", "firstToken": "", "secondToken": "3256CA16-EFE0-48F5-B9F4-AD29B595BB4C" } } } }
+        Given I set variable body422 in global scope to { "data": { "customerAccountId": "0016t00000lVfP0AAK", "businessUnit": "NewStack", "paymentMethod": { "type": "CreditCard", "creditCard": { "brand": "Master", "holder": "Hildegardo da Cunha", "lastFourNumber": "0099", "expirationDate": "052024", "firstToken": "FADCCBE7-D363-44C7-919E-D6D7162A83B0", "secondToken": "3256CA16-EFE0-48F5-B9F4-AD29B595BB4C" } } } }
 
-  API responsável por criar registros de Método de Pagamento na plataforma Salesforce/Vlocity.
-  O Cliente (Account) é a pessoa (Inicialmente Física) que solicitará a criação de seu Método de Pagamento (Payment Method).
 
-  ######### - Preparar variáveis para os cenários de teste - #########
-  @set-variables
-  Scenario: Prepara variáveis
-    #### Cenários de positivos com dados válidos ###########
 
-    Given I set variable request_paymentMethod in global scope to {"data":{"customerAccountId":"0016t00000c416WAAQ","paymentMethod":{"type":"CreditCard","creditCard":{"brand":"Master","holder":"Marco Antonio Ribeiro Vendramini","lastFourNumber":"8019","expirationDate":"052024","firstToken":"3256CA16-EFE0-48F5-B9F4-AD29B595BB4C","secondToken":"3256CA16-EFE0-48F5-B9F4-AD29B595BB4C"}}}}
 
-    #### Cenários negativos com dados inválidos ###########
 
-    Given I set variable badrequest_customerAccountId in global scope to {"data":{"paymentMethod":{"type":"CreditCard","creditCard":{"brand":"Master","holder":"Marco Antonio Ribeiro Vendramini","lastFourNumber":"8019","expirationDate":"052024","firstToken":"3256CA16-EFE0-48F5-B9F4-AD29B595BB4C","secondToken":"3256CA16-EFE0-48F5-B9F4-AD29B595BB4C"}}}}
-    Given I set variable badrequest_paymentMethod in global scope to {"data":{"customerAccountId":"0016t00000c416WAAQ","":{"type":"CreditCard","creditCard":{"brand":"Master","holder":"Marco Antonio Ribeiro Vendramini","lastFourNumber":"8019","expirationDate":"052024","firstToken":"3256CA16-EFE0-48F5-B9F4-AD29B595BB4C","secondToken":"3256CA16-EFE0-48F5-B9F4-AD29B595BB4C"}}}}
-    Given I set variable badrequest_type in global scope to {"data":{"customerAccountId":"0016t00000c416WAAQ","paymentMethod":{"creditCard":{"brand":"Master","holder":"Marco Antonio Ribeiro Vendramini","lastFourNumber":"8019","expirationDate":"052024","firstToken":"3256CA16-EFE0-48F5-B9F4-AD29B595BB4C","secondToken":"3256CA16-EFE0-48F5-B9F4-AD29B595BB4C"}}}}
-    Given I set variable badrequest_creditCard in global scope to {"data":{"customerAccountId":"0016t00000c416WAAQ","paymentMethod":{"type":"CreditCard","":{"brand":"Master","holder":"Marco Antonio Ribeiro Vendramini","lastFourNumber":"8019","expirationDate":"052024","firstToken":"3256CA16-EFE0-48F5-B9F4-AD29B595BB4C","secondToken":"3256CA16-EFE0-48F5-B9F4-AD29B595BB4C"}}}}
-    Given I set variable badrequest_brand in global scope to {"data":{"customerAccountId":"0016t00000c416WAAQ","paymentMethod":{"type":"CreditCard","creditCard":{"holder":"Marco Antonio Ribeiro Vendramini","lastFourNumber":"8019","expirationDate":"052024","firstToken":"3256CA16-EFE0-48F5-B9F4-AD29B595BB4C","secondToken":"3256CA16-EFE0-48F5-B9F4-AD29B595BB4C"}}}}
-    Given I set variable badrequest_holder in global scope to {"data":{"customerAccountId":"0016t00000c416WAAQ","paymentMethod":{"type":"CreditCard","creditCard":{"brand":"Master","lastFourNumber":"8019","expirationDate":"052024","firstToken":"3256CA16-EFE0-48F5-B9F4-AD29B595BB4C","secondToken":"3256CA16-EFE0-48F5-B9F4-AD29B595BB4C"}}}}
-    Given I set variable badrequest_lastFourNumber in global scope to {"data":{"customerAccountId":"0016t00000c416WAAQ","paymentMethod":{"type":"CreditCard","creditCard":{"brand":"Master","holder":"Marco Antonio Ribeiro Vendramini","expirationDate":"052024","firstToken":"3256CA16-EFE0-48F5-B9F4-AD29B595BB4C","secondToken":"3256CA16-EFE0-48F5-B9F4-AD29B595BB4C"}}}}
-    Given I set variable badrequest_expirationDate in global scope to {"data":{"customerAccountId":"0016t00000c416WAAQ","paymentMethod":{"type":"CreditCard","creditCard":{"brand":"Master","holder":"Marco Antonio Ribeiro Vendramini","lastFourNumber":"8019","firstToken":"3256CA16-EFE0-48F5-B9F4-AD29B595BB4C","secondToken":"3256CA16-EFE0-48F5-B9F4-AD29B595BB4C"}}}}
-    Given I set variable badrequest_firstToken in global scope to {"data":{"customerAccountId":"0016t00000c416WAAQ","paymentMethod":{"type":"CreditCard","creditCard":{"brand":"Master","holder":"Marco Antonio Ribeiro Vendramini","lastFourNumber":"8019","expirationDate":"052024","secondToken":"3256CA16-EFE0-48F5-B9F4-AD29B595BB4C"}}}}
-    Given I set variable badrequest_secondToken in global scope to {"data":{"customerAccountId":"0016t00000c416WAAQ","paymentMethod":{"type":"CreditCard","creditCard":{"brand":"Master","holder":"Marco Antonio Ribeiro Vendramini","lastFourNumber":"8019","expirationDate":"052024","firstToken":"3256CA16-EFE0-48F5-B9F4-AD29B595BB4C"}}}}
+    Scenario: Request para pegar o token
+        Given I use variables from app customerbill-cecpaymentmethods-v1-app-bss-ok
+        And I set headers to
+            | name             | value                             |
+            | `authHeaderName` | `authHeaderValue`                 |
+            | Content-Type     | application/x-www-form-urlencoded |
+            | Accept           | application/json                  |
+        And I set body to grant_type=client_credentials
+        When I POST /oauth2/v1/token
+        Then response code should be 200
+        Then response body should be valid json
+        Then response body path $.access_token should be (\w+)
+        And I store the value of body path $.access_token as access_token in global scope
 
-    Given I set variable body422 in global scope to { "data": { "customerAccountId": "0016t00000lVcssAAC", "businessUnit": "NewStack", "paymentMethod": { "type": "CreditCard", "creditCard": { "brand": "Master", "holder": "Zaide da Rocha", "lastFourNumber": "8428", "expirationDate": "052024", "firstToken": "4F4F6622-A0A5-4D0C-B559-9BE2C3483446", "secondToken": "3256CA16-EFE0-48F5-B9F4-AD29B595BB4C" } } } }
+    Scenario:CT1 - Campos informados corretamente - Cod. 201 (SUCESSO)
+        Given I use variables from app customerbill-cecpaymentmethods-v1-app-bss-ok
+        And I set headers to
+            | name          | value                               |
+                  | Authorization | Bearer `access_token`                               |
+            | Content-Type  | application/json                    |
+            | Accept        | application/json                    |
+            | x-target      | test06                              |
+        And I set body to `body201`
+        When I POST to /customerbill/v1/cec/paymentmethods
+        Then response code should be 201
+        And response body should be valid json
+        And response body path $.apiVersion should be (.*)
+        And response body path $.transactionId should be (.*)
+        And response body path $.data should be [a-zA-Z]
 
-    Given I set variable entityTooLarge in global scope to {     "data": {         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",         "customerAccountId": "0016t00000WRMP0AAP",     "paymentMethod": {             "type": "CreditCard",             "creditCard": {                 "brand": "Master",                 "holder": "Marco Antonio Ribeiro Vendramini",                 "lastFourNumber": "8019",                 "expirationDate": "052024",                 "firstToken": "3256CA16-EFE0-48F5-B9F4-AD29B595BB4C",                 "secondToken": "3256CA16-EFE0-48F5-B9F4-AD29B595BB4C"             }         }     } }
 
-    #### Basic authentication para execução dos cenários de teste ##############
-    #### Cenario com Token Valido #########
-    Given I set variable basicToken in global scope to Basic aW40dTlGcEFKWWJVVnJHeXB5RWFUQTRQVTRYTEFhRlU6WWRjT3BXOWZYU3FQaGpxYw==
-    #### Cenario com Nopermissions 403 #########
-    Given I set variable basicAuth_403 in global scope to Basic bVFKR283Z0ZxSEV5U0JPTjRnQkxQN1RHUWFmZkNWY2c6OVZCZE1jcHZjWml1TDFKag==
-    #### Cenario com Noquota 429 #########
-    Given I set variable basicAuth_429 in global scope to Basic eHllbm85WENoVnZIb09uVkhlQVl1M1ZHVEUyWExIekE6djVzN2x3UUY3cXViMlNWeA==
+    Scenario:US114030_CT2 -NÃO INFORMAR CUSTOMER ID - Cod.400 (ERRO)
+        Given I use variables from app customerbill-cecpaymentmethods-v1-app-bss-ok
+        And I set headers to
+            | name          | value                               |
+                  | Authorization | Bearer `access_token`                               |
+            | Content-Type  | application/json                    |
+            | Accept        | application/json                    |
+            | x-target      | test06                              |
+        And I set body to `body400_1`
+        When I POST to /customerbill/v1/cec/paymentmethods
+        Then response code should be 400
+        And response body should be valid json
+        And response body path $.apiVersion should be (.*)
+        And response body path $.transactionId should be (.*)
+        And response body path $.error should be [a-zA-Z]
 
-    ###########################################################
-    #### Variáveis comuns (headers, valores, etc) #############
-    ###########################################################
-    Given I set variable API_PATH in global scope to /customerbill/v1/cec/paymentmethods
-    Given I set variable API_PATH_414 in global scope to /customerbill/v1/cec/customerbill/v1/cec/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods/paymentmethods
-    Given I set variable tipo_header_Accept in global scope to Accept
-    Given I set variable tipo_header_Content in global scope to Content-Type
-    Given I set variable json in global scope to application/json
-    Given I set variable tipo_header_Client_Auth in global scope to Authorization
+    Scenario:US114030_CT3 -NÃO INFORMAR paymentType - Cod.400 (ERRO)
+        Given I use variables from app customerbill-cecpaymentmethods-v1-app-bss-ok
+        And I set headers to
+            | name          | value                               |
+                  | Authorization | Bearer `access_token`                               |
+            | Content-Type  | application/json                    |
+            | Accept        | application/json                    |
+            | x-target      | test06                              |
+        And I set body to `body400_2`
+        When I POST to /customerbill/v1/cec/paymentmethods
+        Then response code should be 400
+        And response body should be valid json
+        And response body path $.apiVersion should be (.*)
+        And response body path $.transactionId should be (.*)
+        And response body path $.error should be [a-zA-Z]
 
-  Scenario: 0. Obtém o token de autenticação
-    Given I set headers to
-      | name          | value        |
-      | X-Client-Auth | `basicToken` |
-    And I set form parameters to
-      | parameter  | value              |
-      | grant_type | client_credentials |
-    And  I POST to /oauth2/v1/token
-    And I store the value of body path $.access_token as access_token in global scope
+    Scenario:US114030_CT4 -NÃO INFORMAR creditCard.brand - Cod.400 (ERRO)
+        Given I use variables from app customerbill-cecpaymentmethods-v1-app-bss-ok
+        And I set headers to
+            | name          | value                               |
+                  | Authorization | Bearer `access_token`                               |
+            | Content-Type  | application/json                    |
+            | Accept        | application/json                    |
+            | x-target      | test06                              |
+        And I set body to `body400_3`
+        When I POST to /customerbill/v1/cec/paymentmethods
+        Then response code should be 400
+        And response body should be valid json
+        And response body path $.apiVersion should be (.*)
+        And response body path $.transactionId should be (.*)
+        And response body path $.error should be [a-zA-Z]
 
-  @customerbill-cecpaymentmethods-v1
-  Scenario: 1 - Realiza uma request correta realizando criação de um método de pagamento (payment method).- code esperado : 200
-    Given I set body to `request_paymentMethod`
-    Given I set `tipo_header_Content` header to `json`
-    Given I set `tipo_header_Accept` header to `json`
-    Given I set `tipo_header_Client_Auth` header to Bearer `access_token`
-    When I POST to `API_PATH`
-    Then response code should be 200
-    And response body should be valid json
-    And response body path $.apiVersion should be (.*)
-    And response body path $.transactionId should be (.*)
-    And response body should contain data
-    And response body path $.data.customerBill.paymentMethodId should be (.*)
+    Scenario:US114030_CT5 -NÃO INFORMAR creditCard.holder - Cod.400 (ERRO)
+        Given I use variables from app customerbill-cecpaymentmethods-v1-app-bss-ok
+        And I set headers to
+            | name          | value                               |
+                  | Authorization | Bearer `access_token`                               |
+            | Content-Type  | application/json                    |
+            | Accept        | application/json                    |
+            | x-target      | test06                              |
+        And I set body to `body400_4`
+        When I POST to /customerbill/v1/cec/paymentmethods
+        Then response code should be 400
+        And response body should be valid json
+        And response body path $.apiVersion should be (.*)
+        And response body path $.transactionId should be (.*)
+        And response body path $.error should be [a-zA-Z]
 
-  @customerbill-cecpaymentmethods-v1
-  Scenario: 2 - Realiza uma request incorreta sem o campo customerAccountId - code esperado : 400
-    Given I set body to `badrequest_customerAccountId`
-    Given I set `tipo_header_Content` header to `json`
-    Given I set `tipo_header_Accept` header to `json`
-    Given I set `tipo_header_Client_Auth` header to Bearer `access_token`
-    When I POST to `API_PATH`
-    Then response code should be 400
-    And response body should be valid json
-    And response body path $.apiVersion should be (.*)
-    And response body path $.transactionId should be (.*)
-    And response body should contain error
-    And response body path $.error.httpCode should be 400
-    And response body path $.error.errorCode should be API-CECPAYMENTMETHODS-400
-    And response body path $.error.message should be Bad Request
-    And response body path $.error.detailedMessage should be Invalid Request for operation. Field: \[customerAccountId\]
+    Scenario:US114030_CT6 -NÃO INFORMAR creditCard.lastFourNumber - Cod.400 (ERRO)
+        Given I use variables from app customerbill-cecpaymentmethods-v1-app-bss-ok
+        And I set headers to
+            | name          | value                               |
+                  | Authorization | Bearer `access_token`                               |
+            | Content-Type  | application/json                    |
+            | Accept        | application/json                    |
+            | x-target      | test06                              |
+        And I set body to `body400_5`
+        When I POST to /customerbill/v1/cec/paymentmethods
+        Then response code should be 400
+        And response body should be valid json
+        And response body path $.apiVersion should be (.*)
+        And response body path $.transactionId should be (.*)
+        And response body path $.error should be [a-zA-Z]
 
-  @customerbill-cecpaymentmethods-v1
-  Scenario: 3 - Realiza uma request incorreta sem o campo paymentMethod - code esperado : 400
-    Given I set body to `badrequest_paymentMethod`
-    Given I set `tipo_header_Content` header to `json`
-    Given I set `tipo_header_Accept` header to `json`
-    Given I set `tipo_header_Client_Auth` header to Bearer `access_token`
-    When I POST to `API_PATH`
-    Then response code should be 400
-    And response body should be valid json
-    And response body path $.apiVersion should be (.*)
-    And response body path $.transactionId should be (.*)
-    And response body should contain error
-    And response body path $.error.httpCode should be 400
-    And response body path $.error.errorCode should be API-CECPAYMENTMETHODS-400
-    And response body path $.error.message should be Bad Request
-    And response body path $.error.detailedMessage should be Invalid Request for operation. Field: \[paymentMethod\]
+    Scenario:US114030_CT7 -NÃO INFORMAR creditCard.expirationDate - Cod.400 (ERRO)
+        Given I use variables from app customerbill-cecpaymentmethods-v1-app-bss-ok
+        And I set headers to
+            | name          | value                               |
+                  | Authorization | Bearer `access_token`                               |
+            | Content-Type  | application/json                    |
+            | Accept        | application/json                    |
+            | x-target      | test06                              |
+        And I set body to `body400_6`
+        When I POST to /customerbill/v1/cec/paymentmethods
+        Then response code should be 400
+        And response body should be valid json
+        And response body path $.apiVersion should be (.*)
+        And response body path $.transactionId should be (.*)
+        And response body path $.error should be [a-zA-Z]
 
-  @customerbill-cecpaymentmethods-v1
-  Scenario: 4 - Realiza uma request incorreta sem o campo type - code esperado : 400
-    Given I set body to `badrequest_type`
-    Given I set `tipo_header_Content` header to `json`
-    Given I set `tipo_header_Accept` header to `json`
-    Given I set `tipo_header_Client_Auth` header to Bearer `access_token`
-    When I POST to `API_PATH`
-    Then response code should be 400
-    And response body should be valid json
-    And response body path $.apiVersion should be (.*)
-    And response body path $.transactionId should be (.*)
-    And response body should contain error
-    And response body path $.error.httpCode should be 400
-    And response body path $.error.errorCode should be API-CECPAYMENTMETHODS-400
-    And response body path $.error.message should be Bad Request
-    And response body path $.error.detailedMessage should be Invalid Request for operation. Field: \[type\]
+    Scenario:US114030_CT8 -NÃO INFORMAR creditCard.firstToken - Cod.400 (ERRO)
+        Given I use variables from app customerbill-cecpaymentmethods-v1-app-bss-ok
+        And I set headers to
+            | name          | value                               |
+                  | Authorization | Bearer `access_token`                               |
+            | Content-Type  | application/json                    |
+            | Accept        | application/json                    |
+            | x-target      | test06                              |
+        And I set body to `body400_7`
+        When I POST to /customerbill/v1/cec/paymentmethods
+        Then response code should be 400
+        And response body should be valid json
+        And response body path $.apiVersion should be (.*)
+        And response body path $.transactionId should be (.*)
+        And response body path $.error should be [a-zA-Z]
 
-  @customerbill-cecpaymentmethods-v1
-  Scenario: 5 - Realiza uma request incorreta sem o campo creditCard - code esperado : 400
-    Given I set body to `badrequest_creditCard`
-    Given I set `tipo_header_Content` header to `json`
-    Given I set `tipo_header_Accept` header to `json`
-    Given I set `tipo_header_Client_Auth` header to Bearer `access_token`
-    When I POST to `API_PATH`
-    Then response code should be 400
-    And response body should be valid json
-    And response body path $.apiVersion should be (.*)
-    And response body path $.transactionId should be (.*)
-    And response body should contain error
-    And response body path $.error.httpCode should be 400
-    And response body path $.error.errorCode should be API-CECPAYMENTMETHODS-400
-    And response body path $.error.message should be Bad Request
-    And response body path $.error.detailedMessage should be Invalid Request for operation. Field: \[creditCard\]
+    Scenario:CT13 - Unauthorized sem parametro no token - Cod. 401 (ERRO)
+        Given I use variables from app customerbill-cecpaymentmethods-v1-app-bss-ok
+        And I set headers to
+            | name         | value            |
+            #| Authorization | Bearer 6GadsvJHBSeTNGBuAl6FPCo9bSA6 |
+            | Content-Type | application/json |
+            | Accept       | application/json |
+        When I POST to /customerbill/v1/cec/paymentmethods
+        Then response code should be 401
+        And response body should be valid json
+        And response body path $.apiVersion should be (.*)
+        And response body path $.transactionId should be (.*)
+        And response body path $.error should be [a-zA-Z]
 
-  @customerbill-cecpaymentmethods-v1
-  Scenario: 6 - Realiza uma request incorreta sem o campo brand - code esperado : 400
-    Given I set body to `badrequest_brand`
-    Given I set `tipo_header_Content` header to `json`
-    Given I set `tipo_header_Accept` header to `json`
-    Given I set `tipo_header_Client_Auth` header to Bearer `access_token`
-    When I POST to `API_PATH`
-    Then response code should be 400
-    And response body should be valid json
-    And response body path $.apiVersion should be (.*)
-    And response body path $.transactionId should be (.*)
-    And response body should contain error
-    And response body path $.error.httpCode should be 400
-    And response body path $.error.errorCode should be API-CECPAYMENTMETHODS-400
-    And response body path $.error.message should be Bad Request
-    And response body path $.error.detailedMessage should be Invalid Request for operation. Field: \[brand\]
+    Scenario:CT14 - Forbidden - Cod. 403 (ERRO)
+        Given I use variables from app customerbill-cecpaymentmethods-v1-np
+        And I set headers to
+            | name          | value                                                                      |
+            | Authorization | Basic bVFKR283Z0ZxSEV5U0JPTjRnQkxQN1RHUWFmZkNWY2c6OVZCZE1jcHZjWml1TDFKag== |
+            | Content-Type  | application/json                                                           |
+            | Accept        | application/json                                                           |
+            | x-target      | test06                                                                     |
+        When I POST to /customerbill/v1/cec/paymentmethods/
+        Then response code should be 403
+        And response body should be valid json
+        And response body path $.apiVersion should be (.*)
+        And response body path $.transactionId should be (.*)
+        And response body path $.data should be [a-zA-Z]
+        And response body path $.error should be [a-zA-Z]
 
-  @customerbill-cecpaymentmethods-v1
-  Scenario: 7 - Realiza uma request incorreta sem o campo holder - code esperado : 400
-    Given I set body to `badrequest_holder`
-    Given I set `tipo_header_Content` header to `json`
-    Given I set `tipo_header_Accept` header to `json`
-    Given I set `tipo_header_Client_Auth` header to Bearer `access_token`
-    When I POST to `API_PATH`
-    Then response code should be 400
-    And response body should be valid json
-    And response body path $.apiVersion should be (.*)
-    And response body path $.transactionId should be (.*)
-    And response body should contain error
-    And response body path $.error.httpCode should be 400
-    And response body path $.error.errorCode should be API-CECPAYMENTMETHODS-400
-    And response body path $.error.message should be Bad Request
-    And response body path $.error.detailedMessage should be Invalid Request for operation. Field: \[holder\]
+    Scenario:CT15 - Not Found - Cod. 404 (ERRO)
+        Given I use variables from app customerbill-cecpaymentmethods-v1-app-bss-ok
+        And I set headers to
+            | name          | value                               |
+                  | Authorization | Bearer `access_token`                               |
+            | Content-Type  | application/json                    |
+            | Accept        | application/json                    |
+        When I POST to /customerbill/v1/cec/paymentmethods/soap
+        Then response code should be 404
+        And response body should be valid json
+        And response body path $.apiVersion should be (.*)
+        And response body path $.transactionId should be (.*)
+        And response body path $.error should be [a-zA-Z]
 
-  @customerbill-cecpaymentmethods-v1
-  Scenario: 8 - Realiza uma request incorreta sem o campo lastFourNumber - code esperado : 400
-    Given I set body to `badrequest_lastFourNumber`
-    Given I set `tipo_header_Content` header to `json`
-    Given I set `tipo_header_Accept` header to `json`
-    Given I set `tipo_header_Client_Auth` header to Bearer `access_token`
-    When I POST to `API_PATH`
-    Then response code should be 400
-    And response body should be valid json
-    And response body path $.apiVersion should be (.*)
-    And response body path $.transactionId should be (.*)
-    And response body should contain error
-    And response body path $.error.httpCode should be 400
-    And response body path $.error.errorCode should be API-CECPAYMENTMETHODS-400
-    And response body path $.error.message should be Bad Request
-    And response body path $.error.detailedMessage should be Invalid Request for operation. Field: \[lastFourNumber\]
+    Scenario:CT16 - Method Not Allowed - Cod. 405 (ERRO)
+        Given I use variables from app customerbill-cecpaymentmethods-v1-app-bss-ok
+        And I set headers to
+            | name          | value                               |
+                  | Authorization | Bearer `access_token`                               |
+            | Content-Type  | application/json                    |
+            | Accept        | application/json                    |
+            | x-target      | test06                              |
+        When I PATCH /customerbill/v1/cec/paymentmethods
+        Then response code should be 405
+        And response body should be valid json
+        And response body path $.apiVersion should be (.*)
+        And response body path $.transactionId should be (.*)
+        And response body path $.data should be [a-zA-Z]
 
-  @customerbill-cecpaymentmethods-v1
-  Scenario: 9 - Realiza uma request incorreta sem o campo expirationDate - code esperado : 400
-    Given I set body to `badrequest_expirationDate`
-    Given I set `tipo_header_Content` header to `json`
-    Given I set `tipo_header_Accept` header to `json`
-    Given I set `tipo_header_Client_Auth` header to Bearer `access_token`
-    When I POST to `API_PATH`
-    Then response code should be 400
-    And response body should be valid json
-    And response body path $.apiVersion should be (.*)
-    And response body path $.transactionId should be (.*)
-    And response body should contain error
-    And response body path $.error.httpCode should be 400
-    And response body path $.error.errorCode should be API-CECPAYMENTMETHODS-400
-    And response body path $.error.message should be Bad Request
-    And response body path $.error.detailedMessage should be Invalid Request for operation. Field: \[expirationDate\]
+    Scenario:CT17 - Not Acceptable - Cod. 406 (ERRO)
+        Given I use variables from app customerbill-cecpaymentmethods-v1-app-bss-ok
+        And I set headers to
+            | name          | value                               |
+                  | Authorization | Bearer `access_token`                               |
+            | Content-Type  | application/json                    |
+        #           | Accept        | application/json      |
+        When I POST to /customerbill/v1/cec/paymentmethods
+        Then response code should be 406
+        And response body should be valid json
+        And response body path $.apiVersion should be (.*)
+        And response body path $.transactionId should be (.*)
+        And response body path $.error should be [a-zA-Z]
 
-  @customerbill-cecpaymentmethods-v1
-  Scenario: 10 - Realiza uma request incorreta sem o campo firstToken - code esperado : 400
-    Given I set body to `badrequest_firstToken`
-    Given I set `tipo_header_Content` header to `json`
-    Given I set `tipo_header_Accept` header to `json`
-    Given I set `tipo_header_Client_Auth` header to Bearer `access_token`
-    When I POST to `API_PATH`
-    Then response code should be 400
-    And response body should be valid json
-    And response body path $.apiVersion should be (.*)
-    And response body path $.transactionId should be (.*)
-    And response body should contain error
-    And response body path $.error.httpCode should be 400
-    And response body path $.error.errorCode should be API-CECPAYMENTMETHODS-400
-    And response body path $.error.message should be Bad Request
-    And response body path $.error.detailedMessage should be Invalid Request for operation. Field: \[firstToken\]
+    Scenario:CT19 - Unprocessable Entity - Cod. 422 (ERRO)
+        Given I use variables from app customerbill-cecpaymentmethods-v1-app-bss-ok
+        And I set headers to
+            | name          | value                               |
+                  | Authorization | Bearer `access_token`                               |
+            | Content-Type  | application/json                    |
+            | Accept        | application/json                    |
+            | x-target      | test06                              |
+        And I set body to `body422`
+        When I POST to /customerbill/v1/cec/paymentmethods
+        Then response code should be 422
+        And response body should be valid json
+        And response body path $.apiVersion should be (.*)
+        And response body path $.transactionId should be (.*)
+        And response body path $.error should be [a-zA-Z]
 
-  #@customerbill-cecpaymentmethods-v1
-  #Scenario: 11 - Realiza uma request incorreta sem o campo secondToken - code esperado : 400
-  #Given I set body to `badrequest_secondToken`
-  #Given I set `tipo_header_Content` header to `json`
-  #Given I set `tipo_header_Accept` header to `json`
-  #Given I set `tipo_header_Client_Auth` header to Bearer `access_token`
-  #When I POST to `API_PATH`
-  #Then response code should be 400
-  #And response body should be valid json
-  #And response body path $.apiVersion should be (.*)
-  #And response body path $.transactionId should be (.*)
-  #And response body should contain error
-  #And response body path $.error.httpCode should be 400
-  #And response body path $.error.errorCode should be API-CECPAYMENTMETHODS-400
-  #And response body path $.error.message should be Bad Request
-  #And response body path $.error.detailedMessage should be Invalid Request for operation. Field: \[secondToken\]
-
-  @customerbill-cecpaymentmethods-v1
-  Scenario: 12 - Realizar um POST síncrono com um request correto sem autenticação (Authentication) - code esperado : 401
-    Given I set `tipo_header_Content` header to `json`
-    Given I set `tipo_header_Accept` header to application/json
-    When I POST to `API_PATH`
-    Then response code should be 401
-    And response body should be valid json
-    And response body path $.apiVersion should be (.*)
-    And response body path $.transactionId should be (.*)
-    And response body should contain error
-    And response body path $.error.httpCode should be 401
-    And response body path $.error.errorCode should be API-CECPAYMENTMETHODS-401
-    And response body path $.error.message should be Unauthorized
-    And response body path $.error.detailedMessage should be Unauthorized.
-
-  @customerbill-cecpaymentmethods-v1
-  Scenario: 13 - Realizar um POST síncrono com um request correto com uma chave invalida - code esperado : 403
-    Given I set `tipo_header_Content` header to `json`
-    Given I set `tipo_header_Accept` header to application/json
-    Given I set `tipo_header_Client_Auth` header to `basicAuth_403`
-    When I POST to `API_PATH`
-    Then response code should be 403
-    And response body should be valid json
-    And response body path $.apiVersion should be (.*)
-    And response body path $.transactionId should be (.*)
-    And response body should contain error
-    And response body path $.error.httpCode should be 403
-    And response body path $.error.errorCode should be API-CECPAYMENTMETHODS-403
-    And response body path $.error.message should be Forbidden
-    And response body path $.error.detailedMessage should be Client authorization failed.
-
-  @customerbill-cecpaymentmethods-v1
-  Scenario: 14 - Realizar um POST síncrono com um request correto para uma URL não existente - code esperado : 404
-    Given I set `tipo_header_Content` header to `json`
-    Given I set `tipo_header_Accept` header to application/json
-    Given I set `tipo_header_Client_Auth` header to Bearer `access_token`
-    When I POST to `API_PATH`/errado
-    Then response code should be 404
-    And response body should be valid json
-    And response body path $.apiVersion should be (.*)
-    And response body path $.transactionId should be (.*)
-    And response body should contain error
-    And response body path $.error.httpCode should be 404
-    And response body path $.error.errorCode should be API-CECPAYMENTMETHODS-404
-    And response body path $.error.message should be Not found
-    And response body path $.error.detailedMessage should be Resource not found.
-
-  @customerbill-cecpaymentmethods-v1
-  Scenario: 15 - Realiza um DELETE síncrono com método não permitido - code esperado : 405
-    Given I set `tipo_header_Content` header to application/json
-    Given I set `tipo_header_Accept` header to `application/json`
-    Given I set `tipo_header_Client_Auth` header to Bearer `access_token`
-    When I DELETE `API_PATH`
-    Then response code should be 405
-    And response body should be valid json
-    And response body path $.apiVersion should be (.*)
-    And response body path $.transactionId should be (.*)
-    And response body should contain error
-    And response body path $.error.httpCode should be 405
-    And response body path $.error.errorCode should be API-CECPAYMENTMETHODS-405
-    And response body path $.error.message should be Method Not Allowed
-    And response body path $.error.detailedMessage should be Method Not Allowed
-
-  @customerbill-cecpaymentmethods-v1
-  Scenario: 16 - Realiza um PATCH síncrono com método não permitido - code esperado : 405
-    Given I set `tipo_header_Content` header to application/json
-    Given I set `tipo_header_Accept` header to `application/json`
-    Given I set `tipo_header_Client_Auth` header to Bearer `access_token`
-    When I PATCH `API_PATH`
-    Then response code should be 405
-    And response body should be valid json
-    And response body path $.apiVersion should be (.*)
-    And response body path $.transactionId should be (.*)
-    And response body should contain error
-    And response body path $.error.httpCode should be 405
-    And response body path $.error.errorCode should be API-CECPAYMENTMETHODS-405
-    And response body path $.error.message should be Method Not Allowed
-    And response body path $.error.detailedMessage should be Method Not Allowed
-
-  @customerbill-cecpaymentmethods-v1
-  Scenario: 17 - Realizar um POST síncrono com um request correto para Accept incorreto - code esperado : 406
-    Given I set `tipo_header_Content` header to `json`
-    Given I set `tipo_header_Accept` header to `application/javascript`
-    Given I set `tipo_header_Client_Auth` header to Bearer `access_token`
-    When I POST to `API_PATH`
-    Then response code should be 406
-    And response body should be valid json
-    And response body path $.apiVersion should be (.*)
-    And response body path $.transactionId should be (.*)
-    And response body should contain error
-    And response body path $.error.httpCode should be 406
-    And response body path $.error.errorCode should be API-CECPAYMENTMETHODS-406
-    And response body path $.error.message should be Not acceptable
-    And response body path $.error.detailedMessage should be Requested content type not acceptable.
-
-  @customerbill-cecpaymentmethods-v1
-  Scenario: 18 - Realizar um POST síncrono com um request correto e um dos campos enviado muitas vezes - code esperado : 413
-    Given I set body to `entityTooLarge`
-    Given I set `tipo_header_Content` header to `json`
-    Given I set `tipo_header_Accept` header to `json`
-    Given I set `tipo_header_Client_Auth` header to Bearer `access_token`
-    When I POST to `API_PATH`
-    Then response code should be 413
-    And response body should be valid json
-    And response body path $.apiVersion should be (.*)
-    And response body path $.transactionId should be (.*)
-    And response body should contain error
-    And response body path $.error.httpCode should be 413
-    And response body path $.error.errorCode should be API-CECPAYMENTMETHODS-413
-    And response body path $.error.message should be Request Entity Too Large
-    And response body path $.error.detailedMessage should be Payload limits check failed.
-
-  @customerbill-cecpaymentmethods-v1
-  Scenario: 19 - Realizar um POST síncrono com um request correto e um dos campos enviado muitas vezes - code esperado : 413
-    Given I set body to `entityTooLarge_msisdn`
-    Given I set `tipo_header_Content` header to `json`
-    Given I set `tipo_header_Accept` header to `json`
-    Given I set `tipo_header_Client_Auth` header to Bearer `access_token`
-    When I POST to `API_PATH_414`
-    Then response code should be 414
-    And response body should be valid json
-    And response body path $.apiVersion should be (.*)
-    And response body path $.transactionId should be (.*)
-    And response body should contain error
-    And response body path $.error.httpCode should be 414
-    And response body path $.error.errorCode should be API-CECPAYMENTMETHODS-414
-    And response body path $.error.message should be Request-URI Too Large
-    And response body path $.error.detailedMessage should be URI limits check failed.
-
-  @customerbill-cecpaymentmethods-v1
-  Scenario: 20 - Realizar um POST síncrono com um request correto e Content-Type incorreto - code esperado : 415
-    Given I set `tipo_header_Content` header to text/plain
-    Given I set `tipo_header_Accept` header to `json`
-    Given I set `tipo_header_Client_Auth` header to Bearer `access_token`
-    When I POST to `API_PATH`
-    Then response code should be 415
-    And response body should be valid json
-    And response body path $.apiVersion should be (.*)
-    And response body path $.transactionId should be (.*)
-    And response body should contain error
-    And response body path $.error.httpCode should be 415
-    And response body path $.error.errorCode should be API-CECPAYMENTMETHODS-415
-    And response body path $.error.message should be Unsupported Media Type
-    And response body path $.error.detailedMessage should be Unsupported Media Type
-
-  @customerbill-cecpaymentmethods-v1
-  Scenario: 21 - Realizar vários POST síncronos com um request correto até estourar a quota - code esperado : 429
-    Given I set `tipo_header_Content` header to `json`
-    Given I set `tipo_header_Accept` header to application/json
-    Given I set `tipo_header_Client_Auth` header to `basicAuth_429`
-    When I POST to `API_PATH`
-    When I POST to `API_PATH`
-    When I POST to `API_PATH`
-    When I POST to `API_PATH`
-    When I POST to `API_PATH`
-    Then response code should be 429
-    And response body should be valid json
-    And response body path $.apiVersion should be (.*)
-    And response body path $.transactionId should be (.*)
-    And response body should contain error
-    And response body path $.error.httpCode should be 429
-    And response body path $.error.errorCode should be API-CECPAYMENTMETHODS-429
-    And response body path $.error.message should be Too Many Requests
-    And response body path $.error.detailedMessage should be Quota check failed.
+    Scenario:TESTE 429. (ERRO)
+        And I set headers to
+            | name          | value                                                                      |
+            | Authorization | Basic N0szc0FBY2xoczZpVm1PWThuc1hNUFlyT3pnTFNqbGI6UmpkZjVtM0VlUDlRZTZHSg== |
+            | X-QueryString | documentType=CPF&documentNumber=53723641814                                |
+            | Content-Type  | application/json                                                           |
+            | Accept        | application/json                                                           |
+            | x-target      | test06                                                                     |
+        When I POST to /customerbill/v1/cec/paymentmethods
+        Then response code should be 429
+        And response body should be valid json
+        And response body path $.apiVersion should be (.*)
+        And response body path $.transactionId should be (.*)
+        And response body path $.error should be [a-zA-Z]
